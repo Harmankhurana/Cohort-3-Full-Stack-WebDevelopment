@@ -44,7 +44,7 @@ This repo contains all the projects, exercises, and practice apps I’ve built w
 - Realtime features using WebSockets / WebRTC
 - Project-based learning and iterative improvements
 
-##🎯 Goals
+## 🎯 Goals
 
 - Build a strong full stack foundation
 - Write clean, readable, and scalable code
@@ -56,4 +56,4 @@ This repo contains all the projects, exercises, and practice apps I’ve built w
 
 This repository will be updated regularly as I continue learning, building, and refining my full stack development skills.
 
-💡 Learning by building. Improving one commit at a time.
+## 💡 Learning by building. Improving one commit at a time.
