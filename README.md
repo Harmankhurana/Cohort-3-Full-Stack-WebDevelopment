@@ -1,76 +1,58 @@
-Full Stack Web Development Practice Repository 🚀
+# 🌐 Full Stack Web Development Bootcamp – Projects & Practice
 
-This repository is dedicated to my full stack web development learning and practice, where I work on building strong fundamentals and gradually moving towards advanced, production-level concepts using modern web technologies.
+Welcome to my journey through **"Cohort 3 (100xDevs) Full Stack Web development by Harkirat Singh"**, one of the most comprehensive and beginner-friendly courses on Udemy.
 
-📌 Purpose of This Repository
+This repo contains all the projects, exercises, and practice apps I’ve built while learning full-stack web development — from building beautiful static pages to creating dynamic full-stack applications and deploying them to the web.
 
-Practice both frontend and backend concepts
+---
 
-Build full stack features and real-world applications
+## 🧠 What I’m Learning
 
-Understand how web systems work internally
+> A complete curriculum covering both frontend and backend development — built on modern technologies and real-world project applications.
 
-Strengthen JavaScript across browser and server
+## 📌 Purpose of This Repository
 
-Apply concepts through hands-on projects
+- Practice both frontend and backend concepts
+- Build full stack features and real-world applications
+- Understand how web systems work internally
+- Strengthen JavaScript across browser and server
+- Apply concepts through hands-on projects
+- Track long-term learning and growth
 
-Track long-term learning and growth
+--- 
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-HTML5 – Structure and semantics
+| Area        | Tools & Technologies |
+|-------------|----------------------|
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Tailwind CSS, Material UI, Shadcn |
+| **Backend**  | Node.js, Bun, Cloudflare Workers, Express.js |
+| **Database** | MongoDB Atlas, PostgreSQL |
+| **Auth**     | Passport.js, bcrypt, JWT, OAuth2.0 |
+| **Deployment** | Heroku, Vercel, Render, GitHub Pages |
+| **Others**   | Git, npm, REST APIs, dotenv |
 
-CSS3 – Styling, layouts, responsiveness
 
-JavaScript (ES6+) – Core language, async behavior, DOM & server logic
+## 📂 What You’ll Find Here
 
-TypeScript – Type safety and maintainable code
+- Frontend implementations using HTML, CSS, JavaScript
+- DOM manipulation, events, and browser APIs
+- React components, hooks, routing, and state management
+- Backend APIs, authentication, and middleware
+- Database schemas, queries, and relationships
+- Full stack integrations (frontend ↔ backend)
+- Realtime features using WebSockets / WebRTC
+- Project-based learning and iterative improvements
 
-React – Component-based frontend development
+##🎯 Goals
 
-Next.js – Full stack React framework
+- Build a strong full stack foundation
+- Write clean, readable, and scalable code
+- Understand concepts, not just tools
+- Prepare for real-world full stack projects
+- Grow into a confident modern web developer
 
-Node.js / Bun / Cloudflare Workers – JavaScript runtimes
-
-Express.js – Backend APIs and middleware
-
-MongoDB & PostgreSQL – NoSQL and SQL databases
-
-Prisma & Drizzle – ORM and database abstraction
-
-Tailwind CSS / Material UI / Shadcn – Styling and UI systems
-
-📂 What You’ll Find Here
-
-Frontend implementations using HTML, CSS, JavaScript
-
-DOM manipulation, events, and browser APIs
-
-React components, hooks, routing, and state management
-
-Backend APIs, authentication, and middleware
-
-Database schemas, queries, and relationships
-
-Full stack integrations (frontend ↔ backend)
-
-Realtime features using WebSockets / WebRTC
-
-Project-based learning and iterative improvements
-
-🎯 Goals
-
-Build a strong full stack foundation
-
-Write clean, readable, and scalable code
-
-Understand concepts, not just tools
-
-Prepare for real-world full stack projects
-
-Grow into a confident modern web developer
-
-📈 Progress
+##📈 Progress
 
 This repository will be updated regularly as I continue learning, building, and refining my full stack development skills.
 
