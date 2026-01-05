@@ -1,8 +1,8 @@
 # 🌐 Full Stack Web Development Bootcamp – Projects & Practice
 
-Welcome to my journey through **"Cohort 3 (100xDevs) Full Stack Web development by Harkirat Singh"**, one of the most comprehensive and beginner-friendly courses on Udemy.
+Welcome to my journey through **"Cohort 3 (100xDevs) Full Stack Web development by Harkirat Singh"**, one of the most comprehensive and beginner-friendly courses on 100xDevs.
 
-This repo contains all the projects, exercises, and practice apps I’ve built while learning full-stack web development — from building beautiful static pages to creating dynamic full-stack applications and deploying them to the web.
+This repo contains all the projects, exercises, and practice apps I’ve built while learning full-stack web development by Harkirat — from building beautiful static pages to creating dynamic full-stack applications and deploying them to the web.
 
 ---
 
