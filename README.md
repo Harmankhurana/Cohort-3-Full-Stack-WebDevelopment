@@ -52,7 +52,7 @@ This repo contains all the projects, exercises, and practice apps I’ve built w
 - Prepare for real-world full stack projects
 - Grow into a confident modern web developer
 
-##📈 Progress
+## 📈 Progress
 
 This repository will be updated regularly as I continue learning, building, and refining my full stack development skills.
 
