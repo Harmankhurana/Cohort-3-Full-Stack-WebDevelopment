@@ -1,76 +1,76 @@
-// // Using external package called chalk 
-// import chalk from "chalk";
-// console.log(chalk.blue("hello world!"));
-// console.log(chalk.red.bold("This is an error"));
+// Using external package called chalk 
+import chalk from "chalk";
+console.log(chalk.blue("hello world!"));
+console.log(chalk.red.bold("This is an error"));
 
 
 
 
 
-// // Creating a CLI - command line interface to count the number of words ~~in a file
-// // logic - Counting the number of spaces between the words + 1
-// // but it does not provide me the -h (helper) command and to do that i will use an external library called commander
-// const fs = require("fs");
+// Creating a CLI - command line interface to count the number of words ~~in a file
+// logic - Counting the number of spaces between the words + 1
+// but it does not provide me the -h (helper) command and to do that i will use an external library called commander
+const fs = require("fs");
 
-// function main(fileName){
-//     fs.readFile(fileName, "utf-8", function(err, data){
-//         let total = 0;
-//         for (let i = 0; i < data.length; i++){
-//             if (data[i] == " "){
-//                 total++;
-//             }
-//         }
-//         console.log(`There are ${total + 1} words in ${fileName}`);
-//     })
-// }
+function main(fileName){
+    fs.readFile(fileName, "utf-8", function(err, data){
+        let total = 0;
+        for (let i = 0; i < data.length; i++){
+            if (data[i] == " "){
+                total++;
+            }
+        }
+        console.log(`There are ${total + 1} words in ${fileName}`);
+    })
+}
 
-// main("a.txt");
-
-
-
-
-
-
-// // using commander external library to do the same CLI working
-// const fs = require('fs');
-// const { Command } = require('commander');
-// const program = new Command();
-
-// program
-//   .name('counter')
-//   .description('CLI to do file based tasks')
-//   .version('0.8.0');
-
-// program.command('count')
-//   .description('Count the number of lines in a file')
-//   .argument('<file>', 'file to count')
-//   .action((file) => {
-//     fs.readFile(file, 'utf8', (err, data) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         const lines = data.split('\n').length;
-//         console.log(`There are ${lines} lines in ${file}`);
-//       }
-//     });
-//   });
-
-// program.parse();
+main("a.txt");
 
 
 
 
 
-// // Creating a HTTP server by using express.js
-// const express = require("express"); // require express
-// // logic
-// function calculateSum(n){
-//     let ans= 0;
-//     for(let i=0 ; i<=n ; i++){
-//         ans = ans + i;
-//     }
-//     return ans;
-// };
+
+// using commander external library to do the same CLI working
+const fs = require('fs');
+const { Command } = require('commander');
+const program = new Command();
+
+program
+  .name('counter')
+  .description('CLI to do file based tasks')
+  .version('0.8.0');
+
+program.command('count')
+  .description('Count the number of lines in a file')
+  .argument('<file>', 'file to count')
+  .action((file) => {
+    fs.readFile(file, 'utf8', (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        const lines = data.split('\n').length;
+        console.log(`There are ${lines} lines in ${file}`);
+      }
+    });
+  });
+
+program.parse();
+
+
+
+
+
+// Creating a HTTP server by using express.js
+const express = require("express"); // require express
+// logic
+function calculateSum(n){
+    let ans= 0;
+    for(let i=0 ; i<=n ; i++){
+        ans = ans + i;
+    }
+    return ans;
+};
 
 
 
