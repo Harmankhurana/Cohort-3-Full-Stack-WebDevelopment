@@ -2,7 +2,7 @@
 import express from "express";
 // const { useInsertionEffect } = require("react");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
 
 app.use(express.json()); // it's a middleware which helps in parsing the post body
 
@@ -76,6 +76,6 @@ app.post("/signin" , function(req,res){
     }
 });
 
-app.listen(`${port}` , 
+app.listen(`${PORT}` , 
     console.log("Server is running")
 );
