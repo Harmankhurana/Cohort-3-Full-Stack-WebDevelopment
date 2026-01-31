@@ -215,20 +215,20 @@ function isOldEnoughMiddleWare(req, res, next){   // this is the middleware whic
     }
 }
 
-// // Either write Middleware as a function call in every route or just write in one time for all the routes
-// app.use(isOldEnoughMiddleWare); 
-// // here the order matters if i wrtie this under a route it will not attach to it
+// Either write Middleware as a function call in every route or just write in one time for all the routes
+app.use(isOldEnoughMiddleWare); 
+// here the order matters if i wrtie this under a route it will not attach to it
 
-// app.get("/" , isOldEnoughMiddleWare,  function(req, res){  
-//       res.json({
-//         msg : "You have successfully riden the ride 1"
-//       })
-// })
+app.get("/" , isOldEnoughMiddleWare,  function(req, res){  
+      res.json({
+        msg : "You have successfully riden the ride 1"
+      })
+})
 
-// app.get("/" , isOldEnoughMiddleWare, function(req, res){
-//       res.json({
-//         msg : "You have successfully riden the ride 2"
-//       })
-// })
+app.get("/" , isOldEnoughMiddleWare, function(req, res){
+      res.json({
+        msg : "You have successfully riden the ride 2"
+      })
+})
 
-// app.listen(3000);
+app.listen(3000);
