@@ -199,21 +199,21 @@ app.listen(3000);
 
 
 
-// // Creating a Middleware 
-// const express = require('express'); // Importing express
+// Creating a Middleware 
+const express = require('express'); // Importing express
 
 // const app = express(); // putting express in app variable
 
-// function isOldEnoughMiddleWare(req, res, next){   // this is the middleware which checks whether i should pass the req or not
-//     const age = req.query.age; // Taking value of age in the URL
-//      if (age >= 14){
-//       next();
-//     } else {
-//      res.json({
-//        msg : "Sorry you are not of age yet"
-//       })
-//     }
-// }
+function isOldEnoughMiddleWare(req, res, next){   // this is the middleware which checks whether i should pass the req or not
+    const age = req.query.age; // Taking value of age in the URL
+     if (age >= 14){
+      next();
+    } else {
+     res.json({
+       msg : "Sorry you are not of age yet"
+      })
+    }
+}
 
 // // Either write Middleware as a function call in every route or just write in one time for all the routes
 // app.use(isOldEnoughMiddleWare); 
