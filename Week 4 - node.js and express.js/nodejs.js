@@ -7,7 +7,7 @@ console.log(chalk.red.bold("This is an error"));
 
 
 
-// Creating a CLI - command line interface to count the number of words ~~in a file
+// Creating a CLI - command line interface to count the number of words in a file
 // logic - Counting the number of spaces between the words + 1
 // but it does not provide me the -h (helper) command and to do that i will use an external library called commander
 const fs = require("fs");
@@ -75,35 +75,35 @@ function calculateSum(n){
 
 
 
+import express from 'express';
+const app = express(); // creating http server
 
-// // const app = express(); // creating http server
+app.get("/" , function(req , res){ // syntax of express and function(req , res) is a callback function
+    const n = req.query.n; // query parameter
+    const ans = calculateSum(n); // calling the logic fuction here
+    res.send(ans); // send the answer of the fuction used above
+}) 
+app.listen(3000); // deciding the address of the server
+// To use parameters for n use this (localhost:3000/?n=5) this n=5 is the parameter
+// for multiple parameter use this (localhost:3000/?n=5&a=6)
 
-// app.get("/" , function(req , res){ // syntax of express and function(req , res) is a callback function
-//     const n = req.query.n; // query parameter
-//     const ans = calculateSum(n); // calling the logic fuction here
-//     res.send(ans); // send the answer of the fuction used above
-// }) 
-// app.listen(3000); // deciding the address of the server
-// // To use parameters for n use this (localhost:3000/?n=5) this n=5 is the parameter
-// // for multiple parameter use this (localhost:3000/?n=5&a=6)
-
-// // the methods (get, post, put, delete) are different then the callbacks are also different
-
-
+// the methods (get, post, put, delete) are different then the callbacks are also different
 
 
 
 
-// // Creating a HTTP server - using express.js
-// const express = require("express"); // requiring express
+
+
+// Creating a HTTP server - using express.js
+const express = require("express"); // requiring express
  
-// // const app = express(); // creating the clinic
+// const app = express(); // creating the clinic
 
-// app.get("/" ,function(req , res){ // a callback function
-//     res.send("hi there")
-// })
+app.get("/" ,function(req , res){ // a callback function
+    res.send("hi there")
+})
 
-// app.listen(3000); // listening on this local no. port
+app.listen(3000); // listening on this local no. port
 
 
 
