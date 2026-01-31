@@ -184,16 +184,16 @@ app.listen(3000);
 
 
 
-// // Assignment to create HTTP serve from express 
-// const express = require("express");
+// Assignment to create HTTP serve from express 
+const express = require("express");
 
-// // const app = express();
+// const app = express();
 
-// app.get("/" , function(res, req){
-//     res.send("Hello world")
-// })
+app.get("/" , function(res, req){
+    res.send("Hello world")
+})
 
-// app.listen(3000);
+app.listen(3000);
 
 
 
