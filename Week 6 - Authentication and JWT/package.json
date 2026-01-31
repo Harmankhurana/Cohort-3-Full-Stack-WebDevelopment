@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Harman Singh Khurana",
   "license": "ISC",
   "description": "",
   "dependencies": {
