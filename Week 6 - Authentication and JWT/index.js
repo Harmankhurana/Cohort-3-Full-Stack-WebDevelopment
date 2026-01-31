@@ -1,5 +1,5 @@
 // Creating my own authentication(auth) code
-const express = require("express");
+import express from "express";
 // const { useInsertionEffect } = require("react");
 const app = express();
 const port = 3000;
