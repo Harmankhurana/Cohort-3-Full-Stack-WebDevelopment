@@ -1,6 +1,11 @@
 // Creating my own authentication(auth) code
 import express from "express";
 // const { useInsertionEffect } = require("react");
+// To use environmental variable im importing dotenv
+import dotenv from 'dotenv';
+// configuration for dotenv
+dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT;
 
