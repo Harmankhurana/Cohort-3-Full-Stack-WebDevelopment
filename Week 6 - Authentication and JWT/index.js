@@ -70,6 +70,7 @@ app.post("/signin" , function(req,res){
     // If i found the username and password correct then i will send the token to the user or i will tell that it's invalid
     if (foundUsers){
         const token = generateToken();
+        foundUsers.token = token; // Pushing token in the In-memory array
         res.json({
         message : token
     })
