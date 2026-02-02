@@ -51,7 +51,7 @@ app.post("/signin" , function(req,res){
     let foundUsers = null;
 
     for (let i = 0 ; i < users.length ; i++){
-        if (user[i].username == username && users[i].password == password){
+        if (users[i].username == username && users[i].password == password){
             foundUsers == users[i]
         }
     }
