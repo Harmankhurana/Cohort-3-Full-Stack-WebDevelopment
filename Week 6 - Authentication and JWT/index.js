@@ -48,11 +48,11 @@ app.post("/signin" , function(req,res){
     const password = req.body.password;
 
     // now i have to check does this user exsits - if it does we can send the requested data or tell them that sorry signup required
-    let foundUsers = null;
+    let foundUser = null;
 
     for (let i = 0 ; i < users.length ; i++){
         if (users[i].username == username && users[i].password == password){
-            foundUsers == users[i]
+            foundUser == users[i]
         }
     }
 
@@ -68,9 +68,9 @@ app.post("/signin" , function(req,res){
     // })
 
     // If i found the username and password correct then i will send the token to the user or i will tell that it's invalid
-    if (foundUsers){
+    if (foundUser){
         const token = generateToken();
-        foundUsers.token = token; // Pushing token in the In-memory array
+        foundUser.token = token; // Pushing token in the In-memory array
         res.json({
         message : token
     })
@@ -80,6 +80,10 @@ app.post("/signin" , function(req,res){
             message : "Invalid username or password"
         });
     }
+});
+
+app.get("/me", function(req, res) {
+
 });
 
 app.listen(`${PORT}` , 
