@@ -41,6 +41,7 @@ app.post("/signup" , function (req,res){
     res.json({
         message : "You are Signed up"
     })
+    console.log(users);
 });
 
 app.post("/signin" , function(req,res){
@@ -80,10 +81,11 @@ app.post("/signin" , function(req,res){
             message : "Invalid username or password"
         });
     }
+    console.log(users);
 });
 
 app.get("/me", function(req, res) {
-
+    
 });
 
 app.listen(`${PORT}` , 
