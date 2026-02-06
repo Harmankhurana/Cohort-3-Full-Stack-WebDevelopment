@@ -93,6 +93,18 @@ app.get("/me", function(req, res) {
             foundUser = users[i];
         }
     }
+
+    if (foundUser){
+        res.json({
+            username: foundUser.username,
+            password: foundUser.password,
+        })
+    }
+    else {
+        res.json({
+            message: "token invalid"
+        })
+    }
 });
 
 app.listen(`${PORT}` , 
