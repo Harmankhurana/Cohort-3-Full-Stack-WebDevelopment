@@ -46,9 +46,11 @@ app.post('/signin', function(req, res) {
     }
 
     if(foundUser) {
-        const token = jwt.sign({
+        const token = jwt.sign({   // sign is used for encryption the username
             username: username
         }, JWT_SECRET);
+
+        foundUser.token = token;
 
         res.json({
             token: token
@@ -62,7 +64,11 @@ app.post('/signin', function(req, res) {
     console.log(users);
 });
 
-app.get('/me');
+app.get('/me', function(req, res) {
+    const token = req.headers.token
+    const decodedInformation = jwt.verify(token, JWT_SECRET); // verify is used for decryption the username -> {username: "Harmankhurana@gmail.com"}
+    const username = decodedInformation.username
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running ${PORT}`);
