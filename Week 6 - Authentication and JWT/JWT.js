@@ -29,11 +29,27 @@ app.post('/signup', function(req, res) {
 
 });
 
+const JWT_SECRET = "USER_APP";
+
 app.post('/signin', function(req, res) {
     const username = req.body.username;
     const password = req.body.password;
 
-    
+    let foundUser = null;
+
+    for (let i = 0 ; i < users.length ; i++){
+        if (users[i].username === username && users[i].password === password){
+            foundUser = users[i];
+        }
+    }
+
+    if(foundUser) {
+        const token = jwt.sign({
+            username: user.username
+        }, JWT_SECRET);
+    }
+
+
 });
 
 app.get('/me');
