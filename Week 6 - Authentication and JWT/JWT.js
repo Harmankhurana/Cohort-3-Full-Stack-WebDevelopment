@@ -1,5 +1,6 @@
 import express from 'express';
-import dotenv, { configDotenv } from 'dotenv';
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
