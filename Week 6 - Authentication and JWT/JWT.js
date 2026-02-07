@@ -12,6 +12,8 @@ const PORT = process.env.PORT;
 
 const users = [];
 
+const JWT_SECRET = "USER_APP";
+
 app.post('/signup', function(req, res) {
     const username = req.body.username;
     const password = req.body.password;
@@ -29,7 +31,7 @@ app.post('/signup', function(req, res) {
 
 });
 
-const JWT_SECRET = "USER_APP";
+
 
 app.post('/signin', function(req, res) {
     const username = req.body.username;
@@ -45,11 +47,19 @@ app.post('/signin', function(req, res) {
 
     if(foundUser) {
         const token = jwt.sign({
-            username: user.username
+            username: username
         }, JWT_SECRET);
+
+        res.json({
+            token: token
+        })
+    } else {
+        res.status(403).send({
+            message: "Invalid username or passsword"
+        })
     }
-
-
+    
+    console.log(users);
 });
 
 app.get('/me');
