@@ -67,7 +67,26 @@ app.post('/signin', function(req, res) {
 app.get('/me', function(req, res) {
     const token = req.headers.token
     const decodedInformation = jwt.verify(token, JWT_SECRET); // verify is used for decryption the username -> {username: "Harmankhurana@gmail.com"}
-    const username = decodedInformation.username
+    const username = decodedInformation.username;
+
+    let foundUser = null;
+
+    for (let i = 0 ; i < user.length ; i++){
+        if(users[i].toke === token) {
+            foundUser = users[i]
+        }
+    }
+
+    if (foundUser) {
+        res.json({
+            username: foundUser.username,
+            password: foundUser.password,
+        })
+    } else {
+        res.status(401).send({
+            message: "token invalid", // or "Unauthorized"
+        })
+    }
 });
 
 app.listen(PORT, () => {
