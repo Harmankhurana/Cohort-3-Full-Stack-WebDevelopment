@@ -6,11 +6,35 @@ dotenv.config();
 
 const app = express();
 
+app.use(express.json());
+
 const PORT = process.env.PORT;
 
-app.post('/signup');
+const users = [];
 
-app.post('/signin');
+app.post('/signup', function(req, res) {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    users.push({
+        username: username,
+        password: password,
+    });
+
+    res.json({
+        message: "You're signed up"
+    })
+
+    console.log(users);
+
+});
+
+app.post('/signin', function(req, res) {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    
+});
 
 app.get('/me');
 
