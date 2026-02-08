@@ -65,14 +65,14 @@ app.post('/signin', function(req, res) {
 });
 
 app.get('/me', function(req, res) {
-    const token = req.headers.token
+    const token = req.headers.token;
     const decodedInformation = jwt.verify(token, JWT_SECRET); // verify is used for decryption the username -> {username: "Harmankhurana@gmail.com"}
     const username = decodedInformation.username;
 
     let foundUser = null;
 
-    for (let i = 0 ; i < user.length ; i++){
-        if(users[i].toke === token) {
+    for (let i = 0 ; i < users.length ; i++){
+        if(users[i].token === token) {
             foundUser = users[i]
         }
     }
@@ -83,11 +83,53 @@ app.get('/me', function(req, res) {
             password: foundUser.password,
         })
     } else {
-        res.status(401).send({
+        res.status(401).json({
             message: "token invalid", // or "Unauthorized"
         })
     }
 });
+
+// /me endpoint with try catch method
+
+// app.get('/me', function(req, res) {
+//     const token = req.headers.token;
+
+//     if (!token) {
+//         return res.status(401).json({
+//             message: "Token missing"
+//         });
+//     }
+
+//     try {
+//         const decodedInformation = jwt.verify(token, JWT_SECRET);
+//         const username = decodedInformation.username;
+
+//         let foundUser = null;
+
+//         for (let i = 0; i < users.length; i++) {
+//             if (users[i].token === token) {
+//                 foundUser = users[i];
+//                 break;
+//             }
+//         }
+
+//         if (foundUser) {
+//             res.json({
+//                 username: foundUser.username
+//             });
+//         } else {
+//             res.status(401).json({
+//                 message: "Invalid token"
+//             });
+//         }
+
+//     } catch (err) {
+//         res.status(401).json({
+//             message: "Token invalid or expired"
+//         });
+//     }
+// });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running ${PORT}`);
