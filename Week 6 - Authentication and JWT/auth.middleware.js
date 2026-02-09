@@ -18,7 +18,13 @@ const users = [];
 
 const JWT_SECRET = "USER_APP";
 
-app.post('/signup', function(req, res) {
+// Creating a logger middleware which tells which method has been hit in the terminal
+function logger(req, res, next) {
+    console.log(`${req.method}: request method is used`);
+    next();
+}
+
+app.post('/signup', logger, function(req, res) {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -37,7 +43,7 @@ app.post('/signup', function(req, res) {
 
 
 
-app.post('/signin', function(req, res) {
+app.post('/signin', logger, function(req, res) {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -110,7 +116,7 @@ function auth(req, res, next) {     // Creating that middleware function here an
 }
 */
 
-app.get('/me', auth,  function(req, res) {
+app.get('/me', logger, auth,  function(req, res) {
 
     let foundUser = null;
 
