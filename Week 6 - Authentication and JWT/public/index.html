@@ -7,18 +7,32 @@
 </head>
 <!-- this brings the external library(axios) to send request to the backend-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+
+<script>
+    async function signup() {
+        const username = document.getElementById("signup-username").value;
+        const password = document.getElementById("signup-password").value;
+
+        const response = await axios.post("http://localhost:3000/signup", {
+            username: username,
+            password: password,
+        });
+        alert("signed up successfully")
+    }
+
+</script>
 <body>
     <div>
         Signup
-        <input type="text" name="username" id="Username">
-        <input type="password" name="password" id="Password">
+        <input id="signup-username" type="text" name="username" id="Username">
+        <input id="signup-password" type="password" name="password" id="Password">
         <button onclick="signup()">Submit</button>
     </div>
 
     <div>
         signin
-        <input type="text" name="username" id="Username">
-        <input type="password" name="password" id="Password">
+        <input id="signin-username" type="text" name="username" id="Username">
+        <input id="signin-password" type="password" name="password" id="Password">
         <button onclick="signin()"">Submit</button>
     </div>
 
