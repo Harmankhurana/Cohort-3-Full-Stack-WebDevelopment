@@ -79,7 +79,7 @@ app.post('/signin', logger, function(req, res) {
 });
 
 function auth(req, res, next) {     // Creating that middleware function here and using it in /me endpoint, when ever the user comes to this middleware, this middleware checks Whether the logged in or not
-    const token = req.headers.authorization;
+    const token = req.headers.token;
     const decodedData = jwt.verify(token, JWT_SECRET);
 
     if (decodedData.username) {
