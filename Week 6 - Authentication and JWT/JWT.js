@@ -50,6 +50,10 @@ app.post('/signin', function(req, res) {
             username: username
         }, JWT_SECRET);
 
+        res.header({"JWT": token,});   // for sending JWT: token value in the header when hitting /signin endpoint (check this in response headers)
+
+        res.header({"User": username});   // for sending User: username value in the header when hitting /signin endpoint (check this in response headers)
+
         foundUser.token = token;
 
         res.json({
