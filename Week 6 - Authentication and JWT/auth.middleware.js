@@ -72,33 +72,33 @@ app.post('/signin', function(req, res) {
     console.log(users);
 });
 
-function auth(req, res, next) {     // Creating that middleware function here and using it in /me endpoint, when ever the user comes to this middleware, this middleware checks Whether the loged in or not
-    
+function auth(req, res, next) {     // Creating that middleware function here and using it in /me endpoint, when ever the user comes to this middleware, this middleware checks Whether the logged in or not
+    const token = req.headers.token;
+    const decodedData = jwt.verify(token, JWT_SECRET);
+    if (decodedData.username) {
+        next();        
+    } else {
+        res.json({
+            message:"You are not logged in",
+        })
+    }
+
 };
 
 app.get('/me', auth,  function(req, res) {
-    const token = req.headers.token;
-    const decodedInformation = jwt.verify(token, JWT_SECRET); // verify is used for decryption the username -> {username: "Harmankhurana@gmail.com"}
-    const username = decodedInformation.username;
 
     let foundUser = null;
 
     for (let i = 0 ; i < users.length ; i++){
-        if(users[i].token === token) {
+        if(users[i].username === decodedData.username) {
             foundUser = users[i]
         }
     }
 
-    if (foundUser) {
-        res.json({
-            username: foundUser.username,
-            password: foundUser.password,
-        })
-    } else {
-        res.status(401).json({
-            message: "token invalid", // or "Unauthorized"
-        })
-    }
+    res.json({
+        username: foundUser.username,
+        password: foundUser.password,
+    })
 });
 
 // /me endpoint with try catch method
