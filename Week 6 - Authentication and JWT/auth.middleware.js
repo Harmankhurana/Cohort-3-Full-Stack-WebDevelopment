@@ -73,8 +73,9 @@ app.post('/signin', function(req, res) {
 });
 
 function auth(req, res, next) {     // Creating that middleware function here and using it in /me endpoint, when ever the user comes to this middleware, this middleware checks Whether the logged in or not
-    const token = req.headers.token;
+    const token = req.headers.authorization;
     const decodedData = jwt.verify(token, JWT_SECRET);
+
     if (decodedData.username) {
         next();        
     } else {
@@ -84,6 +85,29 @@ function auth(req, res, next) {     // Creating that middleware function here an
     }
 
 };
+
+/* 
+    function auth(req, res, next) {
+    const token = req.headers.authorization;
+
+    if (token) {
+        jwt.verify(token, JWT_SECRET, (err, decoded) => {
+            if (err) {
+                res.status(401).send({
+                    message: "Unauthorized"
+                })
+            } else {
+                req.user = decoded;
+                next();
+            }
+        })
+    } else {
+        res.status(401).send({
+            message: "Unauthorized"
+        })
+    }
+}
+*/
 
 app.get('/me', auth,  function(req, res) {
 
