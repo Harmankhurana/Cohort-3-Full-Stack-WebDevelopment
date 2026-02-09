@@ -9,6 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
 
 <script>
+    // Writing the signup function
     async function signup() {
         const username = document.getElementById("signup-username").value;
         const password = document.getElementById("signup-password").value;
@@ -20,6 +21,7 @@
         alert("signed up successfully")
     }
 
+    // Writing the signin function
     async function signin() {
         const username = document.getElementById("signin-username").value;
         const password = document.getElementById("signin-password").value;
@@ -32,7 +34,26 @@
 
         alert("Signed in successfully");
     }
-    
+
+    // Writing the logout function
+    async function logout() {
+        localStorage.removeItem("token");
+    }
+
+    // Writing the getUserInformation function
+    async function getUserInformation() {
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            const response = await axios.get("http://localhost:3000/me", {
+                headers: {
+                    Authorization: token
+                }
+            });
+            document.getElementById("information").innerHTML = response.data.username;
+        }
+    }
+
 </script>
 <body>
     <div>
