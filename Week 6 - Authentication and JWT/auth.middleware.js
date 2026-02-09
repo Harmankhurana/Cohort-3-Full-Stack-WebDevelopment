@@ -72,7 +72,11 @@ app.post('/signin', function(req, res) {
     console.log(users);
 });
 
-app.get('/me', function(req, res) {
+function auth(req, res, next) {     // Creating that middleware function here and using it in /me endpoint, when ever the user comes to this middleware, this middleware checks Whether the loged in or not
+    
+};
+
+app.get('/me', auth,  function(req, res) {
     const token = req.headers.token;
     const decodedInformation = jwt.verify(token, JWT_SECRET); // verify is used for decryption the username -> {username: "Harmankhurana@gmail.com"}
     const username = decodedInformation.username;
