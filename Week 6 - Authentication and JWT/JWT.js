@@ -1,10 +1,17 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+console.log(__dirname);
 
 app.use(express.json());
 
@@ -15,7 +22,7 @@ const users = [];
 const JWT_SECRET = "USER_APP";
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + "./public/index.html");
+    res.sendFile(__dirname + "/public/index.html");
 })
 
 app.post('/signup', function(req, res) {
