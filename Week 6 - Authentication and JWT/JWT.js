@@ -58,7 +58,7 @@ app.post('/signin', function(req, res) {
 
     if(foundUser) {
         const token = jwt.sign({   // sign is used for encryption the username
-            username: username
+            username: users[i].username
         }, JWT_SECRET);
 
         res.header({"JWT": token,});   // for sending JWT: token value in the header when hitting /signin endpoint (check this in response headers)
