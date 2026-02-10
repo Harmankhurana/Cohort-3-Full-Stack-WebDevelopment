@@ -35,10 +35,7 @@
         alert("Signed in successfully");
     }
 
-    // Writing the logout function
-    async function logout() {
-        localStorage.removeItem("token");
-    }
+
 
     // Writing the getUserInformation function
     async function getUserInformation() {
@@ -52,8 +49,13 @@
             });
             document.getElementById("information").innerHTML = response.data.username;
         }
+        getUserInformation();
     }
-
+    
+    // Writing the logout function
+    async function logout() {
+        localStorage.removeItem("token");
+    }
 </script>
 <body>
     <div>
