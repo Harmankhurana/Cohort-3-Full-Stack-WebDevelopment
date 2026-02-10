@@ -14,6 +14,10 @@ const users = [];
 
 const JWT_SECRET = "USER_APP";
 
+app.get('/', function(req, res) {
+    res.sendFile("")
+})
+
 app.post('/signup', function(req, res) {
     const username = req.body.username;
     const password = req.body.password;
