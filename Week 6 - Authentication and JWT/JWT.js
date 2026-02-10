@@ -15,7 +15,7 @@ const users = [];
 const JWT_SECRET = "USER_APP";
 
 app.get('/', function(req, res) {
-    res.sendFile("")
+    res.sendFile("./public/index.html");
 })
 
 app.post('/signup', function(req, res) {
