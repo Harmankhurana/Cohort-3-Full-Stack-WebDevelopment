@@ -306,10 +306,10 @@ getMeResponse();
 
 
 // // Hitting the serve with different method request in axios
-// async function main(){
-// 	const response = await axios.post("URL");   // I can use get,post,put after axiox.
-// 	console.log(response);
-// }
+async function main(){
+	const response = await axios.post("URL");   // I can use get,post,put after axiox.
+	console.log(response);
+}
 
 
 
