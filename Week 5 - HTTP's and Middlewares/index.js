@@ -81,58 +81,58 @@ app.listen(3000);
 
 
 
-// // Creating a Middleware for logs the method, timestamps and the url 
-// const express = require("express");
+// Creating a Middleware for logs the method, timestamps and the url 
+const express = require("express");
 
 // const app = express();
 
-// function loggerMiddlewares(req, res, next){
-//     console.log(`Method is ${req.method}`);
-//     console.log(`Host is ${req.hostname}`);  
-//     console.log(`Route is ${req.url}`);
-//     console.log(`Timestamps is ${new Date()}`);
+function loggerMiddlewares(req, res, next){
+    console.log(`Method is ${req.method}`);
+    console.log(`Host is ${req.hostname}`);  
+    console.log(`Route is ${req.url}`);
+    console.log(`Timestamps is ${new Date()}`);
 
-//     next();
-// }
+    next();
+}
 
-// app.use(loggerMiddlewares);
+app.use(loggerMiddlewares);
 
 
-// app.get("/sum", function(req, res) {
-//     const a = parseInt(req.query.a);
-//     const b = parseInt(req.query.b);
+app.get("/sum", function(req, res) {
+    const a = parseInt(req.query.a);
+    const b = parseInt(req.query.b);
 
-//     res.json({
-//         ans: a + b
-//     })
-// });
+    res.json({
+        ans: a + b
+    })
+});
 
-// app.get("/multiply", function(req, res) {
-//     const a = req.query.a;
-//     const b = req.query.b;
-//     res.json({
-//         ans: a * b
-//     })
-// });
+app.get("/multiply", function(req, res) {
+    const a = req.query.a;
+    const b = req.query.b;
+    res.json({
+        ans: a * b
+    })
+});
 
-// app.get("/divide", function(req, res) {
-//     const a = req.query.a;
-//     const b = req.query.b;
-//     res.json({
-//         ans: a / b
-//     })
+app.get("/divide", function(req, res) {
+    const a = req.query.a;
+    const b = req.query.b;
+    res.json({
+        ans: a / b
+    })
 
-// });
+});
 
-// app.get("/subtract", function(req, res) {
-//     const a = parseInt(req.query.a);
-//     const b = parseInt(req.query.b);
-//     res.json({
-//         ans: a - b
-//     })
-// });
+app.get("/subtract", function(req, res) {
+    const a = parseInt(req.query.a);
+    const b = parseInt(req.query.b);
+    res.json({
+        ans: a - b
+    })
+});
 
-// app.listen(3000);
+app.listen(3000);
 
 
 
