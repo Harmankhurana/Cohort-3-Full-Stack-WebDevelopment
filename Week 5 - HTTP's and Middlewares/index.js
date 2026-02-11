@@ -211,34 +211,36 @@ console.log(newArray);
 
 
 
-// // Normal way to make filters - kind of an ugly way to make filters for arrays 
+// Normal way to make filters - kind of an ugly way to make filters for arrays 
 // const arr = [1,2,3,4,5];
 
-// const newArr = [];
+const newArr = [];
 
-// for (let i = 0 ; i < arr.length ; i++){
-//     if(arr[i] % 2 == 0){
-//         newArr.push(arr[i]);
-//     }
-// }
+for (let i = 0 ; i < arr.length ; i++){
+    if(arr[i] % 2 == 0){
+        newArr.push(arr[i]);
+    }
+}
 
-// console.log(newArr);
+console.log(newArr);
 
 
-// // Using filter 
+// Using filter 
 // const arr = [2,3,4,5,6];
 
-// function filterLogic(n){
-//     if (n % 2 == 0){
-//         return true;
-//     }
-//     else {
-//         return false;
-//     }
-// }
+function filterLogic(n){
+    if (n % 2 == 0){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
-// const ans = arr.filter(filterLogic);
-// console.log(ans);
+const ans = arr.filter(filterLogic);
+console.log(ans);
+
+
 
 
 // // Using some helper function for filtering out names with just letter "H"
