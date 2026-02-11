@@ -305,7 +305,7 @@ getMeResponse();
 
 
 
-// // Hittign the serve with different method request in axios
+// // Hitting the serve with different method request in axios
 // async function main(){
 // 	const response = await axios.post("URL");   // I can use get,post,put after axiox.
 // 	console.log(response);
@@ -313,24 +313,24 @@ getMeResponse();
 
 
 
-// // Hitting the server with Post request in axios(http Dump)
-// const express = require("express");
-// const axios = require("axios");
+// Hitting the server with Post request in axios(http Dump)
+const express = require("express");
+const axios = require("axios");
 
-// async function main(){
-// 	const response = await axios(
-// 	{
-// 		url : "https://httpdump.app/dumps/e0cd1372-51a4-4a96-a865-d153b2a980f6",
-// 		method : "POST",
-// 		Headers : {
-// 			Authorization : "Bearer 123",
-// 		},
-// 		data : {
-// 			"username" : "Harman",
-// 		},
-// 	},
-// );
-// 	console.log(response.data);
-// }
+async function main(){
+	const response = await axios(
+	{
+		url : "https://httpdump.app/dumps/e0cd1372-51a4-4a96-a865-d153b2a980f6",
+		method : "POST",
+		Headers : {
+			Authorization : "Bearer 123",
+		},
+		data : {
+			"username" : "Harman",
+		},
+	},
+);
+	console.log(response.data);
+}
 
-// main();
+main();
