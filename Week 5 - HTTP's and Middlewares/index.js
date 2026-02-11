@@ -262,24 +262,24 @@ console.log(anss);
 
 
 
-// // Axions Vs fetch 
-// // Hitting the server with fetch code 
-// function main(){
-// 	fetch("https://sum-server.100xdevs.com/todos").then(async response =>{
-// 		const data = await respoonse.json();
-// 		console.log(data);
-// 	})
-// }
+// Axions Vs fetch 
+// Hitting the server with fetch code 
+function main(){
+	fetch("https://sum-server.100xdevs.com/todos").then(async response =>{
+		const data = await response.json();
+		console.log(data);
+	})
+}
 
-// main();
-// //same working but different syntax - Write this down syntax 
-// async function main(){
-// 	const response = await fetch("https://sum-server.100xdevs.com/todos");
-// 	const data = await response.json();
-// 	console.log(data);
-// }
+main();
+//same working but different syntax - Write this down syntax 
+async function main(){
+	const response = await fetch("https://sum-server.100xdevs.com/todos");
+	const data = await response.json();
+	console.log(data);
+}
 
-// main();
+main();
 
 
 // //Hitting the server with different method request in fetch 
