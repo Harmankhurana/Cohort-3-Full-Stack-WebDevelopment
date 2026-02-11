@@ -138,76 +138,76 @@ app.listen(3000);
 
 
 
-// // Using External Middleware library
-// const express = require('express');
+// Using External Middleware library
+const express = require('express');
 // const app = express();
 
-// // Use express.json() middleware to parse JSON bodies
-// app.use(express.json());
+// Use express.json() middleware to parse JSON bodies
+app.use(express.json());
 
-// // Define a POST route to handle JSON data
-// app.post('/data', (req, res) => {
-//   // Access the parsed JSON data from req.body
-//   const data = req.body;
-//   console.log('Received data:', data);
+// Define a POST route to handle JSON data
+app.post('/data', (req, res) => {
+  // Access the parsed JSON data from req.body
+  const data = req.body;
+  console.log('Received data:', data);
 
-//   // Send a response
-//   res.send('Data received');
-// });
+  // Send a response
+  res.send('Data received');
+});
 
-// app.listen(3000, () => {
-//   console.log('Server running on port 3000');
-// });
-
-
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
 
 
 
-// // Write a HTML file, that hits the backend server using the "fetch" api 
-// const express = require("express");
+
+
+// Write a HTML file, that hits the backend server using the "fetch" api 
+const express = require("express");
 // const app = express();
 
-// app.use(express.json());
+app.use(express.json());
 
-// app.get("/sum", function(req, res){
-//   const a = parseInt(req.body.a);
-//   const b = parseInt(req.body.b);
+app.get("/sum", function(req, res){
+  const a = parseInt(req.body.a);
+  const b = parseInt(req.body.b);
 
-//   res.json({
-//     answer : a + b 
-//   })
-// });
+  res.json({
+    answer : a + b 
+  })
+});
 
-// app.listen(3000);
-
-
+app.listen(3000);
 
 
 
-// // Given an array, give me back a new array in which every value is multiplied by 2
-// // [1,2,3,4,5] ⇒ [2,4,6,8,10]
-// const input = [1,2,3,4,5];
+
+
+// Given an array, give me back a new array in which every value is multiplied by 2
+// [1,2,3,4,5] ⇒ [2,4,6,8,10]
+const input = [1,2,3,4,5];
 
 // const newArray = [];
 
-// for (let i = 0 ; i < input.length ; i++){
-//     newArray.push(input[i] * 2 );
-// }
+for (let i = 0 ; i < input.length ; i++){
+    newArray.push(input[i] * 2 );
+}
 
-// console.log(newArray);
+console.log(newArray);
 
 
 
-// // Now Using maps for the same thing 
-// const arr = [2,3,4,5,6];
-// // Now i need a transformation function which helps in transforming the main arr 
+// Now Using maps for the same thing 
+const arr = [2,3,4,5,6];
+// Now i need a transformation function which helps in transforming the main arr 
 
-// // map chaining 
-// const newArray = arr.map(function transform(i){
-//     return i * 2; 
-// });
+// map chaining 
+const newArray = arr.map(function transform(i){
+    return i * 2; 
+});
 
-// console.log(newArray);
+console.log(newArray);
 
 
 
