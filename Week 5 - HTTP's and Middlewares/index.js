@@ -28,54 +28,54 @@ getRecentPostUsingAxios();
 
 
 
-// // Create a HTTP server - Calculator which takes the query as parameter/ that returns the sum endpoint
-// const express = require("express");
-// const app = express();   // initialising the app varible with express();
+// Create a HTTP server - Calculator which takes the query as parameter/ that returns the sum endpoint
+const express = require("express");
+const app = express();   // initialising the app varible with express();
 
-// let requestCount = 0;
-// function requestCountNumber(req, res, next){
+let requestCount = 0;
+function requestCountNumber(req, res, next){
     
-// }
+}
 
-// app.use(requestCountNumber);
+app.use(requestCountNumber);
 
-// app.get("/sum/:a/:b" , function(req, res){   // taking it like (/sum/anyNo./anyNo.) rather than (sum?a=2&b=3)
-//     const a = parseInt(req.params.a);
-//     const b = parseInt(req.params.b);
+app.get("/sum/:a/:b" , function(req, res){   // taking it like (/sum/anyNo./anyNo.) rather than (sum?a=2&b=3)
+    const a = parseInt(req.params.a);
+    const b = parseInt(req.params.b);
 
-//     res.json({
-//         ans :  a + b  
-//     })
-// });
+    res.json({
+        ans :  a + b  
+    })
+});
 
-// app.get("/subtract" , function(req, res){
-//     const a = req.query.a;
-//     const b = req.query.b;
+app.get("/subtract" , function(req, res){
+    const a = req.query.a;
+    const b = req.query.b;
 
-//     res.json({
-//         ans : a - b 
-//     })
-// });
+    res.json({
+        ans : a - b 
+    })
+});
 
-// app.get("/multiply" , function(req, res){
-//     const a = req.query.a; 
-//     const b = req.query.b; 
+app.get("/multiply" , function(req, res){
+    const a = req.query.a; 
+    const b = req.query.b; 
 
-//     res.json({
-//         ans : a * b
-//     }) 
-// });
+    res.json({
+        ans : a * b
+    }) 
+});
 
-// app.get("/divide" , function(req, res){
-//     const a = req.query.a; 
-//     const b = req.query.b;
+app.get("/divide" , function(req, res){
+    const a = req.query.a; 
+    const b = req.query.b;
 
-//     res.json({
-//         ans : a / b
-//     })
-// });
+    res.json({
+        ans : a / b
+    })
+});
 
-// app.listen(3000);
+app.listen(3000);
 
 
 
