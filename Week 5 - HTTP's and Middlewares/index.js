@@ -10,19 +10,19 @@ async function getRecentPost() {
     // document.getElementById("posts").innerHTML = JSON.stringify(data);    // for embedding all the data in the HTML body
 }
 
-// const { json } = require("express");
+const { json } = require("express");
 
-// getRecentPost();
+getRecentPost();
 
-// // Either use fetch function for data response or use axios for fetching the data 
-// // axios is much cleaner code syntax 
-// async function getRecentPostUsingAxios(){
-//     const response = await axios.get("https://jsonplaceholder.typicode.com/posts/1");   // axios says that i will automatically convert the data in json format 
-//     console.log(response);
-//     document.getElementById("posts").innerHTML = response.data.body;
-// }
+// Either use fetch function for data response or use axios for fetching the data 
+// axios is much cleaner code syntax 
+async function getRecentPostUsingAxios(){
+    const response = await axios.get("https://jsonplaceholder.typicode.com/posts/1");   // axios says that i will automatically convert the data in json format 
+    console.log(response);
+    document.getElementById("posts").innerHTML = response.data.body;
+}
 
-// getRecentPostUsingAxios();
+getRecentPostUsingAxios();
 
 
 
