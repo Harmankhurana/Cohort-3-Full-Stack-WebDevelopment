@@ -77,13 +77,21 @@
         getUserInformation();
     }
     
-    // Writing the logout function
+    /*
+        ============================
+        LOGOUT FUNCTION
+        ============================
+        - Writing the logout function
+        - Removes token from localStorage
+        - User becomes unauthenticated
+    */
     async function logout() {
         localStorage.removeItem("token");
         alert("Logged out successfully");
     }
 </script>
 <body>
+    <!-- ================= SIGNUP SECTION ================= -->
     <div>
         Signup
         <input id="signup-username" type="text" name="username" id="Username">
@@ -91,6 +99,7 @@
         <button onclick="signup()">Submit</button>
     </div>
 
+    <!-- ================= SIGNIN SECTION ================= -->
     <div>
         signin
         <input id="signin-username" type="text" name="username" id="Username">
@@ -98,11 +107,13 @@
         <button onclick="signin()"">Submit</button>
     </div>
 
+    <!-- ================= USER INFO SECTION ================= -->
     <div>
         User information:
         <div id="information"></div>
     </div>
 
+    <!-- ================= LOGOUT SECTION ================= -->
     <div>
         <button onclick="logout()">Logout</button>
     </div>
