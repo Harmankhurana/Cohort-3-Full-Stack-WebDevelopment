@@ -243,20 +243,20 @@ console.log(ans);
 
 
 
-// // Using some helper function for filtering out names with just letter "H"
-// const arr = ["Harman" , "Harkirat", "Upkeerat"];
+// Using some helper function for filtering out names with just letter "H"
+const arrr = ["Harman" , "Harkirat", "Upkeerat"];
 
-// function filterLogic(n){
-//     if(n.startsWith("H")){
-//         return true;
-// 	}
-// 	else {
-// 		return false;
-// 	}
-// }
+function filterLogic(n){
+    if(n.startsWith("H")){
+        return true;
+	}
+	else {
+		return false;
+	}
+}
 		
-// const ans = arr.filter(filterLogic);
-// console.log(ans);
+const anss = arrr.filter(filterLogic);
+console.log(anss);
 
 
 
