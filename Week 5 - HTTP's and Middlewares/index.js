@@ -1,14 +1,14 @@
-// // Creating a async await function which fetches the data from the URL 
-// // this fetching data will eventually take time to find the data then process the data, that's why im using async await function to read more things 
-// async function getRecentPost() {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/posts/1")  // Fetching the data from a HTTP server 
-//     const data = await response.json(); // converting the data in  json format
-//     console.log(data);  // logging the data 
-//     console.log("request has been processed");
-//     document.getElementById("title").innerHTML = data.title;   // Embedding the (title) data in the HTML body
-//     document.getElementById("posts").innerHTML = data.body;    // Embedding the (body) data in the HTML body
-//     // document.getElementById("posts").innerHTML = JSON.stringify(data);    // for embedding all the data in the HTML body
-// }
+// Creating a async await function which fetches the data from the URL 
+// this fetching data will eventually take time to find the data then process the data, that's why im using async await function to read more things 
+async function getRecentPost() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts/1")  // Fetching the data from a HTTP server 
+    const data = await response.json(); // converting the data in  json format
+    console.log(data);  // logging the data 
+    console.log("request has been processed");
+    document.getElementById("title").innerHTML = data.title;   // Embedding the (title) data in the HTML body
+    document.getElementById("posts").innerHTML = data.body;    // Embedding the (body) data in the HTML body
+    // document.getElementById("posts").innerHTML = JSON.stringify(data);    // for embedding all the data in the HTML body
+}
 
 // const { json } = require("express");
 
