@@ -282,26 +282,26 @@ async function main(){
 main();
 
 
-// //Hitting the server with different method request in fetch 
-// async function main(){
-// 	const response = await fetch("URL", {
-// 		method : "POST"  // I can use GET, POST, PUT
-// 	});
-// 	const data = response.json();
-// 	console.log(data);
+//Hitting the server with different method request in fetch 
+async function main(){
+	const response = await fetch("URL", {
+		method : "POST"  // I can use GET, POST, PUT, DELETE
+	});
+	const data = response.json();
+	console.log(data);
 
-// }
+}
 
 
-// // Hitting the server with axios code
-// const axios = require("axios");
+// Hitting the server with axios code
+const axios = require("axios");
 
-// async function getMeResponse(){
-// 	const response = await axios.get("https://sum-server.100xdevs.com/todoas");
-// 	console.log(response);
-// }
+async function getMeResponse(){
+	const response = await axios.get("https://sum-server.100xdevs.com/todoas");
+	console.log(response);
+}
 
-// getMeResponse();
+getMeResponse();
 
 
 
