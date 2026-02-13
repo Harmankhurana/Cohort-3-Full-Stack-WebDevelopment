@@ -9,5 +9,9 @@
   "keywords": [],
   "author": "Harman Singh Khurana",
   "license": "ISC",
-  "description": "Learning about MongoDB"
+  "description": "Learning about MongoDB",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.2.1"
+  }
 }
