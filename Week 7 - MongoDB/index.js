@@ -44,7 +44,7 @@ app.post("/signin" , async function (req, res) {
 
     if(user) {
         const token = jwt.sign({
-             id: user._id,
+             id: user._id.toString(),
         }, JWT_SECRET);
         res.json({
             token: token
@@ -75,13 +75,21 @@ function auth(req, res, next) {
 }
 // Create a todo in the database
 app.post("/todo" , auth, function (req, res) {
+    const userId = req.userId;
 
+    res.json({
+        userId: userId,
+    })
 });
 
 
 // Get all the todo from the database
 app.get("/todos" , auth, function (req, res) {
+   const userId = req.userId;
 
+    res.json({
+        userId: userId,
+    })
 });
 
 
