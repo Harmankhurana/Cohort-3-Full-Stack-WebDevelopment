@@ -56,15 +56,31 @@ app.post("/signin" , async function (req, res) {
     }
 });
 
+// Auth middleware
+function auth(req, res, next) {
+    const token = req.headers.authorization;
 
+    const response = jwt.verify({
+        token: token,
+    }, JWT_SECRET);
+
+    if (response) {
+        req.userId = token.userId;
+        next();
+    } else {
+        res.status(403).json({
+            message: "Incorrect creds"
+        })
+    }
+}
 // Create a todo in the database
-app.post("/todo" , function (req, res) {
+app.post("/todo" , auth, function (req, res) {
 
 });
 
 
 // Get all the todo from the database
-app.get("/todo" , function (req, res) {
+app.get("/todo" , auth, function (req, res) {
 
 });
 
