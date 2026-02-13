@@ -1,6 +1,5 @@
 import express from "express";
 // Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
-import mongoose, { ConnectionStates } from "mongoose";
 import dotenv, { config, configDotenv } from 'dotenv';
 
 const app = express();
@@ -16,10 +15,12 @@ app.post("/login" , function (req, res) {
 
 });
 
+// Create a todo in the database
 app.post("/todo" , function (req, res) {
 
 });
 
+// Get all the todo from the database
 app.get("/todo" , function (req, res) {
 
 });
