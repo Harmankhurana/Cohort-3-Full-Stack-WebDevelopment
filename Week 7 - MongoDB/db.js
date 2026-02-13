@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const objectId = Schema.Types.objectId;
+const objectId = Schema.Types.ObjectId;
 
 const User = new Schema({
     name: String,

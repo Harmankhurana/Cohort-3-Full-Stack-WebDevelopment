@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
+// Connecting the DB with the Backend server
+mongoose.connect("mongodb+srv://harmankhurana19_db_user:4zNnk75HLObWDrvS@cluster0.a77wlqy.mongodb.net/todo-app-database");
 
 const app = express();
 app.use(express.json());
@@ -13,35 +15,12 @@ const JWT_SECRET = "USER_APP";
 const PORT = process.env.PORT;
 
 
-// Connecting the DB with the Backend server
-async function startServer() {
-    try {
-        await mongoose.connect(
-          "mongodb+srv://harmankhurana19_db_user:4zNnk75HLObWDrvS@cluster0.a77wlqy.mongodb.net/todo-app-database"
-        );
-
-        console.log("✅ MongoDB connected");
-
-        app.listen(PORT, () => {
-            console.log(`🚀 Server running on port ${PORT}`);
-        });
-
-    } catch (err) {
-        console.error("❌ DB connection failed:", err.message);
-        process.exit(1);
-    }
-}
-
-startServer();
-
-
-
 app.post("/signup" , async function (req, res) {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
 
-    await UserModel.create({    // it will hung here, cause I didn't connected the DB
+    await UserModel.create({    // it will hung here, cause I didn't connected the DB but 
         name: name,
         email: email,
         password: password,
