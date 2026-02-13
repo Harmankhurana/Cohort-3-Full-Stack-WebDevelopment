@@ -61,7 +61,7 @@ function auth(req, res, next) {
     const token = req.headers.authorization;
 
     const response = jwt.verify({
-        token: token,
+        token,
     }, JWT_SECRET);
 
     if (response) {
@@ -69,7 +69,7 @@ function auth(req, res, next) {
         next();
     } else {
         res.status(403).json({
-            message: "Incorrect creds"
+            message: "Incorrect creds",
         })
     }
 }
@@ -80,7 +80,7 @@ app.post("/todo" , auth, function (req, res) {
 
 
 // Get all the todo from the database
-app.get("/todo" , auth, function (req, res) {
+app.get("/todos" , auth, function (req, res) {
 
 });
 
