@@ -58,14 +58,14 @@ app.post("/signin" , async function (req, res) {
 
 // Auth middleware
 function auth(req, res, next) {
-    const token = req.headers.authorization;
+    const token = req.headers.token;
 
     const response = jwt.verify({
         token,
     }, JWT_SECRET);
 
     if (response) {
-        req.userId = token.userId;
+        req.userId = response.id;
         next();
     } else {
         res.status(403).json({
@@ -74,8 +74,16 @@ function auth(req, res, next) {
     }
 }
 // Create a todo in the database
-app.post("/todo" , auth, function (req, res) {
+app.post("/todo" , auth, async function (req, res) {
     const userId = req.userId;
+    const title = req.body.title;
+    const done = req.body.done;
+
+    await TodoModel.create({
+        title,
+        userId,
+        done,
+    })
 
     res.json({
         userId: userId,
@@ -84,11 +92,15 @@ app.post("/todo" , auth, function (req, res) {
 
 
 // Get all the todo from the database
-app.get("/todos" , auth, function (req, res) {
+app.get("/todos" , auth, async function (req, res) {
    const userId = req.userId;
+   
+   const todos = await TodoModel.find({
+    userId: userId,
+   })
 
     res.json({
-        userId: userId,
+        todos
     })
 });
 
