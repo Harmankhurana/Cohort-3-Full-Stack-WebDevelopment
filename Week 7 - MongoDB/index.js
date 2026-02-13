@@ -1,17 +1,28 @@
 import express from "express";
-// Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
+
 import dotenv, { config, configDotenv } from 'dotenv';
+
+// importing UserModel and TodoModel from ./db file
+const { UserModel, TodoModel } = require('./db');
 
 const app = express();
 app.use(express.json());
 dotenv.config();
 const PORT = process.env.PORT;
 
-app.post("/signup" , function (req, res) {
+app.post("/signup" , async function (req, res) {
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
 
+    await UserModel.insert({
+        name: name,
+        email: email,
+        password: password,
+    })
 });
 
-app.post("/login" , function (req, res) {
+app.post("/login" , async function (req, res) {
 
 });
 

@@ -1,3 +1,4 @@
+// Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
 import mongoose from "mongoose";
 
 const Schema = mongoose.schema;
@@ -7,13 +8,13 @@ const User = new Schema({
     name: String,
     email: String,
     password: String,
-})
+});
 
 const Todo = new schema({
     userId: objectId,
     title: String,
     done: Boolean,
-})
+});
 
 const UserModel = mongoose.model('userse', User);
 const TodoModel = mongoose.model("todos", Todo);
