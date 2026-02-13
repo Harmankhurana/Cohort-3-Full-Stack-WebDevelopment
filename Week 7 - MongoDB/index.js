@@ -1,4 +1,5 @@
 import express from "express";
+// Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
 import mongoose from "mongoose";
 
 const app = express();
