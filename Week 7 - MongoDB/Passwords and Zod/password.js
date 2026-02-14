@@ -39,7 +39,7 @@ app.post("/signup" , async function (req, res) {
     await UserModel.create({    // it will hung here, cause I didn't connected the DB but when i connect it will work and send data to DB.
         name: name,
         email: email,
-        password: hashedPassword,
+        password: hashedPassword,   // example - $2b$10$0T7x3xKUTBjaN0l/KSymFuOFv2G0ovxoSjuu4gGxT7NjiRVjxN8zi
     })
 
     res.json({
