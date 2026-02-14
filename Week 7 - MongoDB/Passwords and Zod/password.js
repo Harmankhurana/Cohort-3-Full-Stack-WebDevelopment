@@ -3,6 +3,10 @@ const express = require("express");
 // importing UserModel and TodoModel from ./db file
 const { UserModel, TodoModel } = require("./db");
 
+// importing bcrypt library for hashing the password
+const bcrypt = require("bcrypt");
+const saltRounds = 10; // saltRounds determines how many times the password hashing function is applied (iterations).
+
 const jwt = require("jsonwebtoken");
 
 const dotenv = require("dotenv");
