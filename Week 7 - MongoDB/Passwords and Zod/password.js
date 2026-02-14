@@ -53,9 +53,8 @@ app.post("/signin" , async function (req, res) {
     const password = req.body.password;
 
     // to read from the database
-    const user = await UserModel.findOne({ // it's not a sync call, it returns a promise
+    const response = await UserModel.findOne({ // it's not a sync call, it returns a promise
         email: email,
-        password: password,
     });
 
     if (!response) {
@@ -65,11 +64,11 @@ app.post("/signin" , async function (req, res) {
         return;
     }
 
-    const passwordMatch = bcrypt.compare(password, response.password);
+    const passwordMatch = await bcrypt.compare(password, response.password);
 
     if(passwordMatch) {
         const token = jwt.sign({
-             id: user._id.toString(),
+             id: response._id.toString(),
         }, JWT_SECRET);
         res.json({
             token: token
