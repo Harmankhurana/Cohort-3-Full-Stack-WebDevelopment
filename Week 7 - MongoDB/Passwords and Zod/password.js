@@ -1,7 +1,7 @@
 const express = require("express");
 
 // importing UserModel and TodoModel from ./db file
-const { UserModel, TodoModel } = require("./db");
+const { UserModel, TodoModel } = require("./newDB");
 
 // importing bcrypt library for hashing the password
 const bcrypt = require("bcrypt");
@@ -33,10 +33,13 @@ app.post("/signup" , async function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
-    await UserModel.create({    // it will hung here, cause I didn't connected the DB but 
+    const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
+    console.log(hashedPassword); // console.log the hashedPassword in terminal
+
+    await UserModel.create({    // it will hung here, cause I didn't connected the DB but when i connect it will work and send data to DB.
         name: name,
         email: email,
-        password: password,
+        password: hashedPassword,
     })
 
     res.json({
