@@ -29,7 +29,7 @@ app.post("/signup" , async function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
-    await UserModel.create({    // it will hung here, cause I didn't connected the DB but 
+    await UserModel.create({    // it will hung here, cause I didn't connected the DB but when i connect it will work and send data to DB.
         name: name,
         email: email,
         password: password,
