@@ -1,18 +1,27 @@
 const express = require("express");
+
 // importing UserModel and TodoModel from ./db file
 const { UserModel, TodoModel } = require("./db");
+
 const jwt = require("jsonwebtoken");
+
 const dotenv = require("dotenv");
+dotenv.config();
+
 const mongoose = require("mongoose");
 
-// Connecting the DB with the Backend server
-mongoose.connect("mongodb+srv://harmankhurana19_db_user:4zNnk75HLObWDrvS@cluster0.a77wlqy.mongodb.net/todo-app-database");
-
 const app = express();
+
 app.use(express.json());
-dotenv.config();
+
 const JWT_SECRET = "USER_APP";
+
 const PORT = process.env.PORT;
+const DB = process.env.DB;
+
+
+// Connecting the DB with the Backend server
+mongoose.connect(DB);
 
 
 app.post("/signup" , async function (req, res) {
