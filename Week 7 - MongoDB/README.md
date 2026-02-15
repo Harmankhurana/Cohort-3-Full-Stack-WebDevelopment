@@ -57,3 +57,55 @@ They are designed to handle a variety of data models and workloads that may not 
 
 MongoDB is a NoSQL database that uses a document-oriented approach. Data is stored in flexible, JSON-like documents, which can have nested structures and varied fields.
 ![MongoDB cluster](./images/image%20copy.png)
+![MongoDB cluster](./images/image%20copy%202.png)
+# Creating a free MongoDB Server
+
+1. Signup on https://cloud.mongodb.com/
+2. Create a `free M0` cluster
+3. Create a `User`
+4. Install MongoDB compass
+5. Put the connection URL to connect to the database
+![MongoDB server](./images/image%20copy%203.png)
+## Connection string
+![Connection string](./images/image%20copy%204.png)
+
+# Seeding data in the DB
+
+Lets put some data in the `Cluster` manually
+
+1. Create a new `Database` called `todo-app`
+2. Create two collections inside it
+    1. `users`
+    2. `todos`
+3. Seed some data inside the collections
+
+# Users table
+![user table](./images/image%20copy%205.png)
+
+# TODO table
+![todo table](./images/image%20copy%206.png)
+
+# CRUD Operations
+
+CRUD operations in MongoDB refer to the basic operations you can perform on documents within a MongoDB database. CRUD stands for:
+
+1. **Create**: Adding new documents to a collection.
+2. **Read**: Retrieving documents from a collection.
+3. **Update**: Modifying existing documents in a collection.
+4. **Delete**: Removing documents from a collection.
+- Here Backend talks to the Database
+![crud Operations](./images/image%20copy%207.png)
+
+# Mongoose
+
+- Mongoose is a popular **Object Data Modeling (ODM) library** for MongoDB and Node.js. Think of it as a bridge between your Node.js application and MongoDB database.
+- Helps in creating schemas and models
+- **Schema Definition** - You define the structure of your data:
+```
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: { type: String, required: true, unique: true },
+  age: Number,
+  createdAt: { type: Date, default: Date.now }
+});
+```
