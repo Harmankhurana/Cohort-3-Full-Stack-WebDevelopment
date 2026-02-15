@@ -29,11 +29,11 @@ mongoose.connect(DB);
 
 
 app.post("/signup" , async function (req, res) {
-    try {
-         const name = req.body.name;
-        const email = req.body.email;
-        const password = req.body.password;
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
 
+    try {
         const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
         console.log(hashedPassword); // console.log the hashedPassword in terminal
 
