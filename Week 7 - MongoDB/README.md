@@ -404,9 +404,9 @@ app.post("/signup", async function(req, res) {
 - $2b is the version of bcrypt, $10 is the iterations, then the salt and then the  hashed password
 - Password format
     
-    ![Screenshot 2024-09-15 at 6.48.32 PM.png](attachment:02fe0cd0-304f-47e0-af73-9bcae196ccd9:Screenshot_2024-09-15_at_6.48.32_PM.png)
+    ![password format](./images/image%20copy%2017.png)
     
-    ![Screenshot 2024-09-15 at 6.51.34 PM.png](attachment:507c3334-4c13-494a-bb9f-c137de151688:Screenshot_2024-09-15_at_6.51.34_PM.png)
+    ![password format](./images/image%20copy%2018.png)
     
     So, putting it all together:
     
