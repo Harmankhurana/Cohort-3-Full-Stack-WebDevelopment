@@ -537,3 +537,45 @@ Lets serve the `index.html` file directly from the backend
     app.use(express.static("./public"))
     ```
 ![Updating the backend](./images/image%20copy%2010.png)
+
+## Firing the `getUserInformation` call
+
+- Call the `getUserInformation` function when the page loads
+    
+    ```jsx
+    getUserInformation();
+    ```
+    
+
+### Assignment
+
+Conditionally render the `logout` or the `signin`/ `signup` pages based on if the user is already logged in or not
+
+# Assignment: Creating a TODO app
+
+Try to create a TODO application where
+
+1. User can signup/signin
+2. User can create/delete/update TODOs
+3. User can see their existing todos and mark them as done
+
+# Questions and Doubts
+
+1. What is ping in terminal with a URL? 
+
+**`ping`** in the terminal is a **network diagnostic command** used to check whether a **URL / domain is reachable** and how fast your computer can communicate with it.
+
+```bash
+ping google.com
+```
+
+1. What do we actually use in industry for auth?
+    - JWT (Access + refresh token)
+    - Session based auth
+    - OAuth 2.0 (Login with google, GitHub, etc.)
+    - For web3 development - wallet based auth, signin with ethereum, JWT after wallet verification
+    - Cookie
+    - Send user OTP on mail
+2. What is cookie based authentication?
+- **Cookie-Based Authentication** is an authentication method where the **server identifies a logged-in user using a cookie stored in the browser**.
+- The browser **automatically sends this cookie with every request** to the backend.
