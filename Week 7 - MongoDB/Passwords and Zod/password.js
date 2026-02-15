@@ -29,22 +29,28 @@ mongoose.connect(DB);
 
 
 app.post("/signup" , async function (req, res) {
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+    try {
+         const name = req.body.name;
+        const email = req.body.email;
+        const password = req.body.password;
 
-    const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
-    console.log(hashedPassword); // console.log the hashedPassword in terminal
+        const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
+        console.log(hashedPassword); // console.log the hashedPassword in terminal
 
-    await UserModel.create({    // it will hung here, cause I didn't connected the DB but when i connect it will work and send data to DB.
-        name: name,
-        email: email,
-        password: hashedPassword,   // example - $2b$10$0T7x3xKUTBjaN0l/KSymFuOFv2G0ovxoSjuu4gGxT7NjiRVjxN8zi
+        await UserModel.create({    // it will hung here, cause I didn't connected the DB but when i connect it will work and send data to DB.
+            name: name,
+            email: email,
+            password: hashedPassword,   // example - $2b$10$0T7x3xKUTBjaN0l/KSymFuOFv2G0ovxoSjuu4gGxT7NjiRVjxN8zi
+        });
+
+        res.json({
+            message: "You're Signed up",
     })
-
-    res.json({
-        message: "You're Signed up",
-    })
+    } catch(e) {
+        res.status(500).json({
+            message: "Error while signing up"
+        })
+    }
 });
 
 
