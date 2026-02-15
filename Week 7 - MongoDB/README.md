@@ -246,3 +246,258 @@ app.post("/signup", async function(req, res) {
 ```
 
 - Implement the `/signin` endpoint (need to install jsonwebtoken library)
+
+```jsx
+const JWT_SECRET = "s3cret";
+
+app.post("/signin", async function(req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const response = await UserModel.findOne({
+        email: email,
+        password: password,
+    });
+
+    if (response) {
+        const token = jwt.sign({
+            id: response._id.toString()
+        })
+
+        res.json({
+            token
+        })
+    } else {
+        res.status(403).json({
+            message: "Incorrect creds"
+        })
+    }
+});
+```
+
+- Implement the `auth` middleware (in a new file auth.js)
+
+```jsx
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = "s3cret";
+
+function auth(req, res, next) {
+    const token = req.headers.authorization;
+
+    const response = jwt.verify(token, JWT_SECRET);
+
+    if (response) {
+        req.userId = token.userId;
+        next();
+    } else {
+        res.status(403).json({
+            message: "Incorrect creds"
+        })
+    }
+}
+
+module.exports = {
+    auth,
+    JWT_SECRET
+}
+```
+
+- Implement the `POST` todo endpoint
+
+```jsx
+const { auth, JWT_SECRET } = require("./auth");
+
+```
+
+- Connect to your DB at the top of index.js
+
+```jsx
+const mongoose = require("mongoose");
+mongoose.connect("mongodb+srv://gasfgfafa:Aa5jxKhylWdFhv4v@cluster0.7kmvq.mongodb.net/todo-app")
+```
+
+# Testing your app
+
+Try testing your app in Postman next
+
+## Signup endpoint
+![sign up](./images/image%20copy%208.png)
+
+## Signin endpoint
+![sign in](./images/image%20copy%209.png)
+
+## Create Todo
+![create todo](./images/image%20copy%2010.png)
+
+## Get todos
+![get todos](./images/image%20copy%2011.png)
+
+## Check the database
+![check the database](./images/image%20copy%2012.png)
+![check the database](./images/image%20copy%2013.png)
+
+# Improvements
+
+1. Password is not hashed
+2. A single crash (duplicate email) crashes the whole app
+3. Add more endpoints (mark todo as done)
+4. Add timestamp at which todo was created/the time it needs to be done by
+5. Relationships in Mongo
+6. Add validations to ensure email and password are correct format
+
+# Hashing password
+
+## Why should you hash passwords?
+
+Password hashing is a technique used to securely store passwords in a way that makes them difficult to recover or misuse. Instead of storing the actual password, you store a hashed version of it.
+
+- We store the hashed password in DB
+- When the user signed in they send the original password only, I again convert it in hashed password and check it with the hashed password in the DB.
+- Hashed passwords are deterministic means always the password which is hashed will be the same
+- but the downside is what if the two user have the same password, their hashed password will be the same
+- We need to figure out that if the passwords of users are same their hash if different (here come the concept of salting)
+![improvments](./images/image%20copy%2014.png)
+
+## salt
+
+A popular approach to hashing passwords involves using a hashing algorithm that incorporates a salt—a random value added to the password before hashing. This prevents attackers from using precomputed tables (rainbow tables) to crack passwords.
+![salting](./images/image%20copy%2015.png)
+
+- This salt is added with the password and then hashed, we store this hashed value with the salt in DB, now the user password is same but cause of salt added to the password, the hashed value is different
+
+## bcrypt
+
+**Bcrypt**: It is a cryptographic hashing algorithm designed for securely hashing passwords. Developed by Niels Provos and David Mazières in 1999, bcrypt incorporates a salt and is designed to be computationally expensive, making brute-force attacks more difficult.
+
+## Base code
+
+We’re starting from yesterday’s code - https://github.com/100xdevs-cohort-3/week-7-mongo
+
+## Adding password encryption
+
+- Install the `bcrypt` library - https://www.npmjs.com/package/bcrypt
+![adding bcrypt](./images/image%20copy%2016.png)
+- Update the `/signup` endpoint
+
+```jsx
+app.post("/signup", async function(req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+    const name = req.body.name;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    await UserModel.create({
+        email: email,
+        password: hashedPassword,
+        name: name
+    });
+    
+    res.json({
+        message: "You are signed up"
+    })
+});
+
+```
+
+- example - $2b$10$0T7x3xKUTBjaN0l/KSymFuOFv2G0ovxoSjuu4gGxT7NjiRVjxN8zi
+- $2b is the version of bcrypt, $10 is the iterations, then the salt and then the  hashed password
+- Password format
+    
+    ![Screenshot 2024-09-15 at 6.48.32 PM.png](attachment:02fe0cd0-304f-47e0-af73-9bcae196ccd9:Screenshot_2024-09-15_at_6.48.32_PM.png)
+    
+    ![Screenshot 2024-09-15 at 6.51.34 PM.png](attachment:507c3334-4c13-494a-bb9f-c137de151688:Screenshot_2024-09-15_at_6.51.34_PM.png)
+    
+    So, putting it all together:
+    
+    - **`$2b$`**: Version of bcrypt.
+    - **`10$`**: Cost factor (saltRounds).
+    - **`wyemvgfpjkEzg2dzuRyM9e`**: Salt value (base64 encoded).
+    - **`LrQZnT69X/tj0KW/zM6TZhnrvT.TCne`**: Hashed password (base64 encoded).
+    
+- Update the `signin` function
+
+```jsx
+app.post("/signin", async function(req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const user = await UserModel.findOne({
+        email: email,
+    });
+
+    const passwordMatch = bcrypt.compare(password, user.password);
+    if (user && passwordMatch) {
+        const token = jwt.sign({
+            id: user._id.toString()
+        }, JWT_SECRET);
+
+        res.json({
+            token
+        })
+    } else {
+        res.status(403).json({
+            message: "Incorrect creds"
+        })
+    }
+});
+```
+
+# Error handling
+
+Right now, the server crashes if you sign up using duplicate email
+
+How can you fix this?
+
+## Approach #1 - Try catch
+
+In JavaScript, a `try...catch` block is used for handling exceptions and errors that occur during the execution of code. It allows you to write code that can manage errors gracefully rather than crashing the application or causing unexpected behavior.
+
+```jsx
+try {
+  // Attempt to execute this code
+  let result = riskyFunction(); // This function might throw an error
+  console.log('Result:', result);
+} catch (error) {
+  // Handle the error if one is thrown
+  console.error('An error occurred:', error.message);
+} finally {
+  // This block will always execute
+  console.log('Cleanup code or final steps.');
+}
+
+```
+
+- Updated signin function
+    
+    ```jsx
+    app.post("/signup", async function(req, res) {
+        try {
+            const email = req.body.email;
+            const password = req.body.password;
+            const name = req.body.name;
+        
+            const hasedPassword = await bcrypt.hash(password, 10);
+        
+            await UserModel.create({
+                email: email,
+                password: hasedPassword,
+                name: name
+            });
+            
+            res.json({
+                message: "You are signed up"
+            })
+        } catch(e) {
+            res.status(500).json({
+                message: "Error while signing up"            
+            })
+        }
+    });
+    ```
+    
+    # Input validation
+    
+    In TypeScript, Zod is a library used for schema validation and parsing. It's designed to help developers define, validate, and manage data structures in a type-safe manner. 
+    
+    Docs - https://zod.dev/
