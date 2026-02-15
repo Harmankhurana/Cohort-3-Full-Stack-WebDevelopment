@@ -33,7 +33,8 @@ app.post("/signup" , async function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
-    try {
+    try {   // Right now, the server crashes if you sign up using duplicate email, How can I fix this? I can fix this using try/catch method which used for error handling
+
         const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
         console.log(hashedPassword); // console.log the hashedPassword in terminal
 
@@ -42,15 +43,16 @@ app.post("/signup" , async function (req, res) {
             email: email,
             password: hashedPassword,   // example - $2b$10$0T7x3xKUTBjaN0l/KSymFuOFv2G0ovxoSjuu4gGxT7NjiRVjxN8zi
         });
-
-        res.json({
-            message: "You're Signed up",
-    })
     } catch(e) {
         res.status(500).json({
             message: "Error while signing up"
         })
     }
+
+    res.json({
+        message: "You're Signed up",
+    })
+
 });
 
 
