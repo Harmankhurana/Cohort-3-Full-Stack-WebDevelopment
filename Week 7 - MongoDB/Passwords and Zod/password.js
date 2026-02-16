@@ -34,6 +34,14 @@ app.post("/signup" , async function (req, res) {
     const email = req.body.email; // should contain @
     const password = req.body.password; // should contain Uppercase, Lowercase, password > 10 char and have special char
 
+    // One way to do this to use if else
+    if (typeof email !=="string" || email.length < 5 || !email.includes(@)) {
+        res.json({
+            message: "Incorrect email"
+        });
+        return;
+    }
+
     try {   // Right now, the server crashes if you sign up using duplicate email, How can I fix this? I can fix this using try/catch method which used for error handling
         const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
         console.log(hashedPassword); // console.log the hashedPassword in terminal
