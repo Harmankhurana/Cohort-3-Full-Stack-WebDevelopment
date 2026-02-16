@@ -143,8 +143,8 @@ app.post("/todo" , auth, async function (req, res) {
     const done = req.body.done;
 
     await TodoModel.create({
+        userId,        
         title,
-        userId,
         done,
     })
 
