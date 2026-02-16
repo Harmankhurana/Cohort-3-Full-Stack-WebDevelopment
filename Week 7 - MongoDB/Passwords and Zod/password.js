@@ -66,7 +66,7 @@ app.post("/signup" , async function (req, res) {
     // But a better way to do this is to use an external library called ZOD to do input validation
 
     try {   // Right now, the server crashes if you sign up using duplicate email, How can I fix this? I can fix this using try/catch method which used for error handling
-        const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
+        const hashedPassword = await bcrypt.hash(password, saltRounds); // hashing the password here (it's a promisified approch)
         console.log(hashedPassword); // console.log the hashedPassword in terminal
 
         await UserModel.create({    // it will hung here, cause I didn't connected the DB but when i connect it will work and send data to DB.
