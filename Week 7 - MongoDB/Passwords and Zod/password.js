@@ -38,6 +38,17 @@ app.post("/signup" , async function (req, res) {
         email: z.string(), // i can add .min(3).max(100).email() for more specific
         password: z.string(), // i can .min(3).max(100) for more specific
     })
+
+    // const parsedData = requiredBody.parse(req.body); // or use
+    const parsedDataWithSuccess = requiredBody.safeParse(req.body); // for paresing requiredBody zod object in req.body
+
+    if (!parsedDataWithSuccess.success) { // If parsedDataWithSuccess is true(then we are good to go) but if parsedDataWithSuccess is false(this means user tried to use different thing and it failed )
+        res.json({
+            message: "Incorrect format"
+        });
+        return;
+    }
+
     // There should be input validation - so that no one sends the server incorrect credentials
     const name = req.body.name; // Always String
     const email = req.body.email; // should contain @
