@@ -36,15 +36,16 @@ app.post("/signup" , async function (req, res) {
     const requiredBody = z.object({
         name: z.string(), // i can add .min(3).max(100) for more specific
         email: z.string(), // i can add .min(3).max(100).email() for more specific
-        password: z.string(), // i can .min(3).max(100) for more specific
+        password: z.string(), // i can .min(3).max(30) for more specific like upper case or lowercase
     })
 
     // const parsedData = requiredBody.parse(req.body); // or use
     const parsedDataWithSuccess = requiredBody.safeParse(req.body); // for paresing requiredBody zod object in req.body
 
-    if (!parsedDataWithSuccess.success) { // If parsedDataWithSuccess is true(then we are good to go) but if parsedDataWithSuccess is false(this means user tried to use different thing and it failed )
+    if (!parsedDataWithSuccess.success) { // If parsedDataWithSuccess is true(then we are good to go) but if parsedDataWithSuccess is false(this means user tried to use different thing and it failed)
         res.json({
-            message: "Incorrect format"
+            message: "Incorrect format",
+            error: parsedDataWithSuccess.error, // sending the actual error to the user
         });
         return;
     }
