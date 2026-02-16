@@ -29,9 +29,10 @@ mongoose.connect(DB);
 
 
 app.post("/signup" , async function (req, res) {
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+    // There should be input validation - so that no one sends the server incorrect credentials
+    const name = req.body.name; // Always String
+    const email = req.body.email; // should contain @
+    const password = req.body.password; // should contain Uppercase, Lowercase, password > 10 char and have special char
 
     try {   // Right now, the server crashes if you sign up using duplicate email, How can I fix this? I can fix this using try/catch method which used for error handling
         const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
