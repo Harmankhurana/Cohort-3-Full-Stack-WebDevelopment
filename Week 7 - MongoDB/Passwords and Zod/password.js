@@ -32,6 +32,12 @@ mongoose.connect(DB);
 
 
 app.post("/signup" , async function (req, res) {
+    // Defining the schema by using zod object
+    const requiredBody = z.object({
+        name: z.string(),
+        email: z.strict(),
+        password: z.string(),
+    })
     // There should be input validation - so that no one sends the server incorrect credentials
     const name = req.body.name; // Always String
     const email = req.body.email; // should contain @
