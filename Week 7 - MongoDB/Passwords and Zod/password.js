@@ -14,6 +14,9 @@ dotenv.config();
 
 const mongoose = require("mongoose");
 
+// Importing Zod external library for input validation
+const { z } = require("zod");
+
 const app = express();
 
 app.use(express.json());
@@ -34,13 +37,15 @@ app.post("/signup" , async function (req, res) {
     const email = req.body.email; // should contain @
     const password = req.body.password; // should contain Uppercase, Lowercase, password > 10 char and have special char
 
-    // One way to do this to use if else
-    if (typeof email !=="string" || email.length < 5 || !email.includes(@)) {
-        res.json({
-            message: "Incorrect email"
-        });
-        return;
-    }
+    // // One way to do this to do Input validation I can use if else - but this logic is too verbose, had to use alot of checks
+    // if (typeof email !=="string" || email.length < 5 || !email.includes("@")) {
+    //     res.json({
+    //         message: "Incorrect email"
+    //     });
+    //     return;
+    // }
+
+    // But a better way to do this is to use an external library called ZOD to do input validation
 
     try {   // Right now, the server crashes if you sign up using duplicate email, How can I fix this? I can fix this using try/catch method which used for error handling
         const hashedPassword = await bcrypt.hash(password, 10); // hashing the password here (it's a promisified approch)
