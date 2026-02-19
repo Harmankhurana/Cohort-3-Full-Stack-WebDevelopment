@@ -9,6 +9,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 const DB = process.env.DB;
 const saltRounds = 10;
+const JWT_SECRET = USER_APP;
 
 app.post('/signup', async function (req, res) {
     const requiredBody = z.object({
@@ -51,9 +52,19 @@ app.post('/signup', async function (req, res) {
 });
 
 app.post('/login', async function (req, res) {
-    
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const response = jwt.sign({
+
+    }, JWT_SECRET)
 });
 
+function auth (req, res, next){
+    const response = jwt.verify({
+        token,
+    }, JWT_SECRET)
+};
 
 app.post('/purchase', async function (req, res) {
     
