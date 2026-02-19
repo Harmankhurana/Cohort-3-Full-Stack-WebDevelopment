@@ -1,13 +1,53 @@
 import express from 'express';
 import { jwt } from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import { z } from 'zod';
+import bcrypt from 'bcrypt';
 
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT;
+const DB = process.env.DB;
+const saltRounds = 10;
 
 app.post('/signup', async function (req, res) {
-    
+    const requiredBody = z.object({
+        name: z.string(),
+        email: z.string(),
+        password: z.string(),
+    });
+
+    const parsedDataWithSuccess = requiredBody.safeParse(req.body);
+
+    if(!parsedDataWithSuccess.success) {
+        res.json({
+            message: "Incorrect format",
+            error: parsedDataWithSuccess,
+        })
+    }
+
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+
+    try {
+        const hashedPassword = bcrypt.hash(password, saltRounds);
+        console.log(hashedPassword);
+
+        await UserModel.create({
+            name: name,
+            email: email,
+            password: hashedPassword,
+        })
+
+        res.json({
+            message: "You're signed up"
+        })
+    } catch (e) {
+        res.json({
+            message: "Error in signing up"
+        })
+    }
 });
 
 app.post('/login', async function (req, res) {
