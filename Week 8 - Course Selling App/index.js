@@ -6,13 +6,14 @@ const app = express();
 dotenv.config();
 const PORT = process.env.PORT;
 
+app.post('/signup', async function (req, res) {
+    
+});
+
 app.post('/login', async function (req, res) {
     
 });
 
-app.post('/signup', async function (req, res) {
-    
-});
 
 app.post('/purchase', async function (req, res) {
     
