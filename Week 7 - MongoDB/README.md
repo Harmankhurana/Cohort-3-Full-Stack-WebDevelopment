@@ -501,3 +501,41 @@ try {
     In TypeScript, Zod is a library used for schema validation and parsing. It's designed to help developers define, validate, and manage data structures in a type-safe manner. 
     
     Docs - https://zod.dev/
+
+- One way to do this to do Input validation I can use if else - but this logic is too verbose, had to use a lot of checks
+
+```jsx
+if (typeof email !=="string" || email.length < 5 || !email.includes("@")) {
+      res.json({
+         message: "Incorrect email"
+            });
+       return;
+       }
+```
+
+- But a better way to do this is to use an external library called ZOD to do input validation
+
+```jsx
+// Defining the schema by using zod object
+    const requiredBody = z.object({
+        name: z.string(), // i can add .min(3).max(100) for more specific
+        email: z.string(), // i can add .min(3).max(100).email() for more specific
+        password: z.string(), // i can .min(3).max(30) for more specific like upper case or lowercase
+    })
+// const parsedData = requiredBody.parse(req.body); // or use
+    const parsedDataWithSuccess = requiredBody.safeParse(req.body); // for paresing requiredBody zod object in req.body
+
+    if (!parsedDataWithSuccess.success) { // If parsedDataWithSuccess is true(then we are good to go) but if parsedDataWithSuccess is false(this means user tried to use different thing and it failed )
+        res.json({
+            message: "Incorrect format",
+            error: parsedDataWithSuccess.error, // sending the actual error to the user       
+        });
+        return;
+    }
+```
+
+![Correct signup](./images/image%20copy%2019.png)
+
+![Incorrect signup](./images/image%20copy%2020.png)
+
+- Assignment - Check that the password has 1 uppercase character, 1Lowercase character, 1 special character (go to zod documents)
