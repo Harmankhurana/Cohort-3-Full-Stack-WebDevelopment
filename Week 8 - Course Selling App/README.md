@@ -23,9 +23,9 @@ function createUserRoutes(app) {
 
 	});
 
-	app.post('/user/signin'), async function (req, res) {
+	app.post('/user/signin', async function (req, res) {
 
-	};
+	});
 
 	app.get('/user/purchases', async function (req, res) {
     

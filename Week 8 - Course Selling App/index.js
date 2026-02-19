@@ -4,14 +4,14 @@ import dotenv from 'dotenv';
 import { z } from 'zod';
 import bcrypt from 'bcrypt';
 
-const app = express();
+const userRouter = express();
 dotenv.config();
 const PORT = process.env.PORT;
 const DB = process.env.DB;
 const saltRounds = 10;
 const JWT_SECRET = USER_APP;
 
-app.post('/user/signup', async function (req, res) {
+userRouter.post('/user/signup', async function (req, res) {
     const requiredBody = z.object({
         name: z.string(),
         email: z.string(),
@@ -51,7 +51,7 @@ app.post('/user/signup', async function (req, res) {
     }
 });
 
-app.post('/user/signin'), async function (req, res) {
+userRouter.post('/user/signin'), async function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
@@ -66,18 +66,40 @@ function auth (req, res, next){
     }, JWT_SECRET)
 };
 
-app.get('/user/purchases', async function (req, res) {
+userRouter.get('/user/purchases', async function (req, res) {
     
 });
 
-app.post('/course/purchase', async function (req, res) {
+userRouter.post('/course/purchase', async function (req, res) {
     
 });
 
-app.get('/courses', async function (req, res) {
+userRouter.get('/course', async function (req, res) {
     
 });
 
-app.listen(PORT, () => {
+userRouter.listen(PORT, () => {
     console.log(`Server is running`);
 });
+
+
+
+
+
+// const express = require('express');
+// const Router = express.Router;
+// or
+const { Router } = require('express');
+const userRouter = Router();
+
+	userRouter.post('/signup', async function (req, res) {
+
+	});
+
+	userRouter.post('/signin', async function (req, res) {
+
+	});
+
+	userRouter.get('/purchases', async function (req, res) {
+    
+	});
