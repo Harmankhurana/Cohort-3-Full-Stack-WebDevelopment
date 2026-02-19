@@ -11,7 +11,7 @@ const DB = process.env.DB;
 const saltRounds = 10;
 const JWT_SECRET = USER_APP;
 
-app.post('/signup', async function (req, res) {
+app.post('/user/signup', async function (req, res) {
     const requiredBody = z.object({
         name: z.string(),
         email: z.string(),
@@ -51,14 +51,14 @@ app.post('/signup', async function (req, res) {
     }
 });
 
-app.post('/login', async function (req, res) {
+app.post('/user/signin'), async function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
     const response = jwt.sign({
 
     }, JWT_SECRET)
-});
+}
 
 function auth (req, res, next){
     const response = jwt.verify({
@@ -66,11 +66,15 @@ function auth (req, res, next){
     }, JWT_SECRET)
 };
 
-app.post('/purchase', async function (req, res) {
+app.get('/user/purchases', async function (req, res) {
     
 });
 
-app.post('/course', async function (req, res) {
+app.post('/course/purchase', async function (req, res) {
+    
+});
+
+app.get('/course', async function (req, res) {
     
 });
 
