@@ -56,3 +56,10 @@ module.export({
 ```
 
 - Importing these routes in index.js
+``` jsx
+	const { createUserRoutes } = require("./routes/user");
+	const { createCourseRoutes } = require("./routes/course");
+	
+	createUserRoutes(app);
+	createCourseRoutes(app);
+``` 
