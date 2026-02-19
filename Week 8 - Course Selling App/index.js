@@ -74,7 +74,7 @@ app.post('/course/purchase', async function (req, res) {
     
 });
 
-app.get('/course', async function (req, res) {
+app.get('/courses', async function (req, res) {
     
 });
 

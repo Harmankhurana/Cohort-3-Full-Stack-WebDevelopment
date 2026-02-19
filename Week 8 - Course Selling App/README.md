@@ -9,3 +9,50 @@
 - Define the schema for User, Admin, Course, Purchase
 - Complete the routes for user login, signup, purchase a course, see course (Extra points - Use express routing to better structure your routes)
 - Create the frontend
+
+# Routing in Express
+
+- Routing in [**Express.js**](https://expressjs.com/en/guide/routing.html) is **the process of determining how an application responds to a client request for a specific endpoint (a URI path) and HTTP method (GET, POST, PUT, DELETE, etc.)**.
+- One way to do routing is to put different routes in routes folders and export them from there
+- and then import all the routes in index.js
+- User Routes -
+
+```jsx
+function createUserRoutes(app) {
+	app.post('/user/signup', async function (req, res) {
+
+	});
+
+	app.post('/user/signin'), async function (req, res) {
+
+	};
+
+	app.get('/user/purchases', async function (req, res) {
+    
+	});
+}
+
+module.export({
+	createUserRoutes: createUserRoutes,
+	});
+```
+
+- Course Routes -
+
+```jsx
+function createCourseRoutes (app) {
+	app.post('/course/purchase', async function (req, res) {
+    
+	});
+
+	app.get('/courses', async function (req, res) {
+    
+	});
+}
+
+module.export({
+	createCourseRoutes: createCourseRoutes 
+})
+```
+
+- Importing these routes in index.js
