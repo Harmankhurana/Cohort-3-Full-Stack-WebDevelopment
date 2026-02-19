@@ -1,4 +1,3 @@
-import express from 'express';
 import { Router } from 'express';
 // or
 // const { Router } = require('express');
@@ -16,6 +15,4 @@ userRouter.get('/purchases', async function (req, res) {
     
 });
 
-module.exports = {
-    userRouter: userRouter,
-}
+export { userRouter };
