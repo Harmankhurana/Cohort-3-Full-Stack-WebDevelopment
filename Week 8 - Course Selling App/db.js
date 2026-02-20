@@ -1,36 +1,50 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema();
-const objectId = Schema.Types.ObjectId;
+mongoose.connect();
+const { Schema } = mongoose;
+// or const Schema = mongoose.Schema;
+const ObjectId = Schema.Types.ObjectId;
 
 const userSchema = new Schema({
-    id: objectId,
-    email: String,
+    email: {
+        type: String,
+        unique: true,
+        required: true,
+    },
     password: String,
     firstName: String,
     lastName: String,
 });
 
 const courseSchema = new Schema({
-    id: objectId,
     title: String,
     description: String,
-    price: number,
+    price: Number,
     imageUrl: String,
-    creatorId: objectId,
+    creatorId: {
+        type: Schema.Types.ObjectId,
+        ref: "admin"
+    },
 });
 
 const adminSchema = new Schema({
-    id: objectId,
-    email: String,
+    email: {
+        type: String,
+        unique: true,
+    },
     password: String,
     firstName: String,
     lastName: String,
 });
 
 const purchaseSchema = new Schema({
-    id: objectId,
-    courseId: objectId,
-    userId: objectId,
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: "user"
+    },    
+    courseId: {
+        type: Schema.Types.ObjectId,
+        ref: "course",
+    },
 });
 
 
