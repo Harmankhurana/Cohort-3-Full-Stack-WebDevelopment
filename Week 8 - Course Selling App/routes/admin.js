@@ -1,5 +1,6 @@
 import { Router } from 'express';
 const adminRouter = Router();
+import { AdminModel } from '../db.js';
 
 adminRouter.post('/signup', function(req, res) {
 
@@ -21,4 +22,4 @@ adminRouter.get('/course', function(req, res) {
     
 });
 
-export { adminRouter };
+export { adminRouter , AdminModel };

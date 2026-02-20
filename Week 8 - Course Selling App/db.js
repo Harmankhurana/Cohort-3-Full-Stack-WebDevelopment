@@ -1,5 +1,11 @@
 import mongoose from "mongoose";
-mongoose.connect();
+import dotenv from 'dotenv';
+dotenv.config();
+
+const DB = process.env.DB;
+
+mongoose.connect(DB);
+
 const { Schema } = mongoose;
 // or const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
