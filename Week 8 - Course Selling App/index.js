@@ -16,8 +16,8 @@ app.use('/api/v1/course', courseRouter);
 
 
 // connecting the Database first and then running the server
-function connectionFirst() {
-    mongoose.connect(DB);
+async function connectionFirst() {
+    await mongoose.connect(DB);
     app.listen(PORT, () => {
         console.log(`Server is running`);
     });    

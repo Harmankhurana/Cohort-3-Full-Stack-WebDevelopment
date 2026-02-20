@@ -16,4 +16,4 @@ userRouter.get('/purchases', async function (req, res) {
     
 });
 
-export { userRouter };
+export { userRouter , UserModel };

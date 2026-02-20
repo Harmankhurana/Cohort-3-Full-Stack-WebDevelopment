@@ -10,4 +10,4 @@ courseRouter.get('/', async function (req, res) {
     
 });
 
-export { courseRouter };
+export { courseRouter , CourseModel };
