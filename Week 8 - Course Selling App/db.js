@@ -15,6 +15,17 @@ const userSchema = new Schema({
     lastName: String,
 });
 
+const adminSchema = new Schema({
+    email: {
+        type: String,
+        unique: true,
+    },
+    password: String,
+    firstName: String,
+    lastName: String,
+});
+
+
 const courseSchema = new Schema({
     title: String,
     description: String,
@@ -26,15 +37,6 @@ const courseSchema = new Schema({
     },
 });
 
-const adminSchema = new Schema({
-    email: {
-        type: String,
-        unique: true,
-    },
-    password: String,
-    firstName: String,
-    lastName: String,
-});
 
 const purchaseSchema = new Schema({
     userId: {
@@ -49,8 +51,8 @@ const purchaseSchema = new Schema({
 
 
 const UserModel = mongoose.model('user', userSchema);
-const CourseModel = mongoose.model('course', courseSchema);
 const AdminModel = mongoose.model('admin', adminSchema);
+const CourseModel = mongoose.model('course', courseSchema);
 const PurchasesModel = mongoose.model('purchase', purchaseSchema);
 
 export {
