@@ -4,14 +4,14 @@ import { jwt } from 'jsonwebtoken';
 import { z } from 'zod';
 const adminRouter = Router();
 import { AdminModel } from '../db.js';
-import { parse } from 'dotenv';
 
 const saltRounds = 10;
 const JWT_SECRET = USER_APP;
 
 adminRouter.post('/signup', async function(req, res) {
     const requiredBody = z.object({
-        name: z.string(),
+        firstName: z.string(),
+        lastName: z.string(),
         email: z.string(),
         password: z.string(),
     });
@@ -25,16 +25,19 @@ adminRouter.post('/signup', async function(req, res) {
         })
     };
 
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+    // const name = req.body.name;
+    // const email = req.body.email;
+    // const password = req.body.password;
+    // or
+    const { firstName, lastName, email, password } = req.body;
 
     try {
     const hashedPassword = bcrypt.hash(password, saltRounds);
     console.log(hashedPassword);
 
     await AdminModel.create({
-        name: name,
+        firstName: firstName,
+        lastName: lastName,
         email: email,
         password: hashedPassword,
     });
@@ -48,12 +51,27 @@ adminRouter.post('/signup', async function(req, res) {
     }
 });
 
-adminRouter.post('/signin', function(req, res) {
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
+adminRouter.post('/signin', async function(req, res) {
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
 
-    const response = bcrypt.compare(password, hashedPassword);
+        const response = await AdminModel.findOne({
+            email: email,
+        })
+
+        const passwordMatch = await bcrypt.compare(password, response.password);
+        if(response, passwordMatch){
+            const token = jwt.sign({
+                id: response._id.toString(),
+            }, JWT_SECRET);
+        }
+    } catch (e) {
+
+    }
+
+
+    
     if(!response){
         res.json({
             message: "Incorrect credentials",
@@ -63,15 +81,15 @@ adminRouter.post('/signin', function(req, res) {
     
 });
 
-adminRouter.post('/', function(req, res) {
+adminRouter.post('/course', function(req, res) {
     
 });
 
-adminRouter.put('/', function(req, res) {
+adminRouter.put('/course', function(req, res) {
     
 });
 
-adminRouter.get('/bulk', function(req, res) {
+adminRouter.get('/course/bulk', function(req, res) {
     
 });
 
