@@ -11,11 +11,10 @@
 - Create the frontend
 
 # Good to haves
-
-Use cookies instead of JWT for auth
-Add a rate limiting middleware
-Frontend in ejs (low pri)
-Frontend in React
+- Use cookies instead of JWT for auth
+- Add a rate limiting middleware
+- Frontend in ejs (low pri)
+- Frontend in React
 
 # Routing in Express
 
