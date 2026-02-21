@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { bcrypt } from 'bcrypt';
-import { jwt } from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 const adminRouter = Router();
 import { AdminModel } from '../db.js';
 
 const saltRounds = 10;
-const JWT_SECRET = USER_APP;
+const JWT_SECRET = "USER_APP";
 
 adminRouter.post('/signup', async function(req, res) {
     const requiredBody = z.object({
@@ -32,7 +32,7 @@ adminRouter.post('/signup', async function(req, res) {
     const { firstName, lastName, email, password } = req.body;
 
     try {
-    const hashedPassword = bcrypt.hash(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     console.log(hashedPassword);
 
     await AdminModel.create({
@@ -41,14 +41,15 @@ adminRouter.post('/signup', async function(req, res) {
         email: email,
         password: hashedPassword,
     });
-    res.json({
-        message: "You're signedup to admin page"
-    })
+
     } catch (e) {
         res.json({
             message: "Something went wrong while signing up"
         })
-    }
+    }    
+    res.json({
+        message: "You're signed up to admin page"
+    })
 });
 
 adminRouter.post('/signin', async function(req, res) {

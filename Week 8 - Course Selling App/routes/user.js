@@ -1,17 +1,19 @@
 import { Router } from 'express';
 // or
 // const { Router } = require('express');
-import { jwt } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { z } from 'zod';
-import { bcrypt } from 'bcrypt';
+import bcrypt  from 'bcrypt';
 const userRouter = Router();
 import { UserModel } from '../db.js';
 
 const saltRounds = 10;
+const JWT_SECRET = "USER_APP";
 
 userRouter.post('/signup', async function (req, res) {
         const requiredBody = z.object({
-        name: z.string(),
+        firstName: z.string(),
+        lastName:z.string(),
         email: z.string(),
         password: z.string(),
     });
@@ -33,7 +35,7 @@ userRouter.post('/signup', async function (req, res) {
     const { firstName, lastName, email, password } = req.body;
 
     try {
-    const hashedPassword = bcrypt.hash(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     console.log(hashedPassword);
 
     await UserModel.create({
