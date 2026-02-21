@@ -1,8 +1,13 @@
 import { Router } from 'express';
 // or
 // const { Router } = require('express');
+import { jwt } from 'jsonwebtoken';
+import { z } from 'zod';
+import { bcrypt } from 'bcrypt';
 const userRouter = Router();
 import { UserModel } from '../db.js';
+
+const saltRounds = 10;
 
 userRouter.post('/signup', async function (req, res) {
         const requiredBody = z.object({
@@ -18,6 +23,7 @@ userRouter.post('/signup', async function (req, res) {
             message: "Incorrect format",
             error: parseDataWithSuccess,
         })
+        return;
     };
 
     // const name = req.body.name;
@@ -36,17 +42,44 @@ userRouter.post('/signup', async function (req, res) {
         email: email,
         password: hashedPassword,
     });
-    res.json({
-        message: "You're signedup to admin page"
-    })
+
     } catch (e) {
         res.json({
             message: "Something went wrong while signing up"
         })
-    }
+    }    
+    res.json({
+        message: "You're signed up to user page"
+    })
 });
 
 userRouter.post('/signin', async function (req, res) {
+    const { email, password } = req.body;
+
+    const response = await UserModel.findOne({
+        email: email,
+    });
+
+    if(!response) {
+        res.json({
+            message: "User does not exist"
+        })
+    };
+
+    const passwordMatch = await bcrypt.compare(password, response.password);
+
+    if(passwordMatch){
+        const token = jwt.sign({
+            id: response._id.toString(),
+        }, JWT_SECRET);
+        res.json({
+            token: token,
+        });
+    } else {
+        res.json({
+            message: "Incorrect credentails"
+        })
+    }
 
 });
 
