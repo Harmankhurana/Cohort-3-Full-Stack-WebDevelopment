@@ -53,34 +53,34 @@ adminRouter.post('/signup', async function(req, res) {
 });
 
 adminRouter.post('/signin', async function(req, res) {
-    try {
         // const email = req.body.email;
         // const password = req.body.password;
-        const { email , password } = req.body;
+    const { email , password } = req.body;
 
-        const response = await AdminModel.findOne({
-            email: email,
-        })
+    const response = await AdminModel.findOne({
+        email: email,
+    });
 
-        const passwordMatch = await bcrypt.compare(password, response.password);
-        if(response, passwordMatch){
+    if(!response){
+        res.json({
+            message: "User does not exist in our DB!",
+        });
+    }
+        
+    const passwordMatch = await bcrypt.compare(password, response.password);
+
+        if(passwordMatch){
             const token = jwt.sign({
                 id: response._id.toString(),
             }, JWT_SECRET);
+            res.json({
+                token: token,
+            });
+        } else {
+            res.json({
+                message: "Incorrect credentials"
+            });
         }
-    } catch (e) {
-
-    }
-
-
-    
-    if(!response){
-        res.json({
-            message: "Incorrect credentials",
-        });
-    }
-
-    
 });
 
 adminRouter.post('/course', function(req, res) {
