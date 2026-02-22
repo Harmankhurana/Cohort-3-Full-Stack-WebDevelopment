@@ -64,7 +64,7 @@ userRouter.post('/signin', async function (req, res) {
 
     if(!response) {
         res.json({
-            message: "User does not exist"
+            message: "User does not exist in our DB!"
         })
     };
 
@@ -82,7 +82,6 @@ userRouter.post('/signin', async function (req, res) {
             message: "Incorrect credentails"
         })
     }
-
 });
 
 userRouter.get('/purchases', async function (req, res) {
