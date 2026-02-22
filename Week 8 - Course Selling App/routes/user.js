@@ -8,7 +8,7 @@ const userRouter = Router();
 import { UserModel } from '../db.js';
 
 const saltRounds = 10;
-const JWT_SECRET = "USER_APP";
+const JWT_USER_PASSWORD = "USER_APP"; // different JWT password for USER
 
 userRouter.post('/signup', async function (req, res) {
         const requiredBody = z.object({
@@ -73,7 +73,7 @@ userRouter.post('/signin', async function (req, res) {
     if(passwordMatch){
         const token = jwt.sign({
             id: response._id.toString(),
-        }, JWT_SECRET);
+        }, JWT_USER_PASSWORD);
         res.json({
             token: token,
         });
