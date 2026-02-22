@@ -6,7 +6,7 @@ const adminRouter = Router();
 import { AdminModel } from '../db.js';
 
 const saltRounds = 10;
-const JWT_SECRET = "USER_APP";
+const JWT_ADMIN_PASSWORD = "ADMIN_APP"; // different JWT password for ADMIN
 
 adminRouter.post('/signup', async function(req, res) {
     const requiredBody = z.object({
@@ -72,7 +72,7 @@ adminRouter.post('/signin', async function(req, res) {
         if(passwordMatch){
             const token = jwt.sign({
                 id: response._id.toString(),
-            }, JWT_SECRET);
+            }, JWT_ADMIN_PASSWORD);
             res.json({
                 token: token,
             });
