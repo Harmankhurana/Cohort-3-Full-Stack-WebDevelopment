@@ -6,7 +6,6 @@ const adminRouter = Router();
 import { AdminModel } from '../db.js';
 
 const saltRounds = 10;
-const JWT_ADMIN_PASSWORD = "ADMIN_APP"; // different JWT password for ADMIN
 
 adminRouter.post('/signup', async function(req, res) {
     const requiredBody = z.object({

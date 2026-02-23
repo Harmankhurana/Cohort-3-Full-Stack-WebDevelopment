@@ -8,7 +8,6 @@ const userRouter = Router();
 import { UserModel } from '../db.js';
 
 const saltRounds = 10;
-const JWT_USER_PASSWORD = "USER_APP"; // different JWT password for USER
 
 userRouter.post('/signup', async function (req, res) {
         const requiredBody = z.object({
