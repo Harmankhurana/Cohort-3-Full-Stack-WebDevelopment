@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 const adminRouter = Router();
 import { AdminModel } from '../db.js';
+import { JWT_ADMIN_PASSWORD } from '../config.js';
 
 const saltRounds = 10;
 
