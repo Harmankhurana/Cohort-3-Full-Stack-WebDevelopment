@@ -7,6 +7,7 @@ import bcrypt  from 'bcrypt';
 const userRouter = Router();
 import { UserModel } from '../db.js';
 import { JWT_USER_PASSWORD } from '../config.js';
+import { userMiddleware } from "../middlewares/user.middleware.js"
 
 const saltRounds = 10;
 
