@@ -108,15 +108,21 @@ adminRouter.put('/course', adminMiddleware, async function(req, res) {
     const { title, description, price, imageUrl, courseId } = req.body;
 
     const course = await CourseModel.updateOne({
-        id: courseId,
-    }, {
+        // when these two checks are meet then only the admin who created the course can update it
+        _id: courseId,
+        courseId: adminId,
+    }, 
+    {
         title: title,
         description: description,
         price: price,
         imageUrl: imageUrl,
     });
 
-
+    res.json({
+        message: "Course Updated",
+        creatorId: course._id,
+    });
 });
 
 adminRouter.get('/course/bulk', adminMiddleware, function(req, res) {
