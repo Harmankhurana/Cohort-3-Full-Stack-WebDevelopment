@@ -106,11 +106,11 @@ adminRouter.post('/course', adminMiddleware, async function(req, res) {
 adminRouter.put('/course', adminMiddleware, async function(req, res) {
     const adminId = req.userId;
 
-    const { title, description, imageUrl } = "";
+    const { title, description, price, imageUrl } = req.body;
 });
 
 adminRouter.get('/course/bulk', adminMiddleware, function(req, res) {
     
 });
 
-export { adminRouter , AdminModel };
+export { adminRouter , AdminModel };s
