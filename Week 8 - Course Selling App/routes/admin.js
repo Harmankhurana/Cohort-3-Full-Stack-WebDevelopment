@@ -125,7 +125,7 @@ adminRouter.put('/course', adminMiddleware, async function(req, res) {
     });
 });
 
-adminRouter.get('/course/bulk', adminMiddleware, function(req, res) {
+adminRouter.get('/course/bulk', adminMiddleware, async function(req, res) {
     
 });
 
