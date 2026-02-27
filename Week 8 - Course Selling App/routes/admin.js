@@ -113,4 +113,4 @@ adminRouter.get('/course/bulk', adminMiddleware, function(req, res) {
     
 });
 
-export { adminRouter , AdminModel };s
+export { adminRouter , AdminModel };
