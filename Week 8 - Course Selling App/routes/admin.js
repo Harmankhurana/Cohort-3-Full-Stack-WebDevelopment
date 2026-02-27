@@ -105,16 +105,15 @@ adminRouter.post('/course', adminMiddleware, async function(req, res) {
 
 adminRouter.put('/course', adminMiddleware, async function(req, res) {
     const adminId = req.userId;
-    const { title, description, price, imageUrl } = req.body;
+    const { title, description, price, imageUrl, courseId } = req.body;
 
     const course = await CourseModel.updateOne({
-        
+        id: courseId,
     }, {
         title: title,
         description: description,
         price: price,
         imageUrl: imageUrl,
-        creatorId: adminId,
     });
 
 
