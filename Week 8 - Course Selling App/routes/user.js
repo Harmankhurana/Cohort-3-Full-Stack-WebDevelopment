@@ -85,7 +85,7 @@ userRouter.post('/signin', async function (req, res) {
     }
 });
 
-userRouter.get('/purchases', async function (req, res) {
+userRouter.get('/purchases', userMiddleware, async function (req, res) {
     
 });
 

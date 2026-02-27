@@ -84,15 +84,15 @@ adminRouter.post('/signin', async function(req, res) {
         }
 });
 
-adminRouter.post('/course', function(req, res) {
+adminRouter.post('/course', adminMiddleware, function(req, res) {
     
 });
 
-adminRouter.put('/course', function(req, res) {
+adminRouter.put('/course', adminMiddleware, function(req, res) {
     
 });
 
-adminRouter.get('/course/bulk', function(req, res) {
+adminRouter.get('/course/bulk', adminMiddleware, function(req, res) {
     
 });
 

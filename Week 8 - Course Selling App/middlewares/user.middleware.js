@@ -1,4 +1,4 @@
-import { jwt } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { JWT_USER_PASSWORD } from "../config.js";
 
 function userMiddleware(req, res, next) {
