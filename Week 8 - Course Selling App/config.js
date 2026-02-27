@@ -1,5 +1,5 @@
-const JWT_ADMIN_PASSWORD = "ADMIN_APP"; // different JWT password for ADMIN
-const JWT_USER_PASSWORD = "USER_APP"; // different JWT password for USER
+const JWT_ADMIN_PASSWORD = process.env.JWT_ADMIN_PASSWORD; // different JWT password for ADMIN
+const JWT_USER_PASSWORD = process.env.JWT_USER_PASSWORD; // different JWT password for USER
 
 export {
     JWT_ADMIN_PASSWORD,

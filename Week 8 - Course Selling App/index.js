@@ -8,7 +8,7 @@ import { adminRouter } from './routes/admin.js';
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT || 3000;
-const DB = process.env.DB;
+const MONGO_URL = process.env.MONGO_URL;
 
 app.use(express.json());
 
@@ -19,7 +19,7 @@ app.use('/api/v1/course', courseRouter);
 
 // connecting the Database first and then running the server
 async function connectionFirst() {
-    await mongoose.connect(DB);
+    await mongoose.connect(MONGO_URL);
     console.log("MongoDB is connected");
     app.listen(PORT, () => {
         console.log(`Server is running`);

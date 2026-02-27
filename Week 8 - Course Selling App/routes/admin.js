@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 const adminRouter = Router();
-import { AdminModel } from '../db.js';
+import { AdminModel, CourseModel } from '../db.js';
 import { JWT_ADMIN_PASSWORD } from '../config.js';
 import { adminMiddleware } from '../middlewares/admin.middleware.js';
 
@@ -105,8 +105,19 @@ adminRouter.post('/course', adminMiddleware, async function(req, res) {
 
 adminRouter.put('/course', adminMiddleware, async function(req, res) {
     const adminId = req.userId;
-
     const { title, description, price, imageUrl } = req.body;
+
+    const course = await CourseModel.updateOne({
+        
+    }, {
+        title: title,
+        description: description,
+        price: price,
+        imageUrl: imageUrl,
+        creatorId: adminId,
+    });
+
+
 });
 
 adminRouter.get('/course/bulk', adminMiddleware, function(req, res) {
