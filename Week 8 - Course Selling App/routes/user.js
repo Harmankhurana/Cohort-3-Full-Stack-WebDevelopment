@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import bcrypt  from 'bcrypt';
 const userRouter = Router();
-import { UserModel } from '../db.js';
+import { PurchasesModel, UserModel } from '../db.js';
 import { JWT_USER_PASSWORD } from '../config.js';
 import { userMiddleware } from "../middlewares/user.middleware.js"
 
@@ -86,7 +86,15 @@ userRouter.post('/signin', async function (req, res) {
 });
 
 userRouter.get('/purchases',userMiddleware, async function (req, res) {
-    
+    const userId = req.userId;
+
+    const purchases = await PurchasesModel.find({
+        userId: userId,
+    });
+
+    res.json({
+        purchases,
+    });
 });
 
 export { userRouter , UserModel };
