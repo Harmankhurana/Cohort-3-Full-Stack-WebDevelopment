@@ -18,8 +18,14 @@ courseRouter.post('/purchase', userMiddleware, async function (req, res) {
     })
 });
 
-courseRouter.get('/preview', userMiddleware, async function (req, res) {
-    
+// Don't have to use userMiddleware here, couse everyone can see the courses preview without buying it
+courseRouter.get('/preview', async function (req, res) {
+    const course = CourseModel.find({});
+
+    res.json({
+        message: "all the courses",
+        course,
+    })
 });
 
 export { courseRouter , CourseModel };
