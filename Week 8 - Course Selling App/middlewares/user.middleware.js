@@ -6,7 +6,8 @@ function userMiddleware(req, res, next) {
 
     const response = jwt.verify(
         token,
-        JWT_USER_PASSWORD);
+        JWT_USER_PASSWORD
+    );
 
     if(response){
         req.userId = response.id;
