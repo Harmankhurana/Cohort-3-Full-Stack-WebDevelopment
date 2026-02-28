@@ -4,9 +4,9 @@ import { JWT_USER_PASSWORD } from "../config.js";
 function userMiddleware(req, res, next) {
     const token = req.headers.token;
 
-    const response = jwt.verify({
+    const response = jwt.verify(
         token,
-    }, JWT_USER_PASSWORD);
+        JWT_USER_PASSWORD);
 
     if(response){
         req.userId = response.id;
