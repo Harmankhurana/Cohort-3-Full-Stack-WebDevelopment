@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 import bcrypt  from 'bcrypt';
 const userRouter = Router();
-import { PurchasesModel, UserModel } from '../db.js';
+import { CourseModel, PurchasesModel, UserModel } from '../db.js';
 import { JWT_USER_PASSWORD } from '../config.js';
 import { userMiddleware } from "../middlewares/user.middleware.js"
 
@@ -92,8 +92,19 @@ userRouter.get('/purchases',userMiddleware, async function (req, res) {
         userId: userId,
     });
 
+    let puchasedCourseIds = [];
+
+    for (let i = 0 ; i < puchasedCourseIds.length ; i++){
+        puchasedCourseIds.push(purchases[i].courseId);
+    }
+
+    const courseData = await CourseModel.find({
+        _id: { $in: puchasedCourseIds }
+    })
+
     res.json({
         purchases,
+        courseData,
     });
 });
 
