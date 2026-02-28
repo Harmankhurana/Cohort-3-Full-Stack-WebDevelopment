@@ -1,12 +1,24 @@
 import { Router } from "express";
 const courseRouter = Router();
+import { userMiddleware } from "../middlewares/user.middleware.js";
 import { CourseModel } from "../db.js";
+import { PurchasesModel } from "../db.js";
 
-courseRouter.post('/purchase', async function (req, res) {
+courseRouter.post('/purchase', userMiddleware, async function (req, res) {
+    const userId = req.userId;
+    const courseId = req.body.courseId;
 
+    await PurchasesModel.create({
+        userId,
+        courseId,
+    });
+
+    res.json({
+        message: "You have successfully bought the course"
+    })
 });
 
-courseRouter.get('/', async function (req, res) {
+courseRouter.get('/preview', userMiddleware, async function (req, res) {
     
 });
 
