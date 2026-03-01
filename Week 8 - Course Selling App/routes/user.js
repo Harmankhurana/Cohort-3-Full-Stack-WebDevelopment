@@ -85,7 +85,7 @@ userRouter.post('/signin', async function (req, res) {
     }
 });
 
-userRouter.get('/purchases',userMiddleware, async function (req, res) {
+userRouter.get('/purchases', userMiddleware, async function (req, res) {
     const userId = req.userId;
 
     const purchases = await PurchasesModel.find({
