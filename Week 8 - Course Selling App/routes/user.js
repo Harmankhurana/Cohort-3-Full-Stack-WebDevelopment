@@ -12,7 +12,7 @@ import { userMiddleware } from "../middlewares/user.middleware.js"
 const saltRounds = 10;
 
 userRouter.post('/signup', async function (req, res) {
-        const requiredBody = z.object({
+    const requiredBody = z.object({
         firstName: z.string(),
         lastName:z.string(),
         email: z.string(),
