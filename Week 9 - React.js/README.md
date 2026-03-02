@@ -45,7 +45,177 @@ npm create vite@latest
 # Components
 
 In React, components are the building blocks of the user interface. They allow you to split the UI into independent, re-usable pieces that can be thought of as custom, self-contained HTML elements.
+![component](./images/image.png)
 
 ---
 
-![component](./images/image.png)
+# useState
+
+`useState` is a Hook that lets you add state to functional components. It returns an array with the current state and a function to update it.
+
+```jsx
+import React, { useState } from 'react';
+
+const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+};
+```
+---
+
+# Notification count code
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  return (
+    <div style={{background: "#dfe6e9", height: "100vh" }}>
+      <ToggleMessage />
+      <ToggleMessage />
+      <ToggleMessage />
+    </div>
+  )
+}
+
+// the component isnt re-rendering
+// because we havent used a state variable
+
+const ToggleMessage = () => {
+  let [notificationCount, setNotificationCount] = useState(0);
+
+  console.log("re-render");
+  function increment() {
+    setNotificationCount(notificationCount + 1);
+  }
+
+  return (
+      <div>
+          <button onClick={increment}>
+              Increase count
+          </button>
+          {notificationCount}
+      </div>
+  );
+};
+
+```
+--- 
+
+# Post component
+
+```jsx
+
+const style = { width: 200, backgroundColor: "white", borderRadius: 10, borderColor: "gray", borderWidth: 1, padding: 20 }
+
+export function PostComponent({name, subtitle, time, image, description}) {
+  return <div style={style}> 
+    <div style={{display: "flex"}}>
+      <img src={image} style={{
+        width: 30,
+        height: 30,
+        borderRadius: 20
+      }} />
+      <div style={{fontSize: 10, marginLeft: 10}}>
+        <b>
+          {name}
+        </b>
+        <div>{subtitle}</div>
+        {(time !== undefined) ? <div style={{display: 'flex'}}>
+          <div>{time}</div>      
+          <img src={"https://media.istockphoto.com/id/931336618/vector/clock-vector-icon-isolated.jpg?s=612x612&w=0&k=20&c=I8EBJl8i6olqcrhAtKko74ydFEVbfCQ6s5Pbsx6vfas="} style={{width: 12, height: 12}} />
+        </div> : null}
+      </div>
+    </div>
+    <div style={{fontSize: 12}}>
+     {description}
+    </div>
+ </div>
+}
+```
+
+- Solution
+    
+    ```jsx
+    import { useState } from "react";
+    import { PostComponent } from "./Post";
+    
+    function App() {
+      const [posts, setPosts] = useState([]);
+    
+      const postComponents = posts.map(post => <PostComponent
+        name={post.name}
+        subtitle={post.subtitle}
+        time={post.title}
+        image={post.image}
+        description={post.description}
+      />)
+    
+      function addPost() {
+        setPosts([...posts, {
+          name: "harkirat",
+          subtitle: "10000 followers",
+          time: "2m ago",
+          image: "https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg",
+          description: "What to know how to win big? Check out how these folks won $6000 in bounties."
+        }])
+      }
+    
+      return (
+        <div style={{background: "#dfe6e9", height: "100vh", }}>
+          <button onClick={addPost}>Add post</button>
+          <div style={{display: "flex", justifyContent: "center" }}>
+            <div>
+              {postComponents}
+            </div>
+          </div>
+        </div>
+      )
+    }
+    
+    export default App
+    
+    ```
+    
+---
+
+# Tracking re-renders
+
+Install the react dev tools to track which components are re-rendering as your state changes
+
+https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1
+
+- Creating a button just by using own component/state/Re-Rendering code
+
+    ```jsx
+        let state = {
+        	count: 0;
+        }
+        
+        function onButtonPress() {
+        	state.count = state.count + 1;
+        	buttonComponentReRender();	
+        }
+        
+        function buttonComponentReRender() {
+        	document.getElementById("buttonParent").innerHTML = "";
+        	const componet = buttonComponent(state.count);
+        	document.getElementById("buttonParent").appendChild(component);
+        }
+        
+        function buttonComponent(count) {
+        	const button = document.createElement("button");
+        	button.innerHTML = "Counter " + count;
+        	button.setAttribute("onclick", `onButtonPress()`);
+        	return button;
+        }
+        
+        // this is how the function converts in HTML
+        // <button onclick = "onButtonPress">Counter 0</button>
+    ```
