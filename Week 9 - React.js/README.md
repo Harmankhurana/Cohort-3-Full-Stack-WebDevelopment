@@ -219,3 +219,34 @@ https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadoplj
         // this is how the function converts in HTML
         // <button onclick = "onButtonPress">Counter 0</button>
     ```
+---
+
+# JSX (JavaScript XML)
+
+- It is a syntax extension for JS, most commonly used with React, a popular JS library for building UI.
+- JSX allows you to write HTML-like code directly withing JS.
+- This makes it easier to create and manage the user interface in React applications.
+- Making button component using react
+
+```jsx
+import { useState } from 'react';
+import './App.css';
+
+export default function App() {
+	const [count, setCount] = useState(0); // [1, 2]
+	
+	function onClickHandler() {
+		setCouse(count + 1);
+	}
+	
+	return (
+	<div>
+		<Button onClickHandler={onClickHandlet}></Button>
+	</div>
+	);
+}
+
+function Button(props) {
+	return <button onClick={props.onClickHandler}>Counter {count}</button>;
+```
+
