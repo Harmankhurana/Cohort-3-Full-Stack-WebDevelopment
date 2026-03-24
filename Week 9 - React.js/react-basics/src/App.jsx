@@ -4,14 +4,21 @@ import { useState } from "react"
 function App() {
   const [count, setCount] = useState(0);
 
-  // function for changing the count state
-  function counter() {
+  // function for changing the count state - increment function
+  function increment() {
     setCount(count + 1);
+  }
+
+  // function for changing the count state - decrement function
+  function decrement() {
+    setCount(count - 1);
   }
 
   return (
     <>
-      <button onClick={counter}>Add value: {count}</button>
+      <div>{count}</div>
+      <button onClick={increment}>Increment value</button>
+      <button onClick={decrement}>Decrement value</button>
     </>
   )
 }
