@@ -14,11 +14,17 @@ function App() {
     setCount(count - 1);
   }
 
+  // function for changing the count state - reset function
+  function reset() {
+    setCount(0);
+  }
+
   return (
     <>
       <div>{count}</div>
       <button onClick={increment}>Increment value</button>
       <button onClick={decrement}>Decrement value</button>
+      <button onClick={reset}>Reset value</button>
     </>
   )
 }
