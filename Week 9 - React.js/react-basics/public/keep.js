@@ -1,0 +1,1 @@
+// Normal js file for keeping the public folder tracked
