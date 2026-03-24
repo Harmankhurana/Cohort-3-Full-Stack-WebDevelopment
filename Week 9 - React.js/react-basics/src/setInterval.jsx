@@ -51,6 +51,4 @@ function SetInterval () {
     )
 }
 
-
-
 export default SetInterval
