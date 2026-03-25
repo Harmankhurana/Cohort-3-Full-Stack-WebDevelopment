@@ -266,7 +266,7 @@ export default fucntion App() {
 function addTodo() {
 	let newArray = [];
 	for (let i = 0 ; i < todos.length ; i++) {
-		newArray.push(todos[i]0;
+		newArray.push(todos[i]0);
 }
 newArray.push({
 	title: document.getElementById('title').value,
@@ -299,3 +299,135 @@ return <div>
 7. The algo react uses to differentiate the web browser's tree and React's tree formed through create root is called reconciliation.
 8. Reconciliation is the algo behind what popularly known as the Virtual-DOM.
 9. In UI it is not necessary for every update to be applied immediately
+
+---
+# Lifecycle Events of React
+
+## 1. Mounting (Birth of the Component)
+
+This is when your component is **created and added to the DOM**.
+
+### What happens:
+
+- Component function runs
+- JSX gets rendered on screen
+- State is initialized
+
+### Example:
+
+```jsx
+useEffect(() => {
+  console.log("Component mounted");
+}, []);
+```
+
+- The empty dependency array [ ] means : runs only once when the component loads
+
+## 2. Re-rendering / Updating
+
+This happens when something changes and React needs to **update the UI**.
+
+### Triggers:
+
+- State change (`setState`)
+- Props change
+- Parent component re-renders
+
+### Example:
+
+```jsx
+useEffect(() => {
+  console.log("Component updated");
+});
+```
+
+- No dependency array means: Runs after **every render**
+
+Or more controlled:
+
+```jsx
+useEffect(() => {
+  console.log("Count changed");
+}, [count]);
+```
+
+- Runs only when `count` changes
+
+## 3. Unmounting (Death of Component)
+
+This is when the component is **removed from the DOM**.
+
+### Use case:
+
+- Clean up things like:
+    - `setInterval`
+    - Event listeners
+    - API subscriptions
+
+### Example:
+
+```jsx
+useEffect(() => {
+console.log("Mounted");
+
+return () => {
+console.log("Component unmounted");
+  };
+}, []);
+```
+
+- The `return` function = cleanup function, Runs when component is remove
+
+# useEffect Hook
+
+Before we understand `useEffect` , let’s understand what are `Side effects`.
+
+## Side effects
+
+Side effects are operations that interact with the outside world or have effects beyond the component's rendering. Examples include:
+
+- **Fetching data** from an API.
+- **Modifying the DOM** manually.
+- **Subscribing to events** (like WebSocket connections, timers, or browser events).
+- **Starting a clock**
+
+These are called side effects because they don't just compute output based on the input—they affect things outside the component itself.
+
+---
+
+### Problem in running side effects in React components
+
+If you try to introduce side effects directly in the rendering logic of a component (in the return statement or before it), React would run that code every time the component renders. This can lead to:
+
+- **Unnecessary or duplicated effects** (like multiple API calls).
+- **Inconsistent behavior** (side effects might happen before rendering finishes).
+- **Performance issues** (side effects could block rendering or cause excessive re-rendering).
+
+---
+
+## **How `useEffect` Manages Side Effects:**
+
+The `useEffect` hook lets you perform side effects in functional components in a safe, predictable way:
+
+```jsx
+useEffect(() => {
+  // Code here is the "effect" — this is where side effects happen
+  fetchData();
+
+  // Optionally, return a cleanup function that runs when the component unmounts.
+  return () => {
+    // Cleanup code, e.g., unsubscribing from an event or clearing timers.
+  };
+}, [/* dependencies */]);
+```
+
+- **The first argument** to `useEffect` is the effect function, where you put the code that performs the side effect.
+- **The second argument** is the dependencies array, which controls when the effect runs. This array tells React to re-run the effect only when certain values (props or state) change. If you pass an empty array `[]`, the effect will only run **once** after the initial render.
+- **Optional Cleanup**: If your side effect needs cleanup (e.g., unsubscribing from a WebSocket, clearing intervals), `useEffect` allows you to return a function that React will call when the component unmounts or before re-running the effect.
+
+---
+
+## To recap
+
+`useEffect` is a Hook that lets you perform side effects in functional components. It can be used for data fetching, subscriptions, or manually changing the DOM.
+![Count](./images/image%20copy.png)
