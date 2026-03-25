@@ -5,6 +5,6 @@ import SetInterval from './setInterval'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <SetInterval />
+    <App />
   </StrictMode>,
 )
