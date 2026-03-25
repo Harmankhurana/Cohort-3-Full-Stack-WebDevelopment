@@ -9,7 +9,7 @@ function ConditionalRendering() {
 
     return (
         <div>
-            {counterVisible ? <Counter></Counter> : null}
+            {counterVisible ? <Counter /> : null}
         </div>
     )
 
