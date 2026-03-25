@@ -18,17 +18,17 @@ function SetInterval () {
         // hooking into the lifecycle event of react
         console.log("counter");
 
-        // gaurd our setInterval from re-renders
-        useEffect(function() {
-            setInterval(function() {
-                setCount(function(count) {
-                    return count + 1;
-                })
-            }, 1000)
-            console.log("Mounted")
-        }, []);
+    //     // gaurd our setInterval from re-renders
+    //     useEffect(function() {
+    //         setInterval(function() {
+    //             setCount(function(count) {
+    //                 return count + 1;
+    //             })
+    //         }, 1000)
+    //         console.log("Mounted")
+    //     }, []);
 
-/* 
+
         useEffect(() => {
         console.log("Mounted");
 
@@ -42,7 +42,7 @@ function SetInterval () {
             console.log("Unmounted");
         };
     }, []);
-*/
+
 
     return (
         <div>
