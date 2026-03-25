@@ -10,20 +10,22 @@ function ConditionalRendering() {
     return (
         <div>
             {counterVisible ? <Counter></Counter> : null}
-            {counterVisible && <Counter></Counter>}
         </div>
     )
 
     function Counter() {
 
         const [count, setCount] = useState(0);
+
         console.log("Counter");
 
         useEffect(function() {
-            setInterval(function() {
-                setCount(count => count + 1)
-            })
-        })
+            const interval = setInterval(function() {
+                setCount((count) => count + 1)
+            }, 1000);
+
+            return () => clearInterval(interval);
+        }, [])
 
         return(
             <h1>{count}</h1>
