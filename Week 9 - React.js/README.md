@@ -497,3 +497,68 @@ const Timer = () => {
 };
 
 ```
+
+## Fetching data
+
+```jsx 
+import React, { useState, useEffect } from 'react';
+
+const UserList = () => {
+    const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://jsonplaceholder.typicode.com/users');
+                const data = await response.json();
+                setUsers(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []); // Empty dependency array means this runs once when the component mounts.
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <ul>
+            {users.map(user => (
+                <li key={user.id}>{user.name}</li>
+            ))}
+        </ul>
+    );
+};
+
+export default UserList;
+
+```
+# Conditional Rendering
+
+- Showing different UI based on a condition
+- You can render different components or elements based on certain conditions.
+- Just like in JavaScript you use `if`, `else`, or `ternary`, React lets you decide **what to render on the screen depending on state, props, or any condition**.
+
+```jsx
+import React, { useState } from 'react';
+
+const ToggleMessage = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    return (
+        <div>
+            <button onClick={() => setIsVisible(!isVisible)}>
+                Toggle Message
+            </button>
+            {isVisible && <p>This message is conditionally rendered!</p>}
+        </div>
+    );
+};
+
+```
