@@ -1,5 +1,6 @@
 // Showing different UI based on a condition
 // I can render different components or elements based on certain conditions.
+// useEffect is used at the time of mounting and ignored during re-rendering and the function we return in useEffect is called at the time of unmounting
 
 import { useEffect, useState } from "react";
 
