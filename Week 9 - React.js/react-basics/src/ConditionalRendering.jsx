@@ -18,8 +18,11 @@ function ConditionalRendering() {
 
     return (
         <div>
-            {/* {counterVisible ? <Counter /> : null}  */}
-            {counterVisible && <Counter />}
+            {/* {counterVisible ? <Counter /> : null} */}
+            {/* {counterVisible && <Counter />} */}
+
+            {/* in this component, the clock keeps on running and not stopping, and every 5 sec it changes from visible to not visible and vice verse*/}
+            <div style={{visibility : counterVisible ? "visible" : "hidden"}}><Counter /></div> 
         </div>
     )
 }
@@ -29,12 +32,13 @@ function ConditionalRendering() {
         const [count, setCount] = useState(0);
         console.log("Counter");
 
+        // logic for mounting
         useEffect(function() {
             const interval = setInterval(function() {
                 setCount((count) => count + 1)
             }, 1000);
 
-            return () => clearInterval(interval);
+            return () => clearInterval(interval); // clearInvterval stops the clock - logic for unmounting/Cleanup
         }, [])
 
         return(
