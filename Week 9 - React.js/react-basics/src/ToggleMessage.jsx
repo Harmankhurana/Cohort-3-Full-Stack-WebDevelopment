@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 function App() {
     return(
         <div style={{background : "#def6e9", height : "100vh"}}>
@@ -6,8 +8,17 @@ function App() {
     )
 }
 
-function ToggleMessage() {
+const ToggleMessage = () => {
+    // this is called state defination
+    const [isVisible, setIsVisible] = useState(false);
 
+    return(
+        <div>
+            <button onClick={() => setIsVisible(!isVisible)}>
+                Toggle Message
+            </button>
+            {isVisible && <p>This message is conditionally rendered!</p>}
+        </div>
+    )
 }
-
 export default App
