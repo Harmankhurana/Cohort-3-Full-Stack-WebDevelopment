@@ -1,7 +1,23 @@
 function PostComponent() {
     return(
         <div style={{background : "#dfe6e9", height : "100vh"}}>
-            <Post />
+            <div style={{display : "flex", justifyContent : "center"}}>
+                <div>
+                    <div>
+                        <Post />
+                    </div>
+                    <br />
+                    <div>
+                        <Post />
+                    </div>
+                    <br />
+                    <div>
+                        <Post /> 
+                    </div>
+                </div>
+                
+            </div>
+            
         </div>
     )
 }
@@ -12,6 +28,7 @@ const style = {
     borderRadius : 10,
     borderColor : "grey",
     borderWidth : 1,
+    padding : 20,
 }
 
 function Post() {
