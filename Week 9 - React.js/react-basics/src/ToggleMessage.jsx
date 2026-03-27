@@ -11,7 +11,7 @@ function App() {
 const ToggleMessage = () => {
     // this is called state defination(defining a new state variable)
     // When the value of a state variable changes,
-    // The component that uses the state variables changes
+    // The component that uses the state variables re-renders
     const [isVisible, setIsVisible] = useState(false);
 
     return(

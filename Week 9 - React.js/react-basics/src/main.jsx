@@ -6,9 +6,10 @@ import ConditionalRendering from './ConditionalRendering.jsx'
 import TimerToggle from './TimerToggle.jsx'
 import PostComponent from './PostComponent.jsx'
 import Props from './Props.jsx'
+import ToggleMessage from './ToggleMessage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Props />
+    <ToggleMessage />
   </StrictMode>,
 )
