@@ -1,3 +1,5 @@
+// In React, components are the building blocks of the user interface. They allow you to split the UI into independent, 
+// re-usable pieces that can be thought of as custom, self-contained HTML elements (but here im making a static post component)
 function PostComponent() {
     return(
         <div style={{background : "#dfe6e9", height : "100vh"}}>
@@ -15,9 +17,7 @@ function PostComponent() {
                         <Post /> 
                     </div>
                 </div>
-                
             </div>
-            
         </div>
     )
 }

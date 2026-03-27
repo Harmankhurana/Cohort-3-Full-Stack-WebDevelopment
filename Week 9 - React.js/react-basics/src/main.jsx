@@ -5,9 +5,10 @@ import SetInterval from './setInterval.jsx'
 import ConditionalRendering from './ConditionalRendering.jsx'
 import TimerToggle from './TimerToggle.jsx'
 import PostComponent from './PostComponent.jsx'
+import Props from './Props.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <PostComponent />
+    <Props />
   </StrictMode>,
 )
