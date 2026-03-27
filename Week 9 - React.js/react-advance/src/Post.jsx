@@ -20,8 +20,14 @@ export function PostComponent({name, time, subtitle, image, description}) {
                     {name}
                 </b>
                 <div>{subtitle}</div>
+                {(time !== undefined) ? <div style={{display : "flex"}}>
+                    <div>{time}</div>
+                    <img src="https://www.pngfind.com/pngs/m/589-5899814_png-file-svg-clock-icon-transparent-png.png" alt="Clock timer" style={{width : 12, height : 12}}/>
+                </div> : null}
             </div>
         </div>
-
+        <div style={{fontSize : 12}}>
+            {description}
+        </div>
     </div>
 }
