@@ -27,7 +27,6 @@ function App() {
                             <PostComponent
                                 name={"Harkirat"}
                                 subtitle={"Promotion"}
-                                time={"3m ago"}
                                 image={"https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"}
                                 description={"How to get hired in 2024? I lost my Job in 2023, this is the roadmap I followed to get hired in 2024."}
                             />
@@ -75,11 +74,11 @@ function PostComponent({ name, subtitle, time, image, description }) {
                     <b>{name}</b> 
                     <div>{subtitle}</div>
 
-                    {/* I want this time and clock to be conditionally rendered, that's why putting it in curly braces {} */}
-                    { <div style={{display : "flex"}}>
+                    {/* I want this time and clock to be conditionally rendered, that's why putting it in curly braces {}, when time value is passwd then only show me the clock otherwise don't show me the clock too */}
+                    {(time !== undefined) ? <div style={{display : "flex"}}>
                         <div>{time}</div>
                         <img src="https://www.pngfind.com/pngs/m/589-5899814_png-file-svg-clock-icon-transparent-png.png" alt="clock timer" style={{width : 10, height : 10, paddingLeft : 5, marginTop : 2}}/>                        
-                    </div> }
+                    </div> : null}
 
                 </div>
             </div>
