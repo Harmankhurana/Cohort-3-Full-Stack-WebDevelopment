@@ -74,7 +74,11 @@ function PostComponent({ name, followerCount, time, image, description }) {
                 <div style={{ fontSize: 14, marginLeft: 10 }}>
                     <b>{name}</b> 
                     <div>{followerCount} followers</div>
-                    <div>{time}</div>
+                    <div style={{display : "flex"}}>
+                        <div>{time}</div>
+                        <img src="https://www.pngfind.com/pngs/m/589-5899814_png-file-svg-clock-icon-transparent-png.png" alt="clock timer" style={{width : 10, height : 10, paddingLeft : 5, marginTop : 2}}/>                        
+                    </div>
+
                 </div>
             </div>
 
