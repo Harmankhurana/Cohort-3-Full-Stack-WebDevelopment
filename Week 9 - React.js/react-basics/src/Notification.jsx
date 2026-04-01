@@ -2,7 +2,12 @@ import { useState } from "react"
 
 function Notification() {
     return(
-        <NotificationCount />
+        <div>
+            <div><NotificationCount /></div>
+            <div><NotificationCount /></div>
+            <div><NotificationCount /></div>
+        </div>
+        
     )
 }
 
