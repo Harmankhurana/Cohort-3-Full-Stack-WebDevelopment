@@ -1,32 +1,38 @@
-import PostComponent from './Post.jsx'
+import { useState } from "react";
+import PostComponent from "./Post.jsx";
 
 function App() {
-    // In memory array for keeping the post
-    const posts = [{
-          name : "Harman",
-          subtitle : "156k followers",
-          time : "2m ago",
-          image : "https://images.ctfassets.net/ub3bwfd53mwy/5zi8myLobtihb1cWl3tj8L/45a40e66765f26beddf7eeee29f74723/6_Image.jpg?w=750",
-          description : "What to know to win big? Check out how these folks won $6000 in bounties",
-    },]
+  const [posts, setPosts] = useState([]);
+
+  const postComponents = posts.map(post => <PostComponent
+    name={post.name}
+    subtitle={post.subtitle}
+    time={post.time}
+    image={post.image}
+    description={post.description}
+  />)
 
   function addPost() {
-
+    setPosts([...posts, {
+      name: "harkirat",
+      subtitle: "10000 followers",
+      time: "2m ago",
+      image: "https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg",
+      description: "What to know how to win big? Check out how these folks won $6000 in bounties."
+    }])
   }
-  return(
-    <div style={{background : "#def6e9", height : "100vh"}}>
-      <button onClick={addPost}>Add Post</button>
-      <div style={{display : "flex", justifyContent : "center"}}>
-        <PostComponent 
-          name = {"Harman"}
-          subtitle = {"156k followers"}
-          time = {"2m ago"}
-          image = {"https://images.ctfassets.net/ub3bwfd53mwy/5zi8myLobtihb1cWl3tj8L/45a40e66765f26beddf7eeee29f74723/6_Image.jpg?w=750"}
-          description = {"What to know to win big? Check out how these folks won $6000 in bounties"}
-        />
+
+  return (
+    <div style={{background: "#dfe6e9", height: "100vh", }}>
+      <button onClick={addPost}>Add post</button>
+      <div style={{display: "flex", justifyContent: "center" }}>
+        <div>
+          {postComponents}
+        </div>
       </div>
     </div>
   )
 }
 
 export default App
+
