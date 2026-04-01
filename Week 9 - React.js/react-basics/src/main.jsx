@@ -7,9 +7,10 @@ import TimerToggle from './TimerToggle.jsx'
 import PostComponent from './PostComponent.jsx'
 import Props from './Props.jsx'
 import ToggleMessage from './ToggleMessage.jsx'
+import Notication from './Notification.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ToggleMessage />
+    <Notication />
   </StrictMode>,
 )
