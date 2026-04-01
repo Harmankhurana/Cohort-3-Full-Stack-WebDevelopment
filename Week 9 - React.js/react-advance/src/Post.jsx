@@ -2,12 +2,12 @@ const style = {
     width : 200,
     backgroundColor : "white",
     borderRadius : 10,
-    borderColor : "gray",
+    borderColor : "grey",
     borderWidth : 1,
     padding : 20,
 }
 
-export function PostComponent({name, time, subtitle, image, description}) {
+function PostComponent({name, time, subtitle, image, description}) {
     return <div style={{style}}>
         <div style={{display : "flex"}}>
             <img src={image} alt="profile image" style={{
@@ -31,3 +31,5 @@ export function PostComponent({name, time, subtitle, image, description}) {
         </div>
     </div>
 }
+
+export default PostComponent
