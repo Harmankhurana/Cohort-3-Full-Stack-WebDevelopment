@@ -12,6 +12,11 @@ function App() {
     description={post.description}
   />)
 
+  // Making like a spread operator let x = [1, 2, 3];
+  // let y = [...x, 4]; --> [1, 2, 3, 4]
+
+  // this [...posts, {} ] --> do the same thing here, as it adds all the posts
+
   function addPost() {
     setPosts([...posts, {
       name: "harkirat",
