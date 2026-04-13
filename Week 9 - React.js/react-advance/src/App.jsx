@@ -28,9 +28,9 @@ function App() {
   }
 
   return (
-    <div style={{background: "#dfe6e9", height: "100vh", }}>
+    <div style={{ background: "#dfe6e9", height: "100vh", }}>
       <button onClick={addPost}>Add post</button>
-      <div style={{display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <div>
           {postComponents}
         </div>
@@ -40,4 +40,3 @@ function App() {
 }
 
 export default App
-
