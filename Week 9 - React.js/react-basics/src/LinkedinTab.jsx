@@ -1,14 +1,14 @@
 import React, { useState, useSyncExternalStore } from "react";
 
 function LinkedinTab() {
-    const [currentTab, setCurrentTab] = useState('messages');
+    const [currentTab, setCurrentTab] = useState('feed');
 
     return(
         <div>
-            <button style = {{color : currentTab == "feed" ? "red" : "black"}}>Feed</button>
-            <button style = {{color : currentTab == "notifications" ? "red" : "black"}}>Notification</button>
-            <button style = {{color : currentTab == "messages" ? "red" : "black"}}>Message</button>
-            <button style = {{color : currentTab == "jobs" ? "red" : "black"}}>Jobs</button>
+            <button onClick = {() => setCurrentTab("feed")} style = {{color : currentTab == "feed" ? "red" : "black"}}>Feed</button>
+            <button onClick = {() => setCurrentTab("notifications")} style = {{color : currentTab == "notifications" ? "red" : "black"}}>Notification</button>
+            <button onClick = {() => setCurrentTab("messages")} style = {{color : currentTab == "messages" ? "red" : "black"}}>Message</button>
+            <button onClick = {() => setCurrentTab("jobs")} style = {{color : currentTab == "jobs" ? "red" : "black"}}>Jobs</button>
         </div>
 
     )
