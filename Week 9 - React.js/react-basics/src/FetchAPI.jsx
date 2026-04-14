@@ -7,7 +7,7 @@ function TodoApplication() {
 
     useEffect(function() {
         fetch('https://jsonplaceholder.typicode.com/todos/' + currentTab)
-        .this(async (res) => {
+        .then(async (res) => {
             const json = await res.json();
             setTabData(json);
         });
