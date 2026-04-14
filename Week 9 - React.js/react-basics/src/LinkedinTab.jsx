@@ -1,4 +1,4 @@
-import React, { useState, useSyncExternalStore } from "react";
+import React, { useState } from "react";
 
 function LinkedinTab() {
     const [currentTab, setCurrentTab] = useState('feed');
