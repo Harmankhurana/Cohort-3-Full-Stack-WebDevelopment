@@ -6,7 +6,12 @@ function TodoApplication() {
     const [tabData, setTabData] = useState({});
 
     useEffect(function() {
-        fetch('https://jsonplaceholder.typicode.com/todos/' + currentTab);
+        fetch('https://jsonplaceholder.typicode.com/todos/' + currentTab)
+        .this(async res => {
+            const json = await res.json();
+            setTabData(json);
+        })
+
     }, [currentTab])
 
     return(
