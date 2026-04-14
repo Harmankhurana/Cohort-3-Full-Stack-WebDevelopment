@@ -8,9 +8,10 @@ import PostComponent from './PostComponent.jsx'
 import Props from './Props.jsx'
 import ToggleMessage from './ToggleMessage.jsx'
 import Notication from './Notification.jsx'
+import Counter from './useEffectHook.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Notication />
+    <Counter />
   </StrictMode>,
 )
