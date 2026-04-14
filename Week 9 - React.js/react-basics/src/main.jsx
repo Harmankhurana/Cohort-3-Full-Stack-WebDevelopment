@@ -7,13 +7,14 @@ import TimerToggle from './TimerToggle.jsx'
 import PostComponent from './PostComponent.jsx'
 import Props from './Props.jsx'
 import ToggleMessage from './ToggleMessage.jsx'
-import Notication from './Notification.jsx'
+import Notification from './Notification.jsx'
 import Counter from './useEffectHook.jsx'
 import LinkedinTab from './LinkedinTab.jsx'
 import TodoApplication from './FetchAPI.jsx'
+import Card from './Card.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <TodoApplication />
+    <Card />
   </StrictMode>,
 )
