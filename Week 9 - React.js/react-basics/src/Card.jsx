@@ -24,6 +24,15 @@ function ChildrenComponent() {
             "Hi there"
         </Card>
 
+    {/* this is the same 3rd component but with a another syntax */ }
+        <Card>
+            {<div style = {{color :"green"}}>
+                "What You want to post"
+                <br /> <br />
+                <input type="text" />
+            </div>}
+        </Card>
+
     </div>
     
     // Common card component - static component
@@ -33,7 +42,6 @@ function ChildrenComponent() {
                 {children}
             </div>            
         )
-
     }
 }
 
