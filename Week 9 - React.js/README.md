@@ -562,3 +562,18 @@ const ToggleMessage = () => {
 };
 
 ```
+# Props
+- Props are the way to pass data from one component to another in React.
+
+```jsx
+import React from 'react';
+
+const Greeting = ({ name }) => {
+    return <h1>Hello, {name}!</h1>;
+};
+
+const App = () => {
+    return <Greeting name="Alice" />;
+};
+
+```
