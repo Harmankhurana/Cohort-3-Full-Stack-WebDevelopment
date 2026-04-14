@@ -4,12 +4,15 @@ import React, { useEffect, useState } from "react";
 function TodoApplication() {
     const [currentTab, setCurrentTab] = useState(1);
     const [tabData, setTabData] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(function() {
+        setLoading(true);
         fetch('https://jsonplaceholder.typicode.com/todos/' + currentTab)
         .then(async (res) => {
             const json = await res.json();
             setTabData(json);
+            setLoading(false);
         });
 
     }, [currentTab]);
@@ -23,7 +26,7 @@ function TodoApplication() {
             
             <br />
 
-            {tabData.title}
+            {loading ? "Loading..." : tabData.title}
         </div>
     )
 }
