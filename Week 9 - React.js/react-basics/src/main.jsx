@@ -14,6 +14,6 @@ import TodoApplication from './FetchAPI.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <LinkedinTab />
+    <TodoApplication />
   </StrictMode>,
 )

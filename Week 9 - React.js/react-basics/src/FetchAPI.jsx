@@ -7,19 +7,23 @@ function TodoApplication() {
 
     useEffect(function() {
         fetch('https://jsonplaceholder.typicode.com/todos/' + currentTab)
-        .this(async res => {
+        .this(async (res) => {
             const json = await res.json();
             setTabData(json);
-        })
+        });
 
-    }, [currentTab])
+    }, [currentTab]);
 
     return(
         <div>
-            <Button onClick = {() => setCurrentTab(1)} style = {{color : currentTab === 1 ? "red" : "black"}}>Todo #1</Button>
-            <Button onClick = {() => setCurrentTab(2)} style = {{color : currentTab === 2 ? "red" : "black"}}>Todo #2</Button>
-            <Button onClick = {() => setCurrentTab(3)} style = {{color : currentTab === 3 ? "red" : "black"}}>Todo #3</Button>
-            <Button onClick = {() => setCurrentTab(4)} style = {{color : currentTab === 4 ? "red" : "black"}}>Todo #4</Button>
+            <button onClick = {() => setCurrentTab(1)} style = {{color : currentTab === 1 ? "red" : "black"}}>Todo #1 </button>
+            <button onClick = {() => setCurrentTab(2)} style = {{color : currentTab === 2 ? "red" : "black"}}>Todo #2</button>
+            <button onClick = {() => setCurrentTab(3)} style = {{color : currentTab === 3 ? "red" : "black"}}>Todo #3</button>
+            <button onClick = {() => setCurrentTab(4)} style = {{color : currentTab === 4 ? "red" : "black"}}>Todo #4</button>
+            
+            <br />
+
+            {tabData.title}
         </div>
     )
 }
