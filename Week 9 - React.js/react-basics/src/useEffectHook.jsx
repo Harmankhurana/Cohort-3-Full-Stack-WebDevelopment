@@ -11,6 +11,11 @@ function Counter() {
         });
     };
 
+    // Another way of writing this function
+    // function increaseCount() {
+    //     setCount(currentValue = currentValue + 1);
+    // };
+
     useEffect(() => {
         const interval = setInterval(increaseCount, 1000);
 
