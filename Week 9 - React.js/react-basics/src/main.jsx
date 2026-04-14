@@ -9,9 +9,10 @@ import Props from './Props.jsx'
 import ToggleMessage from './ToggleMessage.jsx'
 import Notication from './Notification.jsx'
 import Counter from './useEffectHook.jsx'
+import LinkedinTab from './LinkedinTab.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Counter />
+    <LinkedinTab />
   </StrictMode>,
 )
