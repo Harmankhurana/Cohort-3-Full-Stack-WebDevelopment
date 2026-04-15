@@ -702,5 +702,35 @@ const App = () => {
 
 export default App;
 
-
 ```
+
+# **Lists and Keys**
+
+When rendering lists, each item should have a unique key prop for React to track changes efficiently.
+
+```jsx
+import React from 'react';
+
+const ItemList = ({ items }) => {
+    return (
+        <ul>
+            {items.map(item => (
+                <li key={item.id}>{item.name}</li>
+            ))}
+        </ul>
+    );
+};
+
+const App = () => {
+    const items = [
+        { id: 1, name: 'Item 1' },
+        { id: 2, name: 'Item 2' },
+        { id: 3, name: 'Item 3' },
+    ];
+
+    return <ItemList items={items} />;
+};
+```
+
+Try removing the `key` from the list render
+![Lists and Keys](./images/key.png)
