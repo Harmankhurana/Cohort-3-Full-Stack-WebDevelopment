@@ -7,6 +7,12 @@ const ListsAndKeys = () => {
     }, {
         title : "Eat food",
         done : true,
+    }, {
+        title : "Study React",
+        done : true,
+    }, {
+        title : "Clean Room",
+        done : false,
     }
 ];
 
