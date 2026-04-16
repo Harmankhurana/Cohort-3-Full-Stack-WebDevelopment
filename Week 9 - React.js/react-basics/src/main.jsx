@@ -12,9 +12,10 @@ import Counter from './useEffectHook.jsx'
 import LinkedinTab from './LinkedinTab.jsx'
 import TodoApplication from './FetchAPI.jsx'
 import Card from './Card.jsx'
+import ListsAndKeys from './TodoApplication.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Card />
+    <ListsAndKeys />
   </StrictMode>,
 )
