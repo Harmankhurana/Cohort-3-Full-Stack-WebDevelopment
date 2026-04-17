@@ -734,3 +734,17 @@ const App = () => {
 
 Try removing the `key` from the list render
 ![Lists and Keys](./images/key.png)
+
+# Inline styling
+
+Inline styling in React allows you to apply CSS styles directly to elements using a JavaScript object
+
+```jsx
+function MyComponent() {
+  return (
+    <div style={{ backgroundColor: 'blue', color: 'white' }}>
+      Hello, World!
+    </div>
+  );
+}
+```
