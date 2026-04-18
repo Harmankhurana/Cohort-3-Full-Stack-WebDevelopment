@@ -8,7 +8,10 @@ const InlineStylingComponent = () => {
     );
 
     function InlineStyling() {
-        return ( 
+        return (
+            // Why using Double quotes here? - {} → means JavaScript expression
+            // Inside that → { background: "blue" } is a JavaScript object
+            // "blue" → is a string value
             <div style = {{background : "blue", color : "white"}}>
                 Hello World
             </div>
@@ -17,3 +20,15 @@ const InlineStylingComponent = () => {
 };
 
 export default InlineStylingComponent
+
+
+// Either pass it like this
+// const componentStyling = {background : "blue", color : "white"}
+
+// function InlineStyling() {
+//     return (
+//         <div style = {componentStyling}>
+//             Hello World
+//         </div>
+//     );
+// };
