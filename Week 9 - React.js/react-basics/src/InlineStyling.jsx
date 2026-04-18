@@ -3,13 +3,15 @@
 const InlineStylingComponent = () => {
     return (
         <div>
-            {InlineStyling}
+            <InlineStyling />
         </div>
     );
 
     function InlineStyling() {
-        return( 
-            <div></div>
+        return ( 
+            <div style = {{background : "blue", color : "white"}}>
+                Hello World
+            </div>
         )
     };
 };

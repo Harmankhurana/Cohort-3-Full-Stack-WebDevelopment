@@ -13,9 +13,10 @@ import LinkedinTab from './LinkedinTab.jsx'
 import TodoApplication from './FetchAPI.jsx'
 import Card from './Card.jsx'
 import ListsAndKeys from './TodoApplication.jsx'
+import InlineStylingComponent from './InlineStyling.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ListsAndKeys />
+    <InlineStylingComponent />
   </StrictMode>,
 )
