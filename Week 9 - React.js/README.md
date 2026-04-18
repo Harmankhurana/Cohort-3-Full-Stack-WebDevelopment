@@ -892,6 +892,8 @@ function MyComponent() {
 - Error boundaries are React components that catch JavaScript errors in their child component tree and display a fallback UI.
 - Error boundaries only exist in class based components
 - Error boundaries is the thing that you can't do in functional component
+- Error boundaries are used to prevent the entire application from crashing when there is an issue with an API request; instead, only the specific child component that fails to fetch data is affected.
+- Creates a boundary of error (ki iske bhar nhi jayega error)
 
 ![error boundary](./images/image%20copy%204.png)
 
