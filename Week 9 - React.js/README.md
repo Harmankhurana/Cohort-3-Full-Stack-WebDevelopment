@@ -748,3 +748,6 @@ function MyComponent() {
   );
 }
 ```
+--- 
+
+# Class based vs functional components
