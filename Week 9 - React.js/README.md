@@ -822,7 +822,7 @@ In class components, lifecycle methods are divided into three main phases:
 3. **Unmounting**: When the component is being removed from the DOM.
     - `componentWillUnmount()`: Ideal for cleanup tasks, like invalidating timers or canceling network requests.
 
-### Code
+### Class Based lifecycle events
 
 ```jsx
 class MyComponent extends React.Component {
