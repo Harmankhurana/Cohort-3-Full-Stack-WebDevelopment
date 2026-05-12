@@ -1,4 +1,5 @@
 // A card component where I'm implementing children and Props - a common component that can be used for multiple purposes
+import React from "react";
 
 function ChildrenComponent() {
     // Different children - dynamic component
