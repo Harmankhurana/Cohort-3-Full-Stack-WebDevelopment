@@ -1,5 +1,6 @@
 // Creating a Todo Component and understanding Lists and Keys
 // When rendering lists, each item should have a unique key prop for React to track changes efficiently.
+// When I don't use the keys for list items, a warning comes in console (Each child in a list should have a unique "key" prop.)
 
 const ListsAndKeys = () => {
     const todos = [{
