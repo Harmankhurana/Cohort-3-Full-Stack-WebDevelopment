@@ -1,4 +1,5 @@
 // Inline styling in React allows you to apply CSS styles directly to elements using a JavaScript object
+// But we use Tailwind or bootstrap for applying the styling
 
 const InlineStylingComponent = () => {
     return (
