@@ -4,26 +4,31 @@
 
 const ListsAndKeys = () => {
     const todos = [{
+        id: 1,
         title : "Go to Gym",
         done : false,
     }, {
+        id: 2,
         title : "Eat food",
         done : true,
     }, {
+        id: 3,
         title : "Study React",
         done : true,
     }, {
+        id: 4,
         title : "Clean Room",
         done : false,
     }
 ];
 
-    const todosComponent = todos.map(todo => < Todo title={todo.title} done={todo.done}/>)
-    return (
-        <div>
-            {todosComponent}
-        </div>
-    )
+const todosComponent = todos.map(todo => 
+    <Todo key ={todo.id} title={todo.title} done={todo.done}/>)
+        return (
+            <div>
+                {todosComponent}
+            </div>
+        )
 };
 
 function Todo({title, done}) {
