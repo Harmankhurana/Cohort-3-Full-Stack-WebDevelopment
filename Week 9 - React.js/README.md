@@ -964,5 +964,3 @@ const MyComponent = () => {
     );
 };
 ```
-
---- 
