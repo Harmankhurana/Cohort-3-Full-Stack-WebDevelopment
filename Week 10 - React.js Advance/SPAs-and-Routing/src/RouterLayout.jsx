@@ -1,4 +1,6 @@
-// Creating a Layout - A Layout is just a component that wraps common UI
+// A Layout is a wrapper component used to share common UI across multiple pages
+// It typically contains things like Navbar, Footer, Sidebar, etc.
+// The changing part of the page is rendered using <Outlet />
 // [ Navbar ]
 // [ Page Content ] -> changes depending on the route
 // [ Footer ]
@@ -12,11 +14,10 @@ function ReactRouter() {
         <div>
             {/* making a BrowserRouter wrapper, we will wrap our application in BrowserRouter */}
             <BrowserRouter>
-
-
-
                 {/* here i will define all my routes, container for all routes */}
                 <Routes>
+                    {/* Parent Route using Layout */}
+                    {/* All child routes will be rendered inside Layout's <Outlet /> */}
                     <Route path="/" element = { <Layout /> }>
                         {/* Route → defines path + component(element) and components are always capitalized */}
                         <Route path = "/" element = { <Landing /> } />
@@ -24,7 +25,6 @@ function ReactRouter() {
                         <Route path = "/neet/online-coaching-class-12" element = { <Class12program /> } />
                         <Route path = "*" element = { <ErrorPage /> } />                        
                     </Route>
-
                 </Routes>
             </BrowserRouter>
         </div>
@@ -33,14 +33,20 @@ function ReactRouter() {
 
 function Layout() {
     return <div style={{height: '100vh'}}>
+
         <Header />
+
+        {/* This is the dynamic section of the page */}
         <div style={{height: '90vh'}}>
             <Outlet />
         </div>
+
         footer
     </div>
 }
 
+// Header component → contains navigation links
+// Link is used instead of <a> to avoid full page reload
 function Header() {
     return <div>
         {/* Better way of doing navigation rather than using anchor tag */}
