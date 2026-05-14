@@ -7,9 +7,9 @@ function ReactRouter() {
     return (
         <div>
             {/* dumb way of doing navigation */}
-            <a href="/" >Allen</a> |
-            <a href="/neet/online-coaching-class-11" /> |
-            <a href="/neet/online-coaching-class-12" />
+            <a href="/" >Allen</a> | 
+            <a href="/neet/online-coaching-class-11">Class 11</a> | 
+            <a href="/neet/online-coaching-class-12">Class 12</a>
 
             {/* making a BrowserRouter wrapper, we will wrap our application in BrowserRouter */}
             <BrowserRouter>
