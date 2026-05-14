@@ -12,6 +12,7 @@ function ReactRouter() {
                 <Routes>
                     <Route path = "/neet/online-coaching-class-11" element = { <class11program /> } />
                     <Route path = "/neet/online-coaching-class-12" element = { <class12program /> } />
+                    <Route path = "/" element = { <landing /> } />
                 </Routes>
             </BrowserRouter>
         </div>
@@ -29,6 +30,13 @@ function class11program() {
 function class12program() {
     return (
         <div>NEET programs for 12th class</div>
+    )
+}
+
+// creating a function for landing page
+function landing() {
+    return (
+        <div>Welcome to Allen</div>
     )
 }
 
