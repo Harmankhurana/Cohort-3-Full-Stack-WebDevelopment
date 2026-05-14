@@ -6,17 +6,29 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 function ReactRouter() {
     return (
         <div>
+            {/* dumb way of doing navigation */}
+            <a href="/" >Allen</a> |
+            <a href="/neet/online-coaching-class-11" /> |
+            <a href="/neet/online-coaching-class-12" />
+
             {/* making a BrowserRouter wrapper, we will wrap our application in BrowserRouter */}
             <BrowserRouter>
                 {/* here i will define all my routes, container for all routes */}
                 <Routes>
                     {/* Route → defines path + component(element) and components are always capitalized */}
+                    <Route path = "/" element = { <Landing /> } />
                     <Route path = "/neet/online-coaching-class-11" element = { <Class11program /> } />
                     <Route path = "/neet/online-coaching-class-12" element = { <Class12program /> } />
-                    <Route path = "/" element = { <Landing /> } />
                 </Routes>
             </BrowserRouter>
         </div>
+    )
+}
+
+// creating a function for landing page
+function Landing() {
+    return (
+        <div>Welcome to Allen</div>
     )
 }
 
@@ -31,13 +43,6 @@ function Class11program() {
 function Class12program() {
     return (
         <div>NEET programs for 12th class</div>
-    )
-}
-
-// creating a function for landing page
-function Landing() {
-    return (
-        <div>Welcome to Allen</div>
     )
 }
 
