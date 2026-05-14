@@ -47,7 +47,7 @@ function Class12program() {
     // using useNavigate hook and putting it in a variable called navigate
     const navigate = useNavigate();
     
-    
+    // a function which uses "navigate" variable to navigate back to home/landing page
     function redirectUser() {
         navigate("/");
     }
@@ -55,9 +55,9 @@ function Class12program() {
     return (
         <div>
             <div>NEET programs for 12th class</div>
+            {/* a button which calls the redirectUser function */}
             <button onClick={redirectUser}>Back to Landing Page</button>       
         </div>
-
     )
 }
 
