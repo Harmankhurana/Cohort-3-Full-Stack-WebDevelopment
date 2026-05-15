@@ -3,10 +3,18 @@ import React from "react";
 import { useRef } from "react";
 
 function RouterUseRef() {
-    const use = useRef();
+    // calling useRef hook and putting it in a variable called inputRef
+    const inputRef = useRef();
+
+    // function that uses inputRef variable
+    function FocusOnInput() {
+        // same works as - document.getElementById("name").focus();
+        inputRef.current.focus();
+    }
     return (
         <div>
-            <input id = "name" type="text" />
+            {/* using inputRef here */}
+            <input ref={inputRef} id = "name" type="text" />
             <input type="text" />
             <button>Submit</button>
         </div>
