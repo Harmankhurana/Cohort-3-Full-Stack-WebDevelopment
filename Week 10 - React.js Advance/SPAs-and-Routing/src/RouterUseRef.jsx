@@ -2,6 +2,7 @@
 import React from "react";
 import { useRef } from "react";
 
+// reference to a value, such that when u change the value, the component re-renders
 function RouterUseRef() {
     // calling useRef hook and putting it in a variable called inputRef
     const inputRef = useRef();
