@@ -6,10 +6,11 @@ import RouterLink from './RouterLink.jsx'
 import RouterUseNavigator from './RouterUseNavigate.jsx'
 import RouterRandom from './RouterRandom.jsx'
 import RouterLayout from './RouterLayout.jsx'
+import RouterFocusOnInput from './RouterFocusOnInput.jsx'
 import RouterUseRef from './RouterUseRef.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterUseRef />
+    <RouterFocusOnInput />
   </StrictMode>,
 )
