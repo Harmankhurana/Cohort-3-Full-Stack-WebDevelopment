@@ -13,10 +13,11 @@ function RouterUseRef() {
     }
     return (
         <div>
+            Sign Up
             {/* using inputRef here */}
             <input ref={inputRef} id = "name" type="text" />
             <input type="text" />
-            <button>Submit</button>
+            <button onClick={FocusOnInput}>Submit</button>
         </div>
     )
 }

@@ -11,6 +11,6 @@ import RouterUseRef from './RouterUseRef.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterFocusOnInput />
+    <RouterUseRef />
   </StrictMode>,
 )
