@@ -8,9 +8,10 @@ import RouterRandom from './RouterRandom.jsx'
 import RouterLayout from './RouterLayout.jsx'
 import RouterFocusOnInput from './RouterFocusOnInput.jsx'
 import RouterUseRef from './RouterUseRef.jsx'
+import Clock from './Clock.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterUseRef />
+    <Clock />
   </StrictMode>,
 )
