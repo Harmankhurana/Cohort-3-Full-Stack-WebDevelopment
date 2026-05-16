@@ -1,6 +1,6 @@
 // Creating a clock with a start and stop functionality
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function Clock() {
     const [currentCount, setCurrentCount] = useState(0);
@@ -16,8 +16,14 @@ function Clock() {
         timer.current = value;
     }
 
+    // function for stopping the clock
     function stopClock() {
         clearInterval(timer.current);
+    }
+
+    // function to clear the clock
+    function clearClock() {
+        setCurrentCount(0);
     }
 
     return (
@@ -25,8 +31,8 @@ function Clock() {
             {currentCount}
             <br />
             <button onClick = {startClock} style={{cursor: 'pointer'}}>Start</button>
-            <button onClick  = {stopClock} style={{cursor: 'pointer'}}>Stop</button>
-            <button style={{cursor: 'pointer'}}>Clear</button>
+            <button onClick = {stopClock} style={{cursor: 'pointer'}}>Stop</button>
+            <button onClick = {clearClock} style={{cursor: 'pointer'}}>Clear</button>
         </div>
     )
 }
