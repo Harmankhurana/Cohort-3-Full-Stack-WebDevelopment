@@ -4,19 +4,20 @@ import { useState } from "react";
 
 function Clock() {
     const [currentCount, setCurrentCount] = useState(0);
-    const [timer, setTimer] = useState(0);
+    // let timer = 0; -> not using this cause after every re-render the timer becomes 0
+    // const [timer, setTimer] = useState(0); - > Even though useState persists values, using it for something like an interval ID is not ideal
+    const timer = useRef();
 
     // function for starting the clock
     function startClock() {
         let value = setInterval(() => {
             setCurrentCount(currentCount => currentCount + 1);
         }, 1000);
-        setTimer(value);
+        timer.current = value;
     }
 
     function stopClock() {
-        console.log(timerCount);
-        clearInterval(timerCount);
+        clearInterval(timer.current);
     }
 
     return (
