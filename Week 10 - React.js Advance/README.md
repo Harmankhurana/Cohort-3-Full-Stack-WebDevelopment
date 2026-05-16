@@ -197,7 +197,7 @@ export default Chat;
 
 https://stackoverflow.com/questions/270612/scroll-to-bottom-of-div
 
-![Screenshot 2024-10-12 at 7.13.16 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/085e8ad8-528e-47d7-8922-a23dc4016453/6b5c0752-612f-48e8-9077-574be93a0bcf/Screenshot_2024-10-12_at_7.13.16_PM.png)
+![stackoverflow](./images/image.png)
 
 ### 3. Clock with start and stop functionality
 
