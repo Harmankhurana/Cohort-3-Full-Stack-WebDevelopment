@@ -1,5 +1,6 @@
 // Creating a Light Bulb component -> which turns off/on when a button is clicked
 import React from "react";
+import { useState } from "react";
 
 function Bulb() {
     return (
@@ -19,6 +20,7 @@ function LightBulb() {
 }
 
 function BulbState() {
+    const [bulbOn, setBulbOn] = useState(true);
     return (
         <div>
 
