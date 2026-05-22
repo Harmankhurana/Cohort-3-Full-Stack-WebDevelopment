@@ -23,7 +23,7 @@ function BulbState() {
     const [bulbOn, setBulbOn] = useState(true);
     return (
         <div>
-
+            {bulbOn ? "Bull On" : "Bulb Off"}
         </div>
     )
 }
