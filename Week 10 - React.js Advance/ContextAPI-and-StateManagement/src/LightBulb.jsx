@@ -17,15 +17,18 @@ function LightBulb() {
     const [bulbOn, setBulbOn] = useState(true);
     return (
         <div>
+
             {/* Passing buldOn here */}
             <BulbState bulbOn = {bulbOn} />
+
             {/* Passing setBublOn here */}
             <ToggleBulbState setBulbOn = {setBulbOn} />
         </div>
     )
 }
 
-function BulbState() {
+// function for bulbState and catching the bulbOn in it
+function BulbState({bulbOn}) {
     return (
         <div>
             {bulbOn ? "Bulb On" : "Bulb Off"}
@@ -33,10 +36,24 @@ function BulbState() {
     )
 }
 
-function ToggleBulbState() {
+// function for toggleBulbState and catching the setBulbOn in it
+function ToggleBulbState({setBulbOn}) {
+    // function for toggling the button from false to true and vice versa
+    function Toggle() {
+        // method 1 -> to toggle the state
+        setBulbOn(currentState => !currentState)
+        // method 2 -> to toggle the state
+        // setBulbOn(function(currentState) {
+        //     if (currentState == true) {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // });
+    }
     return (
         <div>
-            <button>Toggle the bulb</button>
+            <button onClick={Toggle}>Toggle the bulb</button>
         </div>
     )
 }
