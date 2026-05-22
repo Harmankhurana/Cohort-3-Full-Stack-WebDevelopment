@@ -17,7 +17,7 @@ function LightBulbWrapper() {
     return (
         <div>
             <LightBulbState bulbOn = {bulbOn} />
-            <handleBulbToggle setBulbOn = {setBulbOn} />
+            <HandleBulbToggle setBulbOn = {setBulbOn} />
         </div>
     )
 }
@@ -25,15 +25,14 @@ function LightBulbWrapper() {
 function LightBulbState({bulbOn}) {
     return (
         <div>
-            {bulbOn ? <img src = {} /> : <img src = {} />}
+            {bulbOn ? <img src = {onBulb} /> : <img src = {offBulb} height="350px"/>}
         </div>
     )
-
 }
 
-function handleBulbToggle({setBulbOn}) {
+function HandleBulbToggle({setBulbOn}) {
     function Toggle() {
-        setBulbOn(currentStatus = !currentStatus)
+        setBulbOn(currentStatus => !currentStatus)
     }
 
     return (
