@@ -21,11 +21,23 @@ function LightBulbWrapper() {
 }
 
 function LightBulbState({bulbOn}) {
+    return (
+        <div>
+            {bulbOn ? <img src = {} /> : <img src = {} />}
+        </div>
+    )
 
 }
 
 function handleBulbToggle({setBulbOn}) {
-
+    function Toggle() {
+        
+    }
+    return (
+        <div>
+            <button onClick={Toggle}>Toggle Button</button>
+        </div>
+    )
 }
 
 export default LightBulbController
