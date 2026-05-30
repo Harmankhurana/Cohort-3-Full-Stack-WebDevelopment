@@ -2,7 +2,7 @@
 // And using prop drilling
 // I'm creating the props (bulbOn, setBulbOn) in app component and passing it down
 // Light component is catching the props, not using it, and pass it to the children(LightBulb, LightSwitch)
-// this makes the code ugly 
+// this makes the code ugly - highly un-readable, hard to maintain when the code base is big
 import React from "react";
 import { useState } from "react";
 import onBulb from './Images/onBulb.jpg';
