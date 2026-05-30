@@ -1,5 +1,8 @@
 // Creating a Light Bulb component -> which turns off/on when a button is clicked with added images
 // And using prop drilling
+// I'm creating the props (bulbOn, setBulbOn) in app component and passing it down
+// Light component is catching the props, not using it, and pass it to the children(LightBulb, LightSwitch)
+// this makes the code ugly 
 import React from "react";
 import { useState } from "react";
 import onBulb from './Images/onBulb.jpg';
@@ -16,6 +19,7 @@ function App() {
     )
 }
 
+// catching the props here and passing it to the children
 function Light({bulbOn, setBulbOn}) {
     return (
         <div>
