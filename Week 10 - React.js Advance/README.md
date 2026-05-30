@@ -272,3 +272,8 @@ function Stopwatch() {
   );
 }
 ```
+---
+# Rolling up the state, unoptimal re-renders
+
+As your application grows, you might find that multiple components need access to the same state. Instead of duplicating state in each component, you can lift the state up to the LCA, allowing the common ancestor to manage it.
+![Light Bulb Components](./images/image%20copy.png)
