@@ -15,6 +15,9 @@ function Bulb() {
 function LightBulb() {
     // defining the state variable in the parent component, and then passing props to children(BulbState, ToggleBulbState)
     const [bulbOn, setBulbOn] = useState(true);
+
+    // bulbOn is a prop to the bulb state component
+    // setBulbOn is a prop to the toggle bulb state component
     return (
         <div>
 
