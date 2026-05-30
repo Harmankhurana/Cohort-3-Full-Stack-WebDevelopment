@@ -6,15 +6,17 @@ import onBulb from './Images/onBulb.jpg';
 import offBulb from './Images/offBulb.png';
 
 function App() {
+    // putting the state variable in the main app component
+    const [bulbOn, setBulbOn] = useState(true);
     return (
         <div>
-            <Light />
+            {/* passing the props in light component */}
+            <Light bulbOn = {bulbOn} setBulbOn = {setBulbOn} />
         </div>
     )
 }
 
-function Light() {
-    const [bulbOn, setBulbOn] = useState(true);
+function Light({bulbOn, setBulbOn}) {
     return (
         <div>
             <LightBulb bulbOn = {bulbOn} />
