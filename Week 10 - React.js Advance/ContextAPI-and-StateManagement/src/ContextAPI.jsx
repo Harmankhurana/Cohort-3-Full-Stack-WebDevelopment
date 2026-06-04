@@ -16,7 +16,7 @@ function ContextAPI() {
     return (
         <div>
             {/* wrapping light component with BulbContext provider */}
-            <BulbContext.Provider value={{bulbOn : bulbOn, setBulbOn : setBulbOn}}>
+            <BulbContext.Provider value={{bulbOn, setBulbOn}}>
                 <Light />
             </BulbContext.Provider>
         </div>
