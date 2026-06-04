@@ -3,6 +3,7 @@
 // I'm creating the props (bulbOn, setBulbOn) in app component and passing it down
 // Light component is catching the props, not using it, and pass it to the children(LightBulb, LightSwitch)
 // this makes the code ugly - highly un-readable, hard to maintain when the code base is big
+// That's why I'll use Context API
 import React from "react";
 import { useState } from "react";
 import onBulb from './Images/onBulb.jpg';
