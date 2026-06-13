@@ -1,6 +1,7 @@
-import React, { Children, createContext, useState } from "react";
+import React, { Children, createContext, useContext, useState } from "react";
 const CountContext = createContext();
 
+// a Provider component which is wrapping the children
 function CountContextProvider({Children}) {
     const[count, setCount] = useState(0);
     return (
@@ -12,6 +13,7 @@ function CountContextProvider({Children}) {
     )
 }
 
+// using the CountContextProvider here and wrapping all the childrens in it
 function Parent() {
     return (
         <div>
@@ -25,27 +27,39 @@ function Parent() {
 }
 
 function Increase() {
+    const {count, setCount} = useContext(CountContext);
     return (
         <div>
-
+            <button onClick={() => setCount(count + 1)}>Increase</button>
         </div>
     )
 }
 
 function Decrease() {
+    const {count, setCount} = useState(CountContext);
     return (
         <div>
-
+            <button onClick={() => setCount(count - 1)}>Decrease</button>
         </div>
     )
 }
 
 function Value() {
+    const {count} = useState(CountContext);
     return (
         <div>
-
+            count : {count}
         </div>
     )
 }
 
-export default Parent
+const Provider = () => {
+    return (
+        <div>
+            <Parent />
+        </div>
+    )
+}
+
+
+export default Provider
