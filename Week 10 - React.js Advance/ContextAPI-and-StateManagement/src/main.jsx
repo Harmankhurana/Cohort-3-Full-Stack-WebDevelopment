@@ -6,9 +6,10 @@ import LightBulbController from './LightBulbDisplay.jsx.jsx';
 import PropDrilling from './PropDrilling.jsx'
 import ContextAPI from './ContextAPI.jsx';
 import CountContext from './CountContext.jsx';
+import BulbContextProvider from './BulbProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CountContext />
+    <BulbContextProvider />
   </StrictMode>,
 )
