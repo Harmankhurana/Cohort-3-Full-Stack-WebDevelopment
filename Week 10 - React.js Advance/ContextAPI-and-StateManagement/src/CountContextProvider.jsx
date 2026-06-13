@@ -2,12 +2,12 @@ import React, { Children, createContext, useContext, useState } from "react";
 const CountContext = createContext();
 
 // a Provider component which is wrapping the children
-function CountContextProvider({Children}) {
+function CountContextProvider({children}) {
     const[count, setCount] = useState(0);
     return (
         <div>
             <CountContext.Provider value={{count, setCount}}>
-                {Children}
+                {children}
             </CountContext.Provider>
         </div>
     )
@@ -36,7 +36,7 @@ function Increase() {
 }
 
 function Decrease() {
-    const {count, setCount} = useState(CountContext);
+    const {count, setCount} = useContext(CountContext);
     return (
         <div>
             <button onClick={() => setCount(count - 1)}>Decrease</button>
@@ -45,7 +45,7 @@ function Decrease() {
 }
 
 function Value() {
-    const {count} = useState(CountContext);
+    const {count} = useContext(CountContext);
     return (
         <div>
             count : {count}
