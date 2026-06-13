@@ -13,7 +13,7 @@ function BulbProvider({children}) {
     const [bulbOn, setBulbOn] = useState(true);
     return (
         <div>
-            {/* wrapping light component with BulbContext provider */}
+            {/* wrapping children component with BulbContext provider */}
             <BulbContext.Provider value={{bulbOn, setBulbOn}}>
                 {children}
             </BulbContext.Provider>
