@@ -7,9 +7,10 @@ import PropDrilling from './PropDrilling.jsx'
 import ContextAPI from './ContextAPI.jsx';
 import CountContext from './CountContext.jsx';
 import BulbContextProvider from './BulbProvider.jsx';
+import CountContextProvider from './CountContextProvider.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BulbContextProvider />
+    <CountContextProvider />
   </StrictMode>,
 )
