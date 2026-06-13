@@ -31,51 +31,69 @@ getRecentPostUsingAxios();
 // Create a HTTP server - Calculator which takes the query as parameter/ that returns the sum endpoint
 const express = require("express");
 const app = express();   // initialising the app varible with express();
+const PORT = 3000;
 
+// Creating a middleware for checking the tokens count
 let requestCount = 0;
 function requestCountNumber(req, res, next){
-    
-}
+    if (requestCount <= 4) {
+        next();
+    } else {
+        res.send({
+            message : "You're out of Tokens",
+        });
+    }
+};
 
 app.use(requestCountNumber);
 
-app.get("/sum/:a/:b" , function(req, res){   // taking it like (/sum/anyNo./anyNo.) rather than (sum?a=2&b=3)
+app.get("/sum/:a/:b", requestCountNumber, function(req, res){   // taking it like (/sum/anyNo./anyNo.) rather than (sum?a=2&b=3)
     const a = parseInt(req.params.a);
     const b = parseInt(req.params.b);
 
     res.json({
         ans :  a + b  
     })
+
+    requestCount++;
 });
 
-app.get("/subtract" , function(req, res){
+app.get("/subtract", requestCountNumber, function(req, res){
     const a = req.query.a;
     const b = req.query.b;
 
     res.json({
         ans : a - b 
     })
+
+    requestCount++;
 });
 
-app.get("/multiply" , function(req, res){
+app.get("/multiply", requestCountNumber, function(req, res){
     const a = req.query.a; 
     const b = req.query.b; 
 
     res.json({
         ans : a * b
-    }) 
+    })
+
+    requestCount++;
 });
 
-app.get("/divide" , function(req, res){
+app.get("/divide", requestCountNumber, function(req, res){
     const a = req.query.a; 
     const b = req.query.b;
 
     res.json({
         ans : a / b
     })
+
+    requestCount++;
 });
 
-app.listen(3000);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+});
 
 
 
