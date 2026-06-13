@@ -27,19 +27,19 @@ function Parent() {
 }
 
 function Increase() {
-    const {count, setCount} = useContext(CountContext);
+    const {setCount} = useContext(CountContext);
     return (
         <div>
-            <button onClick={() => setCount(count + 1)}>Increase</button>
+            <button onClick={() => setCount(count => count + 1)}>Increase</button>
         </div>
     )
 }
 
 function Decrease() {
-    const {count, setCount} = useContext(CountContext);
+    const {setCount} = useContext(CountContext);
     return (
         <div>
-            <button onClick={() => setCount(count - 1)}>Decrease</button>
+            <button onClick={() => setCount(count => count - 1)}>Decrease</button>
         </div>
     )
 }
