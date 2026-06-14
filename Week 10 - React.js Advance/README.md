@@ -575,3 +575,9 @@ export default App;
 ```
 ![Re-renders](./images/image%20copy%205.png)
 ![Flow Chart](./images/image%20copy%206.png)
+
+## What context does, and what it doesn’t
+
+The Context API primarily addresses the issue of prop drilling by allowing you to share state across your component tree without needing to pass props through every level.
+
+It doesn’t optimise renders in your application, which becomes important if/when your application becomes bigger
