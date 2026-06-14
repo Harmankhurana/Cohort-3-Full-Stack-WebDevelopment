@@ -8,9 +8,10 @@ import ContextAPI from './ContextAPI.jsx';
 import CountContext from './CountContext.jsx';
 import BulbContextProvider from './BulbProvider.jsx';
 import CountContextProvider from './CountContextProvider.jsx';
+import Recoil from './Recoil.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CountContextProvider />
+    <Recoil />
   </StrictMode>,
 )
