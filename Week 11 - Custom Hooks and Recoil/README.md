@@ -240,3 +240,4 @@ export default App
 ```
 
 Explore https://usehooks.com/
+![Custom Hook](./Images/image%20copy.png)
