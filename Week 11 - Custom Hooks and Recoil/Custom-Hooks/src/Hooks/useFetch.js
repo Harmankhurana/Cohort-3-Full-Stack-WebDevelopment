@@ -9,7 +9,7 @@ export function useFetch(url) {
 
     async function getDetails() {
         const response = await fetch(url);
-        const json = response.json();
+        const json = await response.json();
         setFinalData(json);
     }
     useEffect(() => {
