@@ -16,3 +16,19 @@ export function usePostTitle() {
 
     return post.title;
 }
+
+// Creating a generic useFetch hook, that takes url as an argument and returns the data
+// Hits the server and get response
+// URL --> useFetch Hook --> returns response/data
+
+export function useFetch() {
+    const [finalData, setFinalData] = useState({});
+
+    function getDetails() {
+        
+    }
+
+    useEffect(() => {
+        getDetails();
+    }, [])
+}
