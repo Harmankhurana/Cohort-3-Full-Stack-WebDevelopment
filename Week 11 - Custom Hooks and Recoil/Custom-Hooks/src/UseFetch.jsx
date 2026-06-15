@@ -17,10 +17,13 @@ function UseFetch() {
     // calling getPosts() function inside useEffect hook
     useEffect(() => {
         getPosts();
-    },[])
+    }, []);
+
     return (
         <div>
-
+            {post.title}
         </div>
     )
 }
+
+export default UseFetch
