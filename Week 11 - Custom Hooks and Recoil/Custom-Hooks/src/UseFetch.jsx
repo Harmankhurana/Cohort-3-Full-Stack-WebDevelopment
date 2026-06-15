@@ -1,4 +1,4 @@
-// A Custom Hook which fetches data
+// A Custom Hook which fetches data - here the code is cluttered and difficult to read
 import React, { useEffect, useState } from "react";
 
 // defined an UseFetch component
@@ -21,7 +21,9 @@ function UseFetch() {
 
     return (
         <div>
-            {post.title}
+            <div>Title : {post.title}</div>
+            <div>Body : {post.body}</div>
+            <div>UserId : {post.userId}</div>
         </div>
     )
 }
