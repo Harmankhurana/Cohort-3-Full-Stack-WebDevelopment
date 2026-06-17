@@ -1,26 +1,18 @@
-// Data Model for Doctor's data
+t // Data Model for patient data
 import mongoose from "mongoose";
 
 // Adding mongoose.Schema in a variable called Schema
 const Schema = mongoose.Schema;
 const objectId = Schema.Types.ObjectId;
 
-const doctorSchema = new Schema({
+const PatientSchema = new Schema({
     name: {
         type: String,
         required: true,
     },
-    salary: {
+    diagnosedWith: {
         type: String,
         required: true,
-    },
-    qualification: {
-        type: String,
-        required: true,
-    },
-    experienceInYears: {
-        type: Number,
-        default: 0,
     },
     address: {
         type: String,
@@ -39,12 +31,12 @@ const doctorSchema = new Schema({
         enum: ["Male", "Female", "Others"],
         required: true,
     },
-    workInHospitals:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Hospital",
-        },
-    ],
+    admittedIn: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Hospital",
+        required: true,
+    },
+
 }, {timestamps : true});
 
-export const Doctor = mongoose.model("Doctor", doctorSchema);
+export const Patient = mongoose.model("Patient", PatientSchema);
