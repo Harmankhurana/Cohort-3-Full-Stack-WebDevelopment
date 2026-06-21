@@ -153,6 +153,7 @@ export default useIsOnline;
 ```
 
 - useDebounce (https://gist.github.com/hkirat/439a0be477e3c31b08c1f7e0f4582674)
+- Debouncing is an optimization technique used to delay the execution of a function until a specified period of inactivity has passed. In React, it prevents expensive operations—like server-side API requests, heavy calculations, or component re-renders—from firing on every single keystroke or rapid user interaction
     
  ```jsx
  import { useState, useEffect } from 'react';
