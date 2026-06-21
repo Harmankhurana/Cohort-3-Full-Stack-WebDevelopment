@@ -7,9 +7,9 @@ function UsePrev() {
 
     return (
         <div>
-            {state}
+            <div>{state}</div>
             <button onClick={() => {setState((curr) => curr + 1)}}>Click Here</button>
-            <h1>This is the Prev value {state}</h1>
+            <h1>This is the Prev value {prev}</h1>
         </div>
     )
 }
