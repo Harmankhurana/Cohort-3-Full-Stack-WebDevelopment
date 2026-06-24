@@ -1,5 +1,6 @@
 // Using external package called chalk 
 import chalk from "chalk";
+import { settings } from "cluster";
 console.log(chalk.blue("hello world!"));
 console.log(chalk.red.bold("This is an error"));
 
@@ -76,6 +77,7 @@ function calculateSum(n){
 
 
 import express from 'express';
+import { serialize } from "v8";
 const app = express(); // creating http server
 
 app.get("/" , function(req , res){ // syntax of express and function(req , res) is a callback function
@@ -257,3 +259,23 @@ app.listen(3000);
 // -> hell (reset timer)
 // -> hello (wait 500ms)
 // => API call happens once with "hello"
+
+let currentClock; // global variable
+
+// the main backend server
+function searchBackend() {
+    console.log("Request send to the backend");
+}
+
+function debounceSearchBackend() {
+    clearTimeout(currentClock); // stops the current clock
+    currentClock = setTimeout(searchBackend, 30);
+}
+
+// calling debounceSearchBackend() function multiple times
+debounceSearchBackend();
+debounceSearchBackend();
+debounceSearchBackend();
+debounceSearchBackend();
+debounceSearchBackend();
+debounceSearchBackend();
