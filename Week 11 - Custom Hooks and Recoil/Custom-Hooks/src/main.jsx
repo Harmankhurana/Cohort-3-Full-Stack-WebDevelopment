@@ -8,9 +8,10 @@ import AdvUseFetch from './AdvUseFetch.jsx'
 import MoreAdvUseFetch from './MoreAdvUseFetch.jsx'
 import UsePrev from './UsePrev.jsx'
 import UseDebounce from './UseDebounce.jsx'
+import MoreAdvUseDebounce from './MoreAdvUseDebounce.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UseDebounce />
+    <MoreAdvUseDebounce />
   </StrictMode>,
 )
