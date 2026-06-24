@@ -13,12 +13,9 @@ const useDebounce = (value, delay) => {
     return debouncedValue;
 };
 
-export default useDebounce;
-
-
 function MoreAdvUseDebounce() {
     const [inputVal, setInputVal] = useState("");
-    const debouncedValue = useDebounce(inputVal);
+    const debouncedValue = useDebounce(inputVal, 200);
 
     function change(e) {
         setInputVal(e.target.value);
