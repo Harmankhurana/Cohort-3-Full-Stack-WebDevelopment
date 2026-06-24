@@ -22,9 +22,20 @@
 // but here i will call a custom hook called "useBounce" to do the task
 
 import React from "react";
+import { useDebounce } from "./Hooks/useDebounce";
 
 function UseDebounce() {
+    function sendDataToBackend() {
+        fetch("api.amazon.com/search/");
+    }
 
+    const debouncedFn = useDebounce(sendDataToBackend);
+
+    return (
+        <div>
+            <input type="text" onChange={debouncedFn} ></input>
+        </div>
+    )
 }
 
 export default UseDebounce
