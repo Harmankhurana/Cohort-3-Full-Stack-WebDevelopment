@@ -361,3 +361,87 @@ export default App;
 ```
 
 ![Recoil counter application](./Images/image%20copy%203.png)
+---
+# Atom
+
+Atoms are units of state that can be read from and written to from any component. When an atom’s state changes, all components that subscribe to that atom will re-render.
+
+- Initialise a react project
+
+```jsx
+npm create vite@latest
+```
+
+- Add recoil as a dependency
+
+```jsx
+npm install recoil
+```
+
+- Wrap the app inside a RecoilRoot
+
+```jsx
+import { RecoilRoot } from "recoil";
+
+function App() {
+
+  return (
+    <RecoilRoot>
+      <Counter />
+    </RecoilRoot>
+  )
+}
+```
+
+- Create a counter atom
+
+```jsx
+const counter = atom({
+	key: "counter",
+	default: 0
+})
+```
+
+- Create a Buttons component
+
+```jsx
+function Buttons() {
+  const setCount = useSetRecoilState(counter);
+
+  function increase() {
+    setCount(c => c + 1)
+  }
+  
+  function decrease() {
+    setCount(c => c - 1)
+  }
+  
+  return <div>
+    <button onClick={increase}>Increase</button>
+    <button onClick={decrease}>Decrease</button>
+  </div>
+}
+```
+
+- Use the counter atom
+
+```jsx
+function Counter() {
+  const count = useRecoilValue(counter);
+
+  return <div>
+    {count}
+    <Buttons />
+  </div>
+}
+```
+
+### Does it fix re-rendering?
+
+![Does it fix re-rendering?](./Images/image%20copy%204.png)
+
+## Why doesnt it fix re-renders?
+
+![Why doesnt it fix re-renders?](./Images/image%20copy%205.png)
+
+Gist from class - https://gist.github.com/hkirat/36948713f8759a32a2a42446002d2b8d
