@@ -1,7 +1,7 @@
 // Creating a Counter Application using recoil for better state management
 import React from "react";
-import { RecoilRoot, atom } from 'recoil';
-import { CounterAtom } from "./store/atoms/counter";
+import { RecoilRoot, atom, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { counterAtom } from "./store/atoms/counter";
 
 function RecoilCounterApplication() {
     return (
@@ -24,25 +24,37 @@ function Counter() {
 }
 
 function CurrentCount() {
+    const count = useRecoilValue(counterAtom);
     return (
         <div>
-
+            {count}
         </div>
     )
 }
 
 function Increase() {
+    const setCount = useSetRecoilState(counterAtom);
+
+    function increase() {
+        setCount(c => c + 1)
+    }
     return (
         <div>
-            <button>Increment</button>
+            <button onClick={increase}>Increment</button>
         </div>
     )
 }
 
 function Decrease() {
+    const setCount = useSetRecoilState(counterAtom);
+
+    function decrease() {
+        setCount(c => c - 1)
+    }
+
     return (
         <div>
-            <button>Decrement</button>
+            <button onClick={decrease}>Decrement</button>
         </div>
     )
 }
