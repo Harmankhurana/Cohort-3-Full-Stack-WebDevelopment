@@ -3,7 +3,7 @@
 // default: sets the initial value of the counter to 0
 import { atom } from 'recoil';
 
-export const CounterAtom = atom({
+export const counterAtom = atom({
     key: "counter", 
     default: 0
 })
