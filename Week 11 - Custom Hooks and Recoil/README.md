@@ -476,4 +476,5 @@ const Buttons = memo(function () {
     <button onClick={decrease}>Decrease</button>
   </div>
 })
+![memo re-rendering](./Images/image%20copy%207.png)
 ```
