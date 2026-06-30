@@ -445,3 +445,35 @@ function Counter() {
 ![Why doesnt it fix re-renders?](./Images/image%20copy%205.png)
 
 Gist from class - https://gist.github.com/hkirat/36948713f8759a32a2a42446002d2b8d
+---
+# Memo
+https://whereisthemouse.com/react-components-when-do-children-re-render
+
+The reason both the components re-render is because when a component re-renders, all its children re-render as well.
+
+![workflow](./Images/image%20copy%206.png)
+
+## Introducing memo
+
+`memo` lets you skip re-rendering a component when its props are unchanged.
+
+```jsx
+import { memo } from 'react';
+
+const Buttons = memo(function () {
+  const setCount = useSetRecoilState(counter);
+
+  function increase() {
+    setCount(c => c + 1)
+  }
+  
+  function decrease() {
+    setCount(c => c - 1)
+  }
+  
+  return <div>
+    <button onClick={increase}>Increase</button>
+    <button onClick={decrease}>Decrease</button>
+  </div>
+})
+```
