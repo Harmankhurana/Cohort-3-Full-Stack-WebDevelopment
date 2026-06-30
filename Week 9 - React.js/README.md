@@ -54,6 +54,10 @@ In React, components are the building blocks of the user interface. They allow y
 `useState` is a Hook that lets you add state to functional components. It returns an array with the current state and a function to update it.
 
 ```jsx
+const [getter, setter] = useState(initialValue);
+```
+
+```jsx
 import React, { useState } from 'react';
 
 const Counter = () => {
