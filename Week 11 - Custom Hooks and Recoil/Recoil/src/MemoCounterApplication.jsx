@@ -13,9 +13,9 @@ function Counter() {
     const [count, setCount] = useState(0);
     return (
         <div>
-            <MemoizedCurrentCount />
-            <Increase />
-            <Decrease />
+            <MemoizedCurrentCount count = {count}/>
+            <MemoziedIncrease setCount = {setCount}/>
+            <MemoziedDecrease setCount = {setCount}/>
         </div>
     )
 }
@@ -23,10 +23,12 @@ function Counter() {
 
 const MemoizedCurrentCount = memo(CurrentCount);
 
-function CurrentCount() {
+function CurrentCount({count}) {
+    // Only CurrentCount re-renders
+    console.log("Rendering CurrentCount");
     return (
         <div>
-            
+            <h1>Count : {count}</h1>
         </div>
     )
 }
@@ -40,9 +42,11 @@ function CurrentCount() {
 //     )
 // });
 
-const MemoziedIncrease = memo(function Increase() {
+const MemoziedIncrease = memo(function Increase({setCount}) {
+    // cause the Increase function is not re-rendering (Rendering Increase will not log)
+    console.log("Rendering Increase");
     function increase() {
-
+        setCount(prev => prev + 1);
     }
 
     return (
@@ -52,9 +56,11 @@ const MemoziedIncrease = memo(function Increase() {
     )
 });
 
-const MemoziedDecrease = memo(function Decrease() {
+const MemoziedDecrease = memo(function Decrease({setCount}) {
+    // cause the Decrease function is not re-rendering (Rendering Decrease will not log)
+    console.log("Rendering Decrease");
     function decrease() {
-
+        setCount(prev => prev - 1);
     }
 
     return (
