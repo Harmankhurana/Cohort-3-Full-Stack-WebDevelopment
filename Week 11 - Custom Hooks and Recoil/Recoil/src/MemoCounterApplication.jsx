@@ -32,7 +32,7 @@ function CurrentCount() {
 }
 
 // or pass the function in a memo (memo is a function which accepts function as an input)
-// const MemoizedCurrentCount = memo(function CurrentCount() {
+// const MemoizedCurrentCount = memo(function () {
 //     return (
 //         <div>
             
@@ -40,7 +40,7 @@ function CurrentCount() {
 //     )
 // });
 
-function Increase() {
+const MemoziedIncrease = memo(function Increase() {
     function increase() {
 
     }
@@ -50,9 +50,9 @@ function Increase() {
             <button onClick={increase}>Increment</button>
         </div>
     )
-}
+});
 
-function Decrease() {
+const MemoziedDecrease = memo(function Decrease() {
     function decrease() {
 
     }
@@ -62,6 +62,6 @@ function Decrease() {
             <button onClick={decrease}>Decrement</button>
         </div>
     )  
-}
+});
 
 export default MemoCounterApplication
