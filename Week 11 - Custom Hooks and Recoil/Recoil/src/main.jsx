@@ -5,9 +5,10 @@ import App from './App.jsx'
 import ContextAPICounterApplication from './ContextAPICounterApplication.jsx'
 import RecoilCounterApplication from './RecoilCounterApplication.jsx'
 import MemoCounterApplication from './MemoCounterApplication.jsx'
+import SelectorCounterApplication from './SelectorCounterApplication.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MemoCounterApplication />
+    <SelectorCounterApplication />
   </StrictMode>,
 )
