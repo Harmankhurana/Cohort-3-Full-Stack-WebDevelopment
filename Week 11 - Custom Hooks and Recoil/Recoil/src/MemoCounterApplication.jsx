@@ -3,7 +3,7 @@ import React from "react";
 function MemoCounterApplication() {
     return (
         <div>
-
+            <Counter />
         </div>
     )
 }
@@ -11,7 +11,9 @@ function MemoCounterApplication() {
 function Counter() {
     return (
         <div>
-            
+            <CurrentCount />
+            <Increase />
+            <Decrease />
         </div>
     )
 }
@@ -27,7 +29,7 @@ function CurrentCount() {
 function Increase() {
     return (
         <div>
-            
+            <button>Increment</button>
         </div>
     )
 }
@@ -35,7 +37,7 @@ function Increase() {
 function Decrease() {
     return (
         <div>
-            
+            <button>Decrement</button>
         </div>
     )  
 }
