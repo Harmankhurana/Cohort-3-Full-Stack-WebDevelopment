@@ -477,4 +477,43 @@ const Buttons = memo(function () {
   </div>
 })
 ![memo re-rendering](./Images/image%20copy%207.png)
+![memo re-rendering](./Images/image%20copy%208.png)
+```
+# Selector
+A **selector** represents a piece of **derived state**. You can think of derived state as the output of passing state to a pure function that derives a new value from the said state.
+
+Derived state is a powerful concept because it lets us build dynamic data that depends on other data.
+
+!Screenshot 2024-10-19 at 7.19.34 PM.png
+
+- Add a selector
+
+```jsx
+const even = selector({
+  key: 'isEven',
+  get: ({ get }) => {
+    const count = get(counter);
+    return count % 2;
+  },
+})
+```
+
+- Add an IsEven component
+
+```jsx
+function IsEven() {
+  const isEven = useRecoilValue(even);
+
+  return <div>
+    {isEven ? "Even" : "Odd"}
+  </div>
+}
+```
+
+- Change the `increase` function
+
+```jsx
+  function increase() {
+    setCount(c => c + 2)
+  }
 ```
