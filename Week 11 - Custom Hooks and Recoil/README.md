@@ -484,7 +484,7 @@ A **selector** represents a piece of **derived state**. You can think of deri
 
 Derived state is a powerful concept because it lets us build dynamic data that depends on other data.
 
-!Screenshot 2024-10-19 at 7.19.34 PM.png
+![work-flow](./Images/image%20copy%209.png)
 
 - Add a selector
 
@@ -517,3 +517,4 @@ function IsEven() {
     setCount(c => c + 2)
   }
 ```
+![rendering components](./Images/image%20copy%2010.png)
