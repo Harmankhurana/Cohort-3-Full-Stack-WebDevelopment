@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 function MemoCounterApplication() {
     return (
@@ -9,6 +9,8 @@ function MemoCounterApplication() {
 }
 
 function Counter() {
+    // defining the count state variable here
+    const [count, setCount] = useState(0);
     return (
         <div>
             <CurrentCount />
@@ -27,17 +29,25 @@ function CurrentCount() {
 }
 
 function Increase() {
+    function increase() {
+
+    }
+
     return (
         <div>
-            <button>Increment</button>
+            <button onClick={increase}>Increment</button>
         </div>
     )
 }
 
 function Decrease() {
+    function decrease() {
+
+    }
+
     return (
         <div>
-            <button>Decrement</button>
+            <button onClick={decrease}>Decrement</button>
         </div>
     )  
 }
