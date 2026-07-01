@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 
 function MemoCounterApplication() {
     return (
@@ -13,12 +13,15 @@ function Counter() {
     const [count, setCount] = useState(0);
     return (
         <div>
-            <CurrentCount />
+            <MemoizedCurrentCount />
             <Increase />
             <Decrease />
         </div>
     )
 }
+
+
+const MemoizedCurrentCount = memo(CurrentCount);
 
 function CurrentCount() {
     return (
@@ -27,6 +30,15 @@ function CurrentCount() {
         </div>
     )
 }
+
+// or pass the function in a memo (memo is a function which accepts function as an input)
+// const MemoizedCurrentCount = memo(function CurrentCount() {
+//     return (
+//         <div>
+            
+//         </div>
+//     )
+// });
 
 function Increase() {
     function increase() {
