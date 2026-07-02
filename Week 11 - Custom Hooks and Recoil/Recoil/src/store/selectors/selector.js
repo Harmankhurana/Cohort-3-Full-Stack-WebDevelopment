@@ -10,13 +10,3 @@ export const evenSelector = selector({
         return isEven;
     }
 });
-
-export const oddSelector = selector({
-    key: isOddSelector,
-    get: function ({ get }){
-        const currentCount = get(counterAtom);
-        const isOdd = (currentCount % 2 == 1); // 1, 3, 5, 7, 9
-
-        return isOdd;
-    }
-});
