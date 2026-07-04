@@ -6,9 +6,11 @@ import { evenSelector } from "./store/selectors/selector";
 function SelectorCounterApplication() {
     return (
         <div>
-            <Buttons />
-            <Counter />
-            <isEven />
+            <RecoilRoot>
+                <Buttons />
+                <Counter />
+                <IsEven />
+            </RecoilRoot>
         </div>
     )
 }
