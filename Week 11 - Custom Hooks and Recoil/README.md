@@ -361,6 +361,21 @@ export default App;
 ```
 
 ![Recoil counter application](./Images/image%20copy%203.png)
+
+- useRecoilState provides both value and updater
+```jsx
+const [value, updater] = useRecoilState(Atom);
+```
+
+- useSetRecoilState provides only updater
+```jsx
+const updater = useSetRecoilState(Atom);
+```
+
+- useRecoilValue provides only value
+```jsx
+const value = useRecoilValue(Atom);
+```
 ---
 # Atom
 
