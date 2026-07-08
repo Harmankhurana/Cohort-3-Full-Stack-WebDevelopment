@@ -22,9 +22,9 @@ function Navbar() {
         <div>
             <button>Home</button>
             <button>My Network ({networkNotificationCount >= 100 ? "99+" : networkNotificationCount})</button> {/*if networkNotificationCount is greater than equal to 100 then show 99+ or show the actual value*/}
-            <button>Jobs ({jobsNotificationCount >= 100 ? "99+" : jobsNotificationCount})</button>
-            <button>Messages</button>
-            <button>Notification</button>
+            <button>Jobs ({jobsAtomCount >= 100 ? "99+" : jobsAtomCount})</button>
+            <button>Messages ({messagesAtomCount >= 100 ? "99+" : messagesAtomCount})</button>
+            <button>Notification ({notificationAtomCount >= 100 ? "99+" : notificationAtomCount})</button>
             <button>Me</button>
         </div>
     )
