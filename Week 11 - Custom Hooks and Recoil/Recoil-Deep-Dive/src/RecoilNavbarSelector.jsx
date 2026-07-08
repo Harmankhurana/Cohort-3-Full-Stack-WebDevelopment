@@ -1,5 +1,6 @@
 import React from "react";
 import { networkAtom, jobsAtom, messagesAtom, notificationAtom } from "./ReacoilNavbarAtom";
+import { totalNotificationCount } from "./NavbarSelector";
 
 function RecoilNavbarSelector() {
     return (
@@ -21,7 +22,7 @@ function Navbar() {
             <button>Jobs ({jobsAtomCount >= 100 ? "99+" : jobsAtomCount})</button> {/*if jobsAtomCount is greater than equal to 100 then show 99+ or show the actual value*/}
             <button>Messages ({messagesAtomCount >= 100 ? "99+" : messagesAtomCount})</button> {/*if messagesAtomCount is greater than equal to 100 then show 99+ or show the actual value*/}
             <button>Notification ({notificationAtomCount >= 100 ? "99+" : notificationAtomCount})</button> {/*if notificationAtomCount is greater than equal to 100 then show 99+ or show the actual value*/}
-            <button>Me</button>
+            <button>Me ({totalNotificationCount})</button>
         </div>
     )
 }
