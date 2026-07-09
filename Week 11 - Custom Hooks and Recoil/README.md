@@ -533,3 +533,61 @@ function IsEven() {
   }
 ```
 ![rendering components](./Images/image%20copy%2010.png)
+---
+# Asynchronous Queries (Recoil)
+
+Recoil selectors don't have to return plain values right away — they can return a **Promise**, making them "asynchronous selectors" (aka async queries). This is Recoil's way of handling API calls / server data as if it were regular derived state.
+
+### Synchronous selector (normal)
+Computes a value instantly from other atoms — no waiting involved.
+
+```javascript
+export const totalNotificationCount = selector({
+    key: "totalNotificationCount",
+    get: ({ get }) => {
+        return get(jobsAtom) + get(networkAtom);
+    }
+});
+```
+
+### Asynchronous selector
+The `get` function is `async` and returns a Promise — usually because it's fetching data from a server.
+
+```javascript
+export const userProfileQuery = selector({
+    key: "userProfileQuery",
+    get: async ({ get }) => {
+        const userId = get(userIdAtom);
+        const response = await fetch(`https://api.example.com/users/${userId}`);
+        return response.json();
+    }
+});
+```
+
+### Reading async selectors — Suspense
+When a component reads an async selector with `useRecoilValue`, it needs to "wait" for the promise to resolve. Recoil integrates with **React Suspense** to handle this — the component suspends and shows a fallback UI until data is ready.
+
+```jsx
+function Profile() {
+    const profile = useRecoilValue(userProfileQuery); // suspends until resolved
+    return <div>{profile.name}</div>;
+}
+
+function App() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Profile />
+        </Suspense>
+    );
+}
+```
+
+### Key points
+- Async selectors let you avoid manual `useState` + `useEffect` + loading-flag boilerplate for data fetching.
+- Recoil automatically caches resolved values, so repeated reads don't refetch unless dependencies change.
+- Works well with dependent atoms — e.g. `userIdAtom` changes → `userProfileQuery` re-fetches automatically.
+- Requires wrapping consuming components in `<Suspense>` (and optionally an error boundary for failed requests).
+
+### When to use
+- Fetching data from an API that depends on other Recoil state.
+- Replacing manual fetch-in-`useEffect` patterns with a more declarative, state-driven approach.
