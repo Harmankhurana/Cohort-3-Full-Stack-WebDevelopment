@@ -1,12 +1,15 @@
 import React from "react";
 import { networkAtom, jobsAtom, messagesAtom, notificationAtom } from "./ReacoilNavbarAtom";
 import { totalNotificationCount } from "./NavbarSelector";
-import { useRecoilValue } from "recoil";
+import { RecoilRoot, useRecoilValue } from "recoil";
 
 function RecoilNavbarSelector() {
     return (
         <div>
-            <Navbar />
+            <RecoilRoot>
+                <Navbar />  
+            </RecoilRoot>
+           
         </div>
     )
 }
