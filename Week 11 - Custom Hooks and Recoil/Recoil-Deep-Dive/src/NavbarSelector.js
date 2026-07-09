@@ -3,7 +3,7 @@ import { jobsAtom, messagesAtom, networkAtom, notificationAtom } from "./Reacoil
 
 export const totalNotificationCount = selector({
     key: "totalNotificationCount",
-    value: ({get}) => {
+    get: ({get}) => {
         const networkAtomCount = get(networkAtom);
         const jobsAtomCount = get(jobsAtom);
         const messagesAtomCount = get(messagesAtom);
