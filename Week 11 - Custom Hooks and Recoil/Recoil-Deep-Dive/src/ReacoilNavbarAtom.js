@@ -15,7 +15,7 @@ export const jobsAtom = atom({
 // exporting atom for my messages count
 export const messagesAtom = atom({
     key: "messagesAtom",
-    default: 0,
+    default: 104,
 });
 
 // exporting atom for my notification count
