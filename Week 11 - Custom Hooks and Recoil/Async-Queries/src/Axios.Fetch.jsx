@@ -5,17 +5,21 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 function AxiosFetch() {
-  return <RecoilRoot>
-    <MainApp />
-  </RecoilRoot>
+  return (
+    <div>
+        <RecoilRoot>
+            <MainApp />
+        </RecoilRoot> 
+    </div>
+  )
 }
 
 function MainApp() {
-  const [networkCount, setNetworkCount] = useRecoilState(notifications)
+  const [networkCount, setNetworkCount] = useRecoilState(notifications);
   const totalNotificationCount = useRecoilValue(totalNotificationSelector);
 
   useEffect(() => {
-    // fetch
+    // fetch request
     axios.get("https://sum-server.100xdevs.com/notifications")
       .then(res => {
         setNetworkCount(res.data)
