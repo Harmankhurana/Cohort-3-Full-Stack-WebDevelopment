@@ -1,4 +1,4 @@
-import './App.css'
+import React from 'react'
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { notifications, totalNotificationSelector } from './atoms'
 import { useEffect } from 'react'
