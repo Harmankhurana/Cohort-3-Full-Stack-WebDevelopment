@@ -1,3 +1,4 @@
+URL - https://projects.100xdevs.com/tracks/6SbPPXGkG8QKFOTW9BmL/ts-1
 # Types of languages
 
 ## 1. Strongly typed vs loosely typed
