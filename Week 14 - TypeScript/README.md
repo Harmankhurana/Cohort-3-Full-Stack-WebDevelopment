@@ -43,8 +43,9 @@ function main() {
   return number;
 }
 ```
+![Compiled v/s Non-Compiled](./Images/image%20copy%202.png)
 
-People realised that javascript is a very power language, but lacks types. `Typescript` was introduced as a new language to add `types` on top of javascript.
+People realised that javascript is a very powerful language, but lacks types. `Typescript` was introduced as a new language to add `types` on top of javascript.
 ---
 # What is Typescript
 
