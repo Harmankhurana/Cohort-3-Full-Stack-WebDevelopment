@@ -75,3 +75,71 @@ There are many other famous compilers/transpilers for converting Typescript to J
 
 1. esbuild
 2. swc
+---
+# **The tsc compiler**
+
+Let’s bootstrap a simple Typescript Node.js application locally on our machines
+
+### **Step 1 - Install tsc/typescript globally**
+
+```jsx
+npm install -g typescript
+```
+
+### **Step 2 - Initialize an empty Node.js project with typescript**
+
+```jsx
+mkdir node-app
+cd node-app
+npm init -y
+npx tsc --init
+```
+
+These commands should initialize two files in your project
+
+![node-app ls](./Images/image%20copy%203.png)
+
+### **Step 3 - Create a a.ts file**
+
+```jsx
+const x: number = 1;
+console.log(x);
+```
+
+### **Step 4 - Compile the ts file to js file**
+
+```jsx
+tsc -b
+```
+
+### **Step 5 - Explore the newly generated index.js file**
+
+![Converting TS to JS](./Images/image%20copy%204.png)
+
+Notice how there is no typescript code in the javascript file. It’s a plain old js file with no `types`
+
+### **Step 7 - Delete `a.js`**
+
+### **Step 6 - Try assigning x to a string**
+
+Make sure you convert the `const` to `let`
+
+```jsx
+let x: number = 1;
+x = "harkirat"
+console.log(x);
+```
+
+### **Step 7 - Try compiling the code again**
+
+```jsx
+tsc -b
+```
+
+Notice all the errors you see in the console. This tells you there are `type` errors in your codebase.
+
+Also notice that no `index.js` is created anymore
+
+![index.js](./Images/image%20copy%205.png)
+
+This is the high level benefit of typescript. It lets you catch `type` errors at `compile time`
