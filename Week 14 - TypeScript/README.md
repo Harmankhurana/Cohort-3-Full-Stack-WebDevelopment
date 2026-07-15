@@ -143,3 +143,90 @@ Also notice that no `index.js` is created anymore
 ![index.js](./Images/image%20copy%205.png)
 
 This is the high level benefit of typescript. It lets you catch `type` errors at `compile time`
+---
+# **Basic Types in TypeScript**
+
+## **Typescript provides you some basic types**
+
+`number`, `string`, `boolean`, `null`, `undefined`.
+Let’s create some simple applications using these types - 
+
+## **Problem 1 - Hello world**
+
+```
+💡 Thing to learn - How to give types to arguments of a function
+```
+
+Write a function that greets a user given their first name.
+Argument - firstName
+Logs - Hello {firstName}
+Doesn’t return anything
+
+- Solution
+    
+    ```tsx
+    function greet(firstName: string) {
+        console.log("Hello " + firstName);
+    }
+    
+    greet("harkirat");
+    ```
+    
+
+## **Problem 2 - Sum function**
+
+```
+💡Thing to learn - How to assign a return type to a function
+```
+
+Write a function that calculates the sum of two functions
+
+- Solution
+    
+    ```tsx
+    function sum(a: number, b: number): number {
+        return a + b;
+    }
+    
+    console.log(sum(2, 3));
+    ```
+    
+
+## **Problem 3 - Return true or false based on if a user is 18+**
+
+```
+💡Thing to learn - Type inference
+```
+
+Function name - isLegal
+
+- Solution
+    
+    ```tsx
+    function isLegal(age: number) {
+        if (age > 18) {
+            return true;
+        } else {
+            return false
+        }
+    }
+    
+    console.log(isLegal(2));
+    ```
+    
+
+![function isLegel](./Images/image%20copy%206.png)
+
+## Problem 4 - Create a function that takes another function as input, and runs if after 1 second.
+
+- Solution
+    
+    ```tsx
+    function delayedCall(fn: () => void) {
+        setTimeout(fn, 1000);
+    }
+    
+    delayedCall(function() {
+        console.log("hi there");
+    })
+    ```
