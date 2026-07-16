@@ -6,7 +6,7 @@ console.log(x);
 
 
 
-// Any type ->I should avoid any's at any cost, cause i"m not using the type safety of TS, 
+// Any type -> I should avoid any's at any cost, cause i"m not using the type safety of TS
 let a: any = 1; // number
 console.log(a);
 
@@ -28,3 +28,12 @@ function greet(firstName: string) {
 
 greet("Harman");
 // greet(1); // Argument of type 'number' is not assignable to parameter of type 'string'
+
+
+
+// Write a function that calculates the sum of two functions
+function sum(a: number, b: number) {
+    return a + b;
+}
+
+console.log(sum(3,6));
