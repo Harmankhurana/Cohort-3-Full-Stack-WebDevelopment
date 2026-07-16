@@ -6,6 +6,18 @@ console.log(x);
 
 
 
+// Any type
+let a: any = 1; // number
+console.log(a);
+
+a = "Harman"; // string
+console.log(a);
+
+a = true; // boolean
+console.log(a);
+
+
+
 // Write a function that greets a user given their first name.
 // Argument - firstName
 // Logs - Hello {firstName}
