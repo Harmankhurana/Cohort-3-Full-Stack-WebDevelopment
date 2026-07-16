@@ -6,7 +6,7 @@ console.log(x);
 
 
 
-// Any type
+// Any type ->I should avoid any's at any cost, cause i"m not using the type safety of TS, 
 let a: any = 1; // number
 console.log(a);
 
@@ -27,3 +27,4 @@ function greet(firstName: string) {
 }
 
 greet("Harman");
+// greet(1); // Argument of type 'number' is not assignable to parameter of type 'string'
