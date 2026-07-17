@@ -230,3 +230,56 @@ Function name - isLegal
         console.log("hi there");
     })
     ```
+---
+# **The tsconfig file**
+
+The `tsconfig` file has a bunch of options that you can change to change the compilation process.
+
+Some of these include
+
+#### **1. target**
+
+The `target` option in a `tsconfig.json` file specifies the ECMAScript target version to which the TypeScript compiler will compile the TypeScript code.
+
+To try it out, try compiling the following code for target being `ES5` and `es2020`
+
+```jsx
+const greet = (name: string) => `Hello, ${name}!`;
+```
+
+- Output for ES5
+    
+    ```jsx
+    "use strict";
+    var greet = function (name) { return "Hello, ".concat(name, "!"); };
+    ```
+    
+- Output for ES2020
+    
+    ```jsx
+    "use strict";
+    const greet = (name) => `Hello, ${name}!`;
+    ```
+    
+
+#### **2. rootDir**
+
+Where should the compiler look for `.ts` files. Good practise is for this to be the `src` folder
+
+#### **3. outDir**
+
+Where should the compiler look for spit out the `.js` files.
+
+#### **4. noImplicitAny**
+
+Try enabling it and see the compilation errors on the following code -
+
+```jsx
+const greet = (name) => `Hello, ${name}!`;
+```
+
+Then try disabling it
+
+#### **5. removeComments**
+
+Weather or not to include comments in the final `js` file
