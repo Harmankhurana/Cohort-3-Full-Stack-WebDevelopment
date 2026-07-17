@@ -54,6 +54,7 @@ console.log(isLegal(19));
 
 
 // Create a function that takes another function as input, and runs it after 1 second.
+// () => void, means empty arguments returns nothing
 function delayedCall(fn: () => void) {
     setTimeout(fn, 1000);
 }
@@ -61,3 +62,14 @@ function delayedCall(fn: () => void) {
 delayedCall(function() {
     console.log("Hello");
 });
+
+// Another way to do this
+function delayedCalling(anotherFn: () => void) {
+    setTimeout(anotherFn, 1000);
+}
+
+function log() {
+    console.log("Hey There!");
+}
+
+delayedCalling(log);
