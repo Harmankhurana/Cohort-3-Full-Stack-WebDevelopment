@@ -283,3 +283,165 @@ Then try disabling it
 ## **5. removeComments**
 
 Weather or not to include comments in the final `js` file
+---
+# **Interfaces**
+
+## **1. What are interfaces**
+
+How can you assign types to objects? For example, a user object that looks like this -
+
+```jsx
+const user = {
+	firstName: "harkirat",
+	lastName: "singh",
+	email: "email@gmail.com".
+	age: 21,
+}
+```
+
+To assign a type to the `user` object, you can use `interfaces`
+
+```jsx
+interface User {
+	firstName: string;
+	lastName: string;
+	email: string;
+	age: number;
+}
+```
+
+Assignment #1 - Create a function `isLegal` that returns true or false if a user is above 18. It takes a user as an input.
+
+- Solution
+    
+    ```jsx
+    interface User {
+    	firstName: string;
+    	lastName: string;
+    	email: string;
+    	age: number;
+    }
+    
+    function isLegal(user: User) {
+        if (user.age > 18) {
+            return true
+        } else {
+            return false;
+        }
+    }
+    ```
+    
+
+Assignment #2 - Create a React component that takes todos as an input and renders them
+
+💡
+
+Select typescript when initialising the react project using `npm create vite@latest`
+
+- Solution
+    
+    ```jsx
+    // Todo.tsx
+    interface TodoType {
+      title: string;
+      description: string;
+      done: boolean;
+    }
+    
+    interface TodoInput {
+      todo: TodoType;
+    }
+    
+    function Todo({ todo }: TodoInput) {
+      return <div>
+        <h1>{todo.title}</h1>
+        <h2>{todo.description}</h2>
+    
+      </div>
+    }
+    ```
+    
+## **2. Implementing interfaces**
+
+Interfaces have another special property. You can `implement` interfaces as a class.
+
+Let’s say you have an person`interface` -
+
+```jsx
+interface Person {
+    name: string;
+    age: number;
+    greet(phrase: string): void;
+}
+```
+
+You can create a class which `implements` this interface.
+
+```jsx
+class Employee implements Person {
+    name: string;
+    age: number;
+
+    constructor(n: string, a: number) {
+        this.name = n;
+        this.age = a;
+    }
+
+    greet(phrase: string) {
+        console.log(`${phrase} ${this.name}`);
+    }
+}
+```
+
+This is useful since now you can create multiple `variants` of a person (Manager, CEO …)
+
+## **Summary**
+
+1. You can use `interfaces` to aggregate data
+2. You can use interfaces to implement classes from
+
+💡
+
+Abstract classes let you do something similar (not TS related)
+
+```jsx
+abstract class Shape {
+  abstract name: string;
+
+  abstract calculateArea(): number;
+
+  describe(): void {
+    console.log(`This shape is a ${this.name} with an area of ${this.calculateArea()} units squared.`);
+  }
+}
+```
+
+Rectangle and Circle classes
+```jsx
+class Rectangle extends Shape {
+  name = "Rectangle";
+
+  constructor(public width: number, public height: number) {
+    super();
+  }
+
+  // Implement the abstract method
+  calculateArea(): number {
+    return this.width * this.height;
+  }
+}
+
+// Another subclass implementing the abstract class
+class Circle extends Shape {
+  name = "Circle";
+
+  constructor(public radius: number) {
+    super();
+  }
+
+  // Implement the abstract method
+  calculateArea(): number {
+    return Math.PI * this.radius * this.radius;
+  }
+}
+```
