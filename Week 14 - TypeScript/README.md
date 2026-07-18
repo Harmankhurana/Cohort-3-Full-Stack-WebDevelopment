@@ -334,9 +334,7 @@ Assignment #1 - Create a function `isLegal` that returns true or false if a user
 
 Assignment #2 - Create a React component that takes todos as an input and renders them
 
-💡
-
-Select typescript when initialising the react project using `npm create vite@latest`
+💡 Select typescript when initialising the react project using `npm create vite@latest`
 
 - Solution
     
@@ -400,9 +398,7 @@ This is useful since now you can create multiple `variants` of a person (Manager
 1. You can use `interfaces` to aggregate data
 2. You can use interfaces to implement classes from
 
-💡
-
-Abstract classes let you do something similar (not TS related)
+💡 Abstract classes let you do something similar (not TS related)
 
 ```jsx
 abstract class Shape {
@@ -466,9 +462,7 @@ But they let you do a few other things.
 
 Let’s say you want to print the `id` of a user, which can be a number or a string.
 
-💡
-
-You can not do this using `interfaces`
+💡 You can not do this using `interfaces`
 
 ```jsx
 type StringOrNumber = string | number;
@@ -485,9 +479,7 @@ printId("202"); // ID: 202
 
 What if you want to create a type that has every property of multiple `types`/ `interfaces`
 
-💡
-
-You can not do this using `interfaces`
+💡 You can not do this using `interfaces`
 ```jsx
 type Employee = {
   name: string;
