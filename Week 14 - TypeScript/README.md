@@ -441,6 +441,7 @@ class Circle extends Shape {
   }
 }
 ```
+![TypeScript type inference](./Images/image%20copy%207.png)
 ---
 # **Types**
 
