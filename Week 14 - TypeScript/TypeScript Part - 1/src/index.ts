@@ -73,3 +73,25 @@ function log() {
 }
 
 delayedCalling(log);
+
+
+
+// Defining a function called `greeting` that takes ONE parameter: an object(user)
+// Instead of writing a separate interface, we're using an inline type annotation
+// to tell TypeScript exactly what shape this object should have.
+// It must have a `name` (string) and an `age` (number)
+function greeting(user:{
+    name: string,
+    age: number
+}) {
+    console.log(`Hello, ${user.name}`);
+    console.log(`Your age is ${user.age}`);
+}
+
+// Calling the `greeting` function and passing an object literal directly.
+// TypeScript will check this object against the inline type we defined above —
+// if you forget `age` or misspell `name`, it'll throw a compile-time error.
+greeting({
+    name: "Harman Khurana",
+    age: 21
+});
