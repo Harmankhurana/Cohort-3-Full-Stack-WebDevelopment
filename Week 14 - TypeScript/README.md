@@ -598,8 +598,9 @@ doSomething(Direction.Up)
 ```
 
 This makes code slightly `cleaner` to read out.
-
+```
 💡 The final value stored at `runtime` is still a number (0, 1, 2, 3).
+```
 
 ## **2. What values do you see at runtime for `Direction.UP` ?**
 
@@ -679,3 +680,4 @@ app.get("/', (req, res) => {
 		res.status(ResponseStatus.Success).json({});
 })
 ```
+---
