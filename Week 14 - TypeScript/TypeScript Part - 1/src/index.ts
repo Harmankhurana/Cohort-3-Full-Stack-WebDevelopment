@@ -95,3 +95,20 @@ greeting({
     name: "Harman Khurana",
     age: 21
 });
+
+
+// another way to write the same function
+function greeting2(user:{
+    name: string,
+    age: number
+}) {
+    console.log(`Hello, ${user.name}`);
+    console.log(`Your age is ${user.age}`)
+}
+
+let user = {
+    name: "Harman Singh Khurana",
+    age: 19
+}
+
+greeting2(user);
