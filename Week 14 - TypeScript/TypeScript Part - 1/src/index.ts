@@ -134,3 +134,11 @@ interface UserType {
     age: number
     email: string
 }
+// Create a function isLegal that returns true or false if a user is above 18. It takes a user as an input
+function isLegal2(user: UserType) {
+    if(user.age > 18) {
+        return true   // above 18, return -> true
+    } else {
+        return false  // below 18, return -> false
+    }
+}
