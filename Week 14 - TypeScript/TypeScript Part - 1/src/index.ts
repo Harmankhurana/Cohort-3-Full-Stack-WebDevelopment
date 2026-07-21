@@ -124,3 +124,13 @@ let user = {
 // }
 
 greeting2(user);
+
+
+
+// To assign a type to the user object, you can use interfaces
+interface UserType {
+    firstName: string,
+    lastName: string,
+    age: number
+    email: string
+}
