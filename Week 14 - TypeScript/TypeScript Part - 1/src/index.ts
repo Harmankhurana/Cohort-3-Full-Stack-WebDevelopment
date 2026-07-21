@@ -97,6 +97,7 @@ greeting({
 });
 
 
+
 // another way to write the same function
 function greeting2(user:{
     name: string,
@@ -106,9 +107,20 @@ function greeting2(user:{
     console.log(`Your age is ${user.age}`)
 }
 
+// an object which have two keys(name and age)
 let user = {
     name: "Harman Singh Khurana",
     age: 19
 }
+
+// or
+
+// let user: {
+//     name: string,
+//     age: number
+// } = {
+//     name: "Harman Singh Khurana",
+//     age: 19
+// }
 
 greeting2(user);
