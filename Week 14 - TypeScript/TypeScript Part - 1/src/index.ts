@@ -221,3 +221,28 @@ function sumUnionType(a: StringOrNumber, b: StringOrNumber) {
 
 sumUnionType(5, 7); // number -> 12
 sumUnionType("1", "5"); // string -> 15
+
+
+
+
+
+// What if you want to create a type that has every property of multiple types/ interfaces
+interface Employee {
+    name: string,
+    department: string
+}
+
+interface Manager {
+    name: string,
+    age: number
+}
+
+type TeamLead = Employee & Manager;
+
+let Company: TeamLead = {
+    name: "Harman Singh Khurana",
+    age: 21,
+    department: "Engineering Deparment",
+}
+
+console.log(Company);
