@@ -6,6 +6,8 @@ console.log(x);
 
 
 
+
+
 // Any type -> I should avoid any's at any cost, cause i"m not using the type safety of TS
 let a: any = 1; // number
 console.log(a);
@@ -15,6 +17,8 @@ console.log(a);
 
 a = true; // boolean
 console.log(a);
+
+
 
 
 
@@ -31,12 +35,16 @@ greet("Harman");
 
 
 
+
+
 // Write a function that calculates the sum of two functions
 function sum(a: number, b: number) {
     return a + b;
 }
 
 console.log(sum(3,6));
+
+
 
 
 
@@ -53,6 +61,8 @@ console.log(isLegal(19));
 
 
 
+
+
 // Create a function that takes another function as input, and runs it after 1 second.
 // () => void, means empty arguments returns nothing
 function delayedCall(fn: () => void) {
@@ -62,6 +72,10 @@ function delayedCall(fn: () => void) {
 delayedCall(function() {
     console.log("Hello");
 });
+
+
+
+
 
 // Another way to do this
 function delayedCalling(anotherFn: () => void) {
@@ -73,6 +87,8 @@ function log() {
 }
 
 delayedCalling(log);
+
+
 
 
 
@@ -95,6 +111,8 @@ greeting({
     name: "Harman Khurana",
     age: 21
 });
+
+
 
 
 
@@ -127,6 +145,8 @@ greeting2(user);
 
 
 
+
+
 // To assign a type to the user object, you can use interfaces
 interface UserType {
     firstName: string,
@@ -141,4 +161,17 @@ function isLegal2(user: UserType) {
     } else {
         return false  // below 18, return -> false
     }
+}
+
+
+
+
+
+// Very similar to interfaces , types let you aggregate data together.
+// But they let you do a few other things -> like union and intersection
+type UserType2 = {
+    firstName: string,
+    lastName: string,
+    email: string,
+    age: number
 }
