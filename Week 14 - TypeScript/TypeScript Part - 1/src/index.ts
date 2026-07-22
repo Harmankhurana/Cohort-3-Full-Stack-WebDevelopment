@@ -181,6 +181,7 @@ type UserType2 = {
 
 
 // Print the id of user, which can be a number or string -> union type
+// you can not do this using interfaces
 type NumberOrString = string | number;
 
 function printId(id: NumberOrString) {
@@ -189,3 +190,34 @@ function printId(id: NumberOrString) {
 
 printId(231816); // number -> ID: 231816
 printId("103947"); // string -> ID: 103947
+
+
+
+
+
+// A sum function which uses union type -> this won't work cause, TypeScript doesn't know at compile time what the types are
+// Operator '+' cannot be applied to types 'StringOrNumber' and 'StringOrNumber'
+// type StringOrNumber = string | number;
+
+// function sumUnionType(a: StringOrNumber, b: StringOrNumber) {
+//     console.log(a + b);
+// }
+
+// sumUnionType(4, 6); // 10 -> but it won't compile and gives compile time error
+
+
+
+
+
+// A sum function which uses union type -> with type narrowing
+type StringOrNumber = string | number;
+function sumUnionType(a: StringOrNumber, b: StringOrNumber) {
+    if (typeof a === "number" && typeof b === "number") {
+        console.log(a + b); // number addition
+    } else {
+        console.log(String(a) + String(b)); // string concat
+    }
+}
+
+sumUnionType(5, 7); // number -> 12
+sumUnionType("1", "5"); // string -> 15
