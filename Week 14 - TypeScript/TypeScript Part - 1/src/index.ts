@@ -175,3 +175,17 @@ type UserType2 = {
     email: string,
     age: number
 }
+
+
+
+
+
+// Print the id of user, which can be a number or string -> union type
+type NumberOrString = string | number;
+
+function printId(id: NumberOrString) {
+    console.log(`ID: ${id}`)
+}
+
+printId(231816); // number -> ID: 231816
+printId("103947"); // string -> ID: 103947
