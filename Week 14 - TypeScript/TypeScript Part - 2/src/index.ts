@@ -124,3 +124,27 @@ interface Employee {
     address?: Address,
     mobileNo: string
 }
+
+
+
+
+
+//
+interface People {
+    name: string,
+    age: number,
+    greet: () => string,
+    // or
+    // greet(): string
+}
+
+let person: People = {
+    name: "Harkirat Singh",
+    age: 28,
+    greet: () => {
+        return "hi";
+    }
+}
+
+const greetings = person.greet();
+console.log(greetings);
