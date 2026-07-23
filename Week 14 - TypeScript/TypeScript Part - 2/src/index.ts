@@ -157,18 +157,6 @@ console.log(greetings);
 interface People2 {
     name: string,
     age: number,
-    greet: () => string,
-    // or
-    // greet(): string
-}
-
-// a variable
-let person2: People2 = {
-    name: "Harkirat Singh",
-    age: 28,
-    greet: () => {
-        return "hi";
-    }
 }
 
 class Manager implements People2 {
@@ -180,3 +168,6 @@ class Manager implements People2 {
         this.age = age;
     }
 }
+
+let user = new Manager("John", 30);
+console.log(user.name, user.age);
