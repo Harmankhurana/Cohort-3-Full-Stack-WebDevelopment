@@ -82,6 +82,7 @@ console.log(division(3,6)); // 1/2 or 0.5
 
 
 // Return true or false based on if a user is 18+
+// isLegal(age: number): boolean
 function isLegal(age: number) {
     if (age > 18) {
         return true;
