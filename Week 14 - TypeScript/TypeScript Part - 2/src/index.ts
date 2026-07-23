@@ -129,7 +129,7 @@ interface Employee {
 
 
 
-//
+// Define an interface with a method (greet) and implement it in an object
 interface People {
     name: string,
     age: number,
