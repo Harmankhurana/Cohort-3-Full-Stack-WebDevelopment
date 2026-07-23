@@ -100,6 +100,8 @@ let User3: UserInterface2 = {
 
 
 // Extracted common address structure into a reusable interface to avoid duplication across Manager and Employee
+// Helps in changing the key and value in one place and then can be reused anytime
+// Interfaces uses another interfaces
 interface Address {
     address?: {
         city: string,
