@@ -392,6 +392,7 @@ class Employee implements Person {
 ```
 
 This is useful since now you can create multiple `variants` of a person (Manager, CEO …)
+![key & value v/s Objects in classes](./Images/image%20copy%209.png)
 
 ## **Summary**
 
