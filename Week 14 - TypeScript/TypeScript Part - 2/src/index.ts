@@ -94,3 +94,31 @@ let User3: UserInterface2 = {
     age: 21,
     mobileNo: "+91 0000000000"
 }
+
+
+
+
+
+// Extracted common address structure into a reusable interface to avoid duplication across Manager and Employee
+interface Address {
+    address?: {
+        city: string,
+        state: string,
+        country: string,
+        pincode: number
+    },  
+}
+
+interface Manager {
+    name: string,
+    age: number,
+    address?: Address,
+    mobileNo: string
+}
+
+interface Employee {
+    name: string,
+    age: number,
+    address?: Address,
+    mobileNo: string
+}
