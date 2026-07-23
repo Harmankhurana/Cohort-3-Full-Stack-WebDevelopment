@@ -37,12 +37,45 @@ greet("Harman");
 
 
 
-// Write a function that calculates the sum of two functions
+// Write a function that calculates the sum of two numbers
 function sum(a: number, b: number) {
     return a + b;
 }
 
-console.log(sum(3,6));
+console.log(sum(3,6)); // 9
+
+
+
+
+
+// Write a function that calculates the subtract of two numbers
+function subtract(a: number, b: number) {
+    return a - b;
+}
+
+console.log(subtract(3,6)); // -3
+
+
+
+
+
+// Write a function that calculates the multiplication of two numbers
+function multiplication(a: number, b: number) {
+    return a * b;
+}
+
+console.log(multiplication(3,6)); // 18
+
+
+
+
+
+// Write a function that calculates the division of two numbers
+function division(a: number, b: number) {
+    return a / b;
+}
+
+console.log(division(3,6)); // 1/2 or 0.5
 
 
 
