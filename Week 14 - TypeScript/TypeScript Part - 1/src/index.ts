@@ -197,6 +197,20 @@ function isLegal2(user: UserType) {
     }
 }
 
+console.log(isLegal2({
+    firstName: "Harkirat",
+    lastName: "Singh",
+    age: 28,
+    email: "harkiratsingh@gmail.com"
+})); // true
+
+console.log(isLegal2({
+    firstName: "Simar",
+    lastName: "Singh",
+    age: 17,
+    email: "simarsingh@gmail.com"
+})); // false
+
 
 
 
