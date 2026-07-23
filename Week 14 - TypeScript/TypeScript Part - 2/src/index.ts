@@ -148,3 +148,35 @@ let person: People = {
 
 const greetings = person.greet();
 console.log(greetings);
+
+
+
+
+
+// Creating an interface and implementing it in a class
+interface People2 {
+    name: string,
+    age: number,
+    greet: () => string,
+    // or
+    // greet(): string
+}
+
+// a variable
+let person2: People2 = {
+    name: "Harkirat Singh",
+    age: 28,
+    greet: () => {
+        return "hi";
+    }
+}
+
+class Manager implements People2 {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+}
