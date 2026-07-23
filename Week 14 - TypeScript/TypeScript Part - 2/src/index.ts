@@ -56,3 +56,41 @@ if (ans) {
 } else {
     console.log("I'm illegal");
 }
+
+
+
+
+
+// let's make a key and value optional in the object -> just add '?' like this address?: {}
+// now address is optional which means it can exists or even cannot exists
+interface UserInterface2 {
+    name: string,
+    age: number,
+    address?: {
+        city: string,
+        state: string,
+        country: string,
+        pincode: number
+    },
+    mobileNo: string
+}
+
+// now here the address exists
+let User2: UserInterface2 = {
+    name: "Harman",
+    age: 21,
+    address: {
+        city: "Udaipur",
+        state: "Rajasthan",
+        country: "India",
+        pincode: 313001
+    },
+    mobileNo: "+91 0000000000"
+}
+
+// here the address does'nt exists -> but still the error is not shown by the compiler
+let User3: UserInterface2 = {
+    name: "Harman Khurana",
+    age: 21,
+    mobileNo: "+91 0000000000"
+}
