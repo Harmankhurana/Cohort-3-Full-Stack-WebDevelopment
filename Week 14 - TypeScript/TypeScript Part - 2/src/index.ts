@@ -14,7 +14,7 @@ console.log(isEven(9)); // false -> odds
 
 
 
-// defining an interface - which will help my complex object to have types
+// defining an interface to enforce type structure for a complex object
 interface User {
     name: string,
     age: number,
