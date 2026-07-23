@@ -97,6 +97,22 @@ console.log(isLegal(19));
 
 
 
+// A function which returns true or false depending upon the number is even or not
+function isEven(num: number): boolean {
+    if (num % 2 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(isEven(4)); // true -> it is even
+console.log(isEven(9)); // false -> it is odd
+
+
+
+
+
 // Create a function that takes another function as input, and runs it after 1 second.
 // () => void, means empty arguments returns nothing
 function delayedCall(fn: () => void) {
