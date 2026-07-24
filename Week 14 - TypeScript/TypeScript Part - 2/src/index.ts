@@ -240,7 +240,7 @@ class Employee2 implements User1 {
 
 
 
-// advance intersection in TS
+// Advance intersection in TS
 type Employee3 = {
     name: string,
     startDate: number,
@@ -268,3 +268,29 @@ let teamLead: TeamLead = {
 console.log(teamLead.name); // Harman
 console.log(teamLead.role); // Software Engineer
 console.log(teamLead.department); // Engineering
+
+
+
+
+
+// Advance union in TS
+// A value can be GoodUser OR BadUser OR BOTH -> that's why it's not giving errors
+// name → required in both
+// gift → satisfies GoodUser
+// ip → satisfies BadUser
+type GoodUser = {
+    name: string,
+    gift: string
+}
+
+type BadUser = {
+    ip: string
+}
+
+type User = GoodUser | BadUser;
+
+const user1: User = {
+    name: "Simar Singh",
+    gift: "A tattoo machine",
+    ip: "0.0.0.0"
+}
