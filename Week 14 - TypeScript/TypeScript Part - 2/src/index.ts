@@ -159,7 +159,7 @@ interface People2 {
     age: number,
 }
 
-class Manager implements People2 {
+class Manager2 implements People2 {
     name: string;
     age: number;
 
@@ -169,10 +169,10 @@ class Manager implements People2 {
     }
 }
 
-let user = new Manager("John", 30);
+let user = new Manager2("John", 30);
 console.log(user.name,"->", user.age); // John -> 30
 
-let user2 = new Manager("Harman", 21);
+let user2 = new Manager2("Harman", 21);
 console.log(user2.name,"->", user2.age); // Harman -> 21
 
 
@@ -189,7 +189,7 @@ interface People3 {
 }
 
 // Implementing People3 in Manager2 class
-class Manager2 implements People3 {
+class Manager3 implements People3 {
     name: string;
     age: number;
 
@@ -207,7 +207,7 @@ class Manager2 implements People3 {
     }
 }
 
-let user3 = new Manager2("Harkirat", 28);
+let user3 = new Manager3("Harkirat", 28);
 console.log(user3.name,"->", user3.age); // Harkirat -> 28
 console.log(user3.isLegal()); // true
 
@@ -225,7 +225,7 @@ abstract class User1 {
     abstract greet: () => string;
 }
 
-class Employee implements User1 {
+class Employee2 implements User1 {
     name: string;
     constructor(name: string) {
         this.name = name;
@@ -235,3 +235,36 @@ class Employee implements User1 {
         return "Hi" + this.name;
     }
 }
+
+
+
+
+
+// advance intersection in TS
+type Employee3 = {
+    name: string,
+    startDate: number,
+    age: number,
+    role: string,
+}
+
+type Manager4 = {
+    name: string,
+    startDate: number,
+    age: number,
+    department: string,
+}
+
+type TeamLead = Employee3 & Manager4;
+
+let teamLead: TeamLead = {
+    name: "Harman",
+    startDate: 19/11/2026,
+    age: 21,
+    role: "Software Engineer",
+    department: "Engineering",
+}
+
+console.log(teamLead.name); // Harman
+console.log(teamLead.role); // Software Engineer
+console.log(teamLead.department); // Engineering
