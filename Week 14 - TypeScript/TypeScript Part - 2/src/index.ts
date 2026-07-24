@@ -221,4 +221,17 @@ abstract class User1 {
     constructor(name: string) {
         this.name = name;
     }
+
+    abstract greet: () => string;
+}
+
+class Employee implements User1 {
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    greet() {
+        return "Hi" + this.name;
+    }
 }
