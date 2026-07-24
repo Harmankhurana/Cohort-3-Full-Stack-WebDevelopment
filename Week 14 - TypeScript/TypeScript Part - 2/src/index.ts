@@ -206,3 +206,7 @@ class Manager2 implements People3 {
         }
     }
 }
+
+let user3 = new Manager2("Harkirat", 28);
+console.log(user3.name,"->", user3.age); // Harkirat -> 28
+console.log(user3.isLegal()); // true
