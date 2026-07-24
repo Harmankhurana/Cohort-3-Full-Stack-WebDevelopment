@@ -462,7 +462,8 @@ But they let you do a few other things.
 
 ### **1. Unions**
 
-Let’s say you want to print the `id` of a user, which can be a number or a string.
+- Let’s say you want to print the `id` of a user, which can be a number or a string.
+- A union type means a value can be one of several types.
 ```
 💡 You can not do this using `interfaces`
 ```
@@ -475,6 +476,22 @@ function printId(id: StringOrNumber) {
 
 printId(101); // ID: 101
 printId("202"); // ID: 202
+```
+- Union with objects
+```jsx
+type Cat = { kind: "cat"; meow: () => void };
+type Dog = { kind: "dog"; bark: () => void };
+
+function handlePet(pet: Cat | Dog) {
+  // pet.meow(); // Error - TS doesn't know if it's a Cat or Dog yet
+
+  // Narrow the type first using a type guard
+  if (pet.kind === "cat") {
+    pet.meow(); // OK, narrowed to Cat
+  } else {
+    pet.bark(); // OK, narrowed to Dog
+  }
+}
 ```
 
 ### **2. Intersection**
