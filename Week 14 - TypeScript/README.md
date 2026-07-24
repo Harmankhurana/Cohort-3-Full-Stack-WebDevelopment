@@ -504,7 +504,8 @@ function handlePet(pet: Cat | Dog) {
 
 ### **2. Intersection**
 
-What if you want to create a type that has every property of multiple `types`/ `interfaces`
+- An intersection type combines multiple types into one, requiring all properties.
+- What if you want to create a type that has every property of multiple `types`/ `interfaces`
 ```
 💡 You can not do this using `interfaces`
 ```
@@ -527,6 +528,27 @@ const teamLead: TeamLead = {
   department: "Software developer"
 };
 ```
+- Intersection with functions/objects (mixins)
+```jsx
+type Cat = { meow: () => void };
+type Dog = { bark: () => void };
+
+function handleHybrid(pet: Cat & Dog) {
+  pet.meow(); // OK
+  pet.bark(); // OK
+}
+
+const hybridPet: Cat & Dog = {
+  meow: () => console.log("meow"),
+  bark: () => console.log("woof"),
+};
+
+handleHybrid(hybridPet);
+```
+
+### **Rule of Thumb**
+- Union = "either this, or that" → use when a value could be multiple different shapes.
+- Intersection = "this, plus that" → use when combining multiple shapes into one.
 ---
 # **Arrays in TS**
 If you want to access arrays in typescript, it’s as simple as adding a `[]` annotation next to the type
