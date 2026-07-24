@@ -170,4 +170,39 @@ class Manager implements People2 {
 }
 
 let user = new Manager("John", 30);
-console.log(user.name, user.age);
+console.log(user.name,"->", user.age); // John -> 30
+
+let user2 = new Manager("Harman", 21);
+console.log(user2.name,"->", user2.age); // Harman -> 21
+
+
+
+
+
+// We can also add function to the blue prints and then use it in a class constructor
+// Interfaces can also declare method signatures, not just properties
+// I have the blue print of People3
+interface People3 {
+    name: string,
+    age: number,
+    isLegal(): boolean,
+}
+
+// Implementing People3 in Manager2 class
+class Manager2 implements People3 {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    isLegal(): boolean {
+        if(this.age > 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
