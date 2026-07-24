@@ -468,6 +468,14 @@ But they let you do a few other things.
 💡 You can not do this using `interfaces`
 ```
 ```jsx
+type ID = string | number;
+
+let userId: ID;
+userId = "abc123"; // valid
+userId = 123;      // valid
+userId = true;     // Error: 'boolean' is not assignable to type 'ID'
+```
+```jsx
 type StringOrNumber = string | number;
 
 function printId(id: StringOrNumber) {
